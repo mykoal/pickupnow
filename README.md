@@ -1,3 +1,10 @@
+### message from Michael
+The key files and folders are:
+* public/: Contains the HTML file and icons.
+* src/: Contains the JavaScript and CSS files.
+* package.json: Lists your project dependencies and scripts.
+
+### Instructions from React App init below:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
