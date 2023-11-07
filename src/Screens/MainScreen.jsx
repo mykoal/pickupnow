@@ -13,11 +13,11 @@ export const MainScreen = () => {
 				<div className="absolute w-[354px] h-[98px] top-[192px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
 					<div className="absolute w-[209px] h-[39px] top-[49px] left-[73px] rounded-[5px]">
 						<div className="absolute w-[209px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[5px]" />
-						<div className="absolute w-[206px] h-[30px] top-[3px] left-[2px] [font-family:'Gabarito',Helvetica] font-bold text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+						<div className="absolute w-[206px] h-[30px] top-[8px] left-[2px] [font-family:'Gabarito',Helvetica] font-bold text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 							Play Now
 						</div>
 					</div>
-					<p className="absolute w-[332px] top-[7px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal]">
+					<p className="absolute w-[332px] top-[13px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal]">
 						You aren’t in any queue right now
 					</p>
 				</div>
