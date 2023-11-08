@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {MainScreen} from './Screens/MainScreen';
-import {PlayScreen} from './Screens/PlayScreen';
+import PlayScreen from './Screens/PlayScreen';
 
 function App() {
   return (
