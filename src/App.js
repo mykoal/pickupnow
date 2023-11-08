@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import { MainScreen } from "./Screens/MainScreen";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {MainScreen} from './Screens/MainScreen';
+import {PlayScreen} from './Screens/PlayScreen';
 
 function App() {
-	return <MainScreen />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainScreen />} />
+        <Route path="/play" element={<PlayScreen />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
+  );
+
 
 	// State for the counter
 	// const [count, setCount] = useState(0);
