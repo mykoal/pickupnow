@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {MainScreen} from './Screens/MainScreen';
 import PlayScreen from './Screens/PlayScreen';
+import QueueScreen from "./Screens/QueueScreen";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainScreen />} />
         <Route path="/play" element={<PlayScreen />} />
+				<Route path="/queue" element={<QueueScreen />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
