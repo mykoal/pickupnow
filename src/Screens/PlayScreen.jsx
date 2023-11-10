@@ -6,7 +6,7 @@ const PlayScreen = () => {
   return (
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-        <div className="absolute w-[329px] h-[247px] top-[213px] left-[32px] bg-[url(image-18.png)] bg-cover bg-[50%_50%]">
+        <div className="absolute w-[329px] h-[247px] top-[213px] left-[32px] bg-cover bg-[50%_50%]">
           <Component className="!absolute !left-[229px] !top-[193px]" />
           <Component className="!absolute !left-[301px] !top-[124px]" polygon="polygon-1-2.svg" />
           <Component className="!absolute !left-[153px] !top-[124px]" polygon="polygon-1-3.svg" />
