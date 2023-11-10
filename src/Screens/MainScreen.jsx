@@ -7,6 +7,9 @@ export const MainScreen = () => {
 	const navigateToPlay = () => {
 	  navigate('/play'); // '/play' is the path to your new screen
 	};
+	const navigateToSettings = () => {
+		navigate('/settings'); // '/settings' is the path to your settings screen
+	  };
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
@@ -41,7 +44,7 @@ export const MainScreen = () => {
 						alt="Frame"
 						src="https://c.animaapp.com/Yiudwmn6/img/frame.svg"
 					/>
-					<img
+					<img onClick={navigateToSettings}
 						className="absolute w-[67px] h-[67px] top-[15px] left-[300px]"
 						alt="Frame"
 						src="https://c.animaapp.com/Yiudwmn6/img/frame-4.svg"
@@ -56,6 +59,7 @@ export const MainScreen = () => {
 							className="absolute w-[67px] h-[67px] top-0 left-0"
 							alt="Frame"
 							src="https://c.animaapp.com/Yiudwmn6/img/frame-1.svg"
+							
 						/>
 					</div>
 				</div>
