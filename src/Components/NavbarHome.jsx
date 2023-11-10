@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Navbar = () => {
+export const NavbarHome = () => {
 	let navigate = useNavigate();
 	const navigateToPlay = () => {
 		navigate("/play"); // '/play' is the path to your new screen
@@ -9,8 +9,8 @@ export const Navbar = () => {
 	const navigateToHome = () => {
 		navigate("/"); // '/' is the path to home
 	};
-	const navigateToProfile = () => {
-		navigate("/profile"); // '/' is the path to home
+	const navigateToSettings = () => {
+		navigate("/settings"); // '/' is the path to home
 	};
 
 	return (
@@ -31,9 +31,9 @@ export const Navbar = () => {
 				/>
 				<img
 					className="absolute w-[67px] h-[67px] top-[15px] left-[300px]"
-					alt="Profile-Icon"
+					alt="Settings-Icon"
 					src="https://c.animaapp.com/Yiudwmn6/img/frame-4.svg"
-					onClick={navigateToProfile}
+					onClick={navigateToSettings}
 				/>
 				<div className="absolute w-[67px] h-[67px] top-[15px] left-[23px] bg-[url(https://c.animaapp.com/Yiudwmn6/img/frame-3.svg)] bg-[100%_100%]">
 					<img

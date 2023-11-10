@@ -1,5 +1,6 @@
 import React from "react";
 import { Pin } from "../Components/Pin";
+import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
 const PlayScreen = () => {
@@ -34,34 +35,7 @@ const PlayScreen = () => {
 						src="https://c.animaapp.com/q1G78Bfk/img/frame.svg"
 					/>
 				</div>
-				<div className="absolute w-[393px] h-[67px] top-0 left-0 bg-[#f3fbef]">
-					<img
-						className="absolute w-[171px] h-[38px] top-[14px] left-[13px] object-cover"
-						alt="Logo long"
-						src="https://c.animaapp.com/q1G78Bfk/img/logo-long-1@2x.png"
-					/>
-				</div>
-				<div className="absolute w-[393px] h-[98px] top-[754px] left-px bg-[#0f6e42]">
-					<img
-						className="absolute w-[67px] h-[67px] top-[15px] left-[300px]"
-						alt="Frame"
-						src="https://c.animaapp.com/q1G78Bfk/img/frame-3.svg"
-					/>
-					<div className="absolute w-[58px] h-[58px] top-[20px] left-[166px]">
-						<div className="relative w-[54px] h-[54px] top-px left-[2px] bg-[#f3fbef] rounded-[27.14px]">
-							<img
-								className="absolute w-[48px] h-[48px] top-[3px] left-[3px]"
-								alt="Vector"
-								src="https://c.animaapp.com/q1G78Bfk/img/vector.svg"
-							/>
-						</div>
-					</div>
-					<img
-						className="absolute w-[67px] h-[67px] top-[15px] left-[23px]"
-						alt="Frame"
-						src="https://c.animaapp.com/q1G78Bfk/img/frame-2.svg"
-					/>
-				</div>
+				<NavbarPlay></NavbarPlay>
 				<div className="absolute w-[311px] top-[486px] left-[35px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Saved Courts:
 				</div>
