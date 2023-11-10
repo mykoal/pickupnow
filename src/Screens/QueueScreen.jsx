@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { NavbarPlay } from "../Components/NavbarPlay";
 
 
 const QueueScreen = () => {
@@ -52,30 +53,7 @@ const QueueScreen = () => {
             src="https://c.animaapp.com/Yiudwmn6/img/logo-long-1@2x.png"
           />
         </div>
-        <div className="absolute w-[393px] h-[98px] top-[754px] left-px bg-[#0f6e42]">
-          <img
-            className="absolute w-[58px] h-[58px] top-[20px] left-[166px]"
-            alt="Frame"
-            src="https://c.animaapp.com/Yiudwmn6/img/frame.svg"
-          />
-          <img
-            className="absolute w-[67px] h-[67px] top-[15px] left-[300px]"
-            alt="Frame"
-            src="https://c.animaapp.com/Yiudwmn6/img/frame-4.svg"
-          />
-          <div className="absolute w-[67px] h-[67px] top-[15px] left-[23px] bg-[url(https://c.animaapp.com/Yiudwmn6/img/frame-3.svg)] bg-[100%_100%]">
-            <img
-              className="absolute w-[67px] h-[67px] top-0 left-0"
-              alt="Frame"
-              src="https://c.animaapp.com/Yiudwmn6/img/frame-3.svg"
-            />
-            <img
-              className="absolute w-[67px] h-[67px] top-0 left-0"
-              alt="Frame"
-              src="https://c.animaapp.com/Yiudwmn6/img/frame-1.svg"
-            />
-          </div>
-        </div>
+        <NavbarPlay></NavbarPlay>
       </div>
     </div>
   );
