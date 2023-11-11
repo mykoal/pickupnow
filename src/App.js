@@ -7,6 +7,7 @@ import PlayScreen from './Screens/PlayScreen';
 import QueueScreen from "./Screens/QueueScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
 import { Markwood } from "./Screens/Markwood";
+import { CreateQueueScreen } from "./Screens/CreateQueueScreen";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/queue" element={<QueueScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/markwood" element={<Markwood/>} />
+        <Route path="/create_queue" element={<CreateQueueScreen/>} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>

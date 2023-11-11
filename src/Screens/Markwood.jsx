@@ -1,7 +1,13 @@
 import React from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
+import { useNavigate } from "react-router-dom";
 
 export const Markwood = () => {
+  let navigate = useNavigate();
+	const navigateToCreateQueue = () => {
+		navigate("/create_queue"); // '/create_queue' is the path to your new screen
+	};
+
   return (
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-white w-[394px] h-[852px] relative">
@@ -60,9 +66,10 @@ export const Markwood = () => {
         <div className="absolute w-[295px] h-[39px] top-[502px] left-[48px] rounded-[20px]">
           <div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
           <div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-          <div className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+          <p className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
+          onClick={navigateToCreateQueue}>
             CREATE QUEUE
-          </div>
+          </p>
         </div>
         <p className="top-[566px] absolute w-[311px] left-[40px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
           1 Player looking for a team
