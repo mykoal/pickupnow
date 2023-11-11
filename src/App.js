@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {MainScreen} from './Screens/MainScreen';
@@ -10,6 +9,29 @@ import { Markwood } from "./Screens/Markwood";
 import { CreateQueueScreen } from "./Screens/CreateQueueScreen";
 
 function App() {
+	//user profile info default
+	//user data is stored in localstorage.userData
+	const initUserData = {
+		name: "Michael Li",
+		age: 21,
+		language: "Eng",
+		sport: "Basketball",
+		level: "Novice",
+		location: "University City",
+		distance: 1,
+	};
+
+	useEffect(() => {
+    // Check if user data is already in local storage
+    const storedUserData = localStorage.getItem("userData");
+
+    // If user data is not in local storage, set the initial data
+    if (!storedUserData) {
+      localStorage.setItem("userData", JSON.stringify(initUserData));
+    }
+  }, []);
+
+
   return (
     <Router>
       <Routes>
