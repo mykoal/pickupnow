@@ -4,7 +4,12 @@ import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
 const PlayScreen = () => {
-	return (
+	let navigate = useNavigate();
+	const navigateToMarkwood = () => {
+		navigate("/markwood"); // '/markwood' is the path to your new screen
+	};
+
+  return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[329px] h-[247px] top-[213px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
@@ -41,18 +46,19 @@ const PlayScreen = () => {
 				</div>
 				<img
 					className="top-[539px] absolute w-[20px] h-[20px] left-[332px] object-cover"
-					alt="Image"
+					alt="Stuff"
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
 				<img
 					className="top-[588px] absolute w-[20px] h-[20px] left-[332px] object-cover"
-					alt="Image"
+					alt="Stuff"
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
-				<div className="absolute w-[253px] h-[40px] top-[528px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
+				<p className="absolute w-[253px] h-[40px] top-[536px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+          onClick={navigateToMarkwood}>
 					Markwood Playground
-				</div>
-				<div className="absolute w-[253px] h-[40px] top-[577px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
+				</p>
+				<div className="absolute w-[253px] h-[40px] top-[585px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 					Potruck Gymnasium
 				</div>
 				<img
@@ -61,7 +67,7 @@ const PlayScreen = () => {
 					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
 				/>
 				<img
-					className="top-[574px] absolute w-[329px] h-px left-[32px] object-cover"
+					className="top-[573px] absolute w-[329px] h-px left-[32px] object-cover"
 					alt="Line"
 					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
 				/>
