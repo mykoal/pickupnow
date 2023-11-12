@@ -8,15 +8,48 @@ const PlayScreen = () => {
 	const navigateToMarkwood = () => {
 		navigate("/markwood"); // '/markwood' is the path to your new screen
 	};
+	const navigateToPotruck = () => {
+		navigate("/potruck"); // '/potruck' is the path to your new screen
+	};
+	const navigateToSamson = () => {
+		navigate("/samson"); // '/potruck' is the path to your new screen
+	};
+	const navigateToPalestra = () => {
+		navigate("/palestra"); // '/potruck' is the path to your new screen
+	};
 
   return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[329px] h-[247px] top-[213px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
-					<Pin className="!absolute !left-[229px] !top-[193px]" />
-					<Pin className="!absolute !left-[301px] !top-[124px]" />
-					<Pin className="!absolute !left-[153px] !top-[124px]" />
-					<Pin className="!absolute !left-[23px] !top-[64px]" />
+					<div 
+						className="!absolute !left-[229px] !top-[193px]" 
+						onClick={navigateToMarkwood} 
+						title="Markwood Courts"
+					>
+						<Pin />
+					</div>
+					<div 
+						className="!absolute !left-[301px] !top-[124px]" 
+						onClick={navigateToSamson} 
+						title="Samson Courts"
+					>
+						<Pin />
+					</div>
+					<div 
+						className="!absolute !left-[153px] !top-[124px]" 
+						onClick={navigateToPalestra}
+						title="The Palestra"
+					>
+						<Pin />
+					</div>
+					<div 
+						className="!absolute !left-[23px] !top-[64px]" 
+						onClick={navigateToPotruck} 
+						title="Potruck Gymnasium"
+					>
+						<Pin />
+					</div>
 				</div>
 				<div className="absolute w-[360px] h-[60px] top-[124px] left-[17px]">
 					<div className="absolute w-[230px] h-[55px] top-[5px] left-0 bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580]" />
@@ -55,12 +88,13 @@ const PlayScreen = () => {
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
 				<p className="absolute w-[253px] h-[40px] top-[536px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-          onClick={navigateToMarkwood}>
+          		onClick={navigateToMarkwood}>
 					Markwood Playground
 				</p>
-				<div className="absolute w-[253px] h-[40px] top-[585px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
+				<p className="absolute w-[253px] h-[40px] top-[585px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+				onClick={navigateToPotruck}>
 					Potruck Gymnasium
-				</div>
+				</p>
 				<img
 					className="top-[525px] absolute w-[329px] h-px left-[32px] object-cover"
 					alt="Line"

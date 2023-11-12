@@ -7,7 +7,12 @@ import PlayScreen from "./Screens/PlayScreen";
 import QueueScreen from "./Screens/QueueScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
 import { Markwood } from "./Screens/Markwood";
+import Potruck from "./Screens/Potruck";
+import Samson from "./Screens/Samson";
+import Palestra from "./Screens/Palestra";
 import CreateQueueScreen from "./Screens/CreateQueueScreen";
+import QueueTest from "./Screens/QueueTest";
+
 
 function App() {
 	//user profile info default
@@ -40,7 +45,11 @@ function App() {
 				<Route path="/queue" element={<QueueScreen />} />
 				<Route path="/settings" element={<SettingsScreen />} />
 				<Route path="/markwood" element={<Markwood />} />
+				<Route path="/potruck" element={<Potruck />} />
+				<Route path="/samson" element={<Samson />} />
+				<Route path="/palestra" element={<Palestra />} />
 				<Route path="/create_queue" element={<CreateQueueScreen />} />
+				<Route path="/x" element={<QueueTest />} />
 				{/* Add more routes as needed */}
 			</Routes>
 		</Router>
