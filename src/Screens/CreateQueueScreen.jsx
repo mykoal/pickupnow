@@ -1,36 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
+import { addToQueue, initializeQueue } from '../queueService';
+import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CreateQueueScreen = () => {
+	let location = useLocation();
+	// When you first get the court name
+localStorage.setItem('courtName', location.state);
+
+// In CreateQueueScreen
+let courtName = localStorage.getItem('courtName');
+
 	const [selectedCourt, setSelectedCourt] = useState("");
 	const [skillLevels, setSkillLevels] = useState("");
-	const [preferredLanguage, setPreferredLanguage] = useState("");
-
+	const [language, setPreferredLanguage] = useState("");
+	let navigate = useNavigate();
+	const getQueueDataForCourt = (courtId) => {
+		// Get the queue data from local storage
+		const queueData = localStorage.getItem('courtQueue');
+	  
+		// Check if queueData is not null and is a valid JSON string
+		if (queueData && typeof queueData === 'string') {
+		  try {
+			const parsedQueueData = JSON.parse(queueData);
+			const courtQueueData = JSON.parse(parsedQueueData[courtId]) || [];
+			return courtQueueData;
+		  } catch (error) {
+			console.error('Error parsing queue data:', error);
+		  }
+		}
+	  
+		return [];
+	  };
+	const navigateToQueueTest = () => {
+		navigate("/x",); // '/create_queue' is the path to your new screen
+	};
 	const handleCourtChange = (court) => {
 		setSelectedCourt(court);
 	};
 
-	const handleSkillLevelChange = (level) => {
-		// const updatedSkillLevels = skillLevels.includes(level)
-		// 	? skillLevels.filter((item) => item !== level)
-		// 	: [...skillLevels, level];
-		// setSkillLevels(updatedSkillLevels);
+	const handleSkillLevelChange = (event, level) => {
+		event.preventDefault();
 		setSkillLevels(level);
-	};
+	  };
 
-	const handleLanguageChange = (language) => {
-		setPreferredLanguage(language);
+	const handleLanguageChange = (e) => {
+		const newLangauge = e.target.value;
+		setPreferredLanguage(newLangauge);
 	};
-
+	useEffect(() => {
+        initializeQueue();
+    }, []);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Replace this with your actual form submission logic
-		console.log("Form submitted:", {
+		const playerDetails = JSON.parse(localStorage.getItem('userData'));	
+		addToQueue(courtName, playerDetails)
+		
+		  console.log("Form submitted:", {
 			selectedCourt,
 			skillLevels,
-			preferredLanguage,
+			language,
+			courtName,
+			queueData: getQueueDataForCourt(courtName),
 		});
-
+		navigateToQueueTest();
 		// For example, you can make an API call here or update state in a parent component.
 	};
 
@@ -104,7 +138,7 @@ const CreateQueueScreen = () => {
 
 					<div
 						className="absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={() => handleSkillLevelChange("Level1")}>
+						onClick={(event) => handleSkillLevelChange(event, "Level1")}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[6px] left-[26px]"
 							alt="Level1"
@@ -113,7 +147,7 @@ const CreateQueueScreen = () => {
 					</div>
 					<button
 						className="absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={() => handleSkillLevelChange("Level2")}>
+						onClick={(event) => handleSkillLevelChange(event, "Level2")}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[3px] left-[24px]"
 							alt="Level2"
@@ -122,7 +156,7 @@ const CreateQueueScreen = () => {
 					</button>
 					<button
 						className="absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] visited:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={() => handleSkillLevelChange("Level3")}>
+						onClick={(event) => handleSkillLevelChange(event, "Level3")}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[3px] left-[27px]"
 							alt="Level3"
@@ -138,7 +172,8 @@ const CreateQueueScreen = () => {
 						<div>
 							<select
 								className="text-center absolute w-[337px] h-[49px] top-[523px] left-[29px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] [font-family:Gabarito]"
-								onChange={(e) => handleLanguageChange(e)} //update to set item to what it needs to be set to
+								value={language} // Add this line
+        						onChange={handleLanguageChange}
 							>
 								<option value="English">English</option>
 								<option value="Spanish">Spanish</option>

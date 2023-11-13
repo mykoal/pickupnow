@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { NavbarPlay } from "../Components/NavbarPlay";
+import { removeFromQueue } from '../queueService';
 
 
 const QueueScreen = () => {
+  let { selectedCourt } = useParams();
   let navigate = useNavigate();
   const navigateToPlay = () => {
     navigate('/play'); // the other button actions need to be added in (join a team, leave)
   };
-  const leaveQueue = () => {
-    // Add functionality to leave the queue here
-  };
+  const [queue, setQueue] = useState([]);
+
+    useEffect(() => {
+        const queueData = JSON.parse(localStorage.getItem('courtQueue')) || {};
+        if (queueData[selectedCourt]) {
+            setQueue(queueData[selectedCourt].items);
+        }
+    }, [selectedCourt]); // Assuming selectedCourt is available
+    const playerId = localStorage.getItem('userId'); // Get the player's ID from local storage
+    const leaveQueue = () => {
+        // Assuming you have the player's ID
+        removeFromQueue(selectedCourt, playerId);
+        // Update the queue state as needed
+    };
 
   // Function to calculate the position of the circle in the queue visualization
   const calculateCirclePosition = (totalPositions, yourPosition) => {
