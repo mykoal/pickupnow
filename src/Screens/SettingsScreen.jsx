@@ -13,7 +13,11 @@ const SettingsScreen = () => {
   // const [skillLevel, setSkillLevel] = useState(storedUserData.level || "");
 
 	const userData = JSON.parse(localStorage.getItem("userData"))
-
+  const handleDistanceChange = (e) => {
+    const newDistance = e.target.value;
+    setDistance(newDistance);
+    localStorage.setItem('distance', newDistance); // Store the new distance in local storage
+  };
 	// Function to handle the button click
 	const handleButtonClick = () => {
 		// Update the local storage value
@@ -87,7 +91,7 @@ const SettingsScreen = () => {
               Prefers within {userData.distance}
               <select
                 value={userData.distance}
-                onChange={(e) => localStorage.setItem()} //update to set item to what it needs to be set to 
+                onChange={handleDistanceChange} //update to set item to what it needs to be set to 
               >
                 <option value="1 Mile">1 Mile</option>
                 <option value="5 Miles">5 Miles</option>
