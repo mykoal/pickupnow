@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
-import { addToQueue, initializeQueue } from '../queueService';
-import { useParams } from 'react-router-dom';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { addToQueue, initializeQueue } from "../queueService";
+import { useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CreateQueueScreen = () => {
 	let location = useLocation();
 	// When you first get the court name
-localStorage.setItem('courtName', location.state);
+	localStorage.setItem("courtName", location.state);
 
-// In CreateQueueScreen
-let courtName = localStorage.getItem('courtName');
+	// In CreateQueueScreen
+	let courtName = localStorage.getItem("courtName");
 
 	const [selectedCourt, setSelectedCourt] = useState("");
 	const [skillLevels, setSkillLevels] = useState("");
@@ -18,23 +18,24 @@ let courtName = localStorage.getItem('courtName');
 	let navigate = useNavigate();
 	const getQueueDataForCourt = (courtId) => {
 		// Get the queue data from local storage
-		const queueData = localStorage.getItem('courtQueue');
-	  
+		const queueData = localStorage.getItem("courtQueue");
+
 		// Check if queueData is not null and is a valid JSON string
-		if (queueData && typeof queueData === 'string') {
-		  try {
-			const parsedQueueData = JSON.parse(queueData);
-			const courtQueueData = JSON.parse(parsedQueueData[courtId]) || [];
-			return courtQueueData;
-		  } catch (error) {
-			console.error('Error parsing queue data:', error);
-		  }
+		if (queueData && typeof queueData === "string") {
+			try {
+				const parsedQueueData = JSON.parse(queueData);
+				const courtQueueData =
+					JSON.parse(parsedQueueData[courtId]) || [];
+				return courtQueueData;
+			} catch (error) {
+				console.error("Error parsing queue data:", error);
+			}
 		}
-	  
+
 		return [];
-	  };
+	};
 	const navigateToQueueTest = () => {
-		navigate("/x",); // '/create_queue' is the path to your new screen
+		navigate("/x"); // '/create_queue' is the path to your new screen
 	};
 	const handleCourtChange = (court) => {
 		setSelectedCourt(court);
@@ -43,21 +44,21 @@ let courtName = localStorage.getItem('courtName');
 	const handleSkillLevelChange = (event, level) => {
 		event.preventDefault();
 		setSkillLevels(level);
-	  };
+	};
 
 	const handleLanguageChange = (e) => {
 		const newLangauge = e.target.value;
 		setPreferredLanguage(newLangauge);
 	};
 	useEffect(() => {
-        initializeQueue();
-    }, []);
+		initializeQueue();
+	}, []);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const playerDetails = JSON.parse(localStorage.getItem('userData'));	
-		addToQueue(courtName, playerDetails)
-		
-		  console.log("Form submitted:", {
+		const playerDetails = JSON.parse(localStorage.getItem("userData"));
+		addToQueue(courtName, playerDetails);
+
+		console.log("Form submitted:", {
 			selectedCourt,
 			skillLevels,
 			language,
@@ -71,11 +72,16 @@ let courtName = localStorage.getItem('courtName');
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<div className="absolute w-[295px] h-[39px] top-[602px] left-[52px] rounded-[20px]">
-					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-					<div className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
-						CREATE QUEUE
+				{/* <div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
+						<button
+							type="submit"
+							className="absolute w-[269px] h-[49px] top-0 left-[13px] bg-[#f3fbef] rounded-[20px] border border-solid border-[#8db580] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
+							CREATE QUEUE
+						</button>
+					</div> */}
+				<div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
+					<div className="absolute w-[269px] h-[49px] top-0 left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
+						Creating Your Queue:
 					</div>
 				</div>
 				<NavbarPlay></NavbarPlay>
@@ -85,7 +91,7 @@ let courtName = localStorage.getItem('courtName');
 					<div className="absolute w-[337px] h-[155px] top-[197px] left-[27px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#0f6e42]">
 						<label className="court-radio">
 							<input
-								className="absolute w-[48px] h-[48px] top-[39px] left-[42px]"
+								className="absolute w-[30px] h-[30px] top-[70px] left-[50px]"
 								type="radio"
 								name="court"
 								value="CourtA"
@@ -93,29 +99,17 @@ let courtName = localStorage.getItem('courtName');
 								onChange={() => handleCourtChange("CourtA")}
 							/>
 							<img
-								className="absolute w-[48px] h-[48px] top-[39px] left-[42px]"
+								className="absolute w-[48px] h-[48px] top-[10px] left-[42px]"
 								alt="CourtA"
 								src="https://c.animaapp.com/HQ5f18LY/img/group-6@2x.png"
 							/>
+							<p className="absolute top-[110px] left-[50px] [font-family:'Gabarito',Helvetica]">
+								Court A
+							</p>
 						</label>
 						<label className="court-radio">
 							<input
-								className="absolute w-[48px] h-[48px] top-[39px] left-[231px]"
-								type="radio"
-								name="court"
-								value="CourtB"
-								checked={selectedCourt === "CourtB"}
-								onChange={() => handleCourtChange("CourtB")}
-							/>
-							<img
-								className="absolute w-[48px] h-[48px] top-[39px] left-[231px]"
-								alt="CourtB"
-								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-							/>
-						</label>
-						<label className="court-radio">
-							<input
-								className="absolute w-[48px] h-[48px] top-[39px] left-[143px]"
+								className="absolute w-[30px] h-[30px] top-[70px] left-[239px]"
 								type="radio"
 								name="court"
 								value="CourtC"
@@ -123,10 +117,31 @@ let courtName = localStorage.getItem('courtName');
 								onChange={() => handleCourtChange("CourtC")}
 							/>
 							<img
-								className="absolute w-[48px] h-[48px] top-[39px] left-[143px]"
+								className="absolute w-[48px] h-[48px] top-[10px] left-[231px]"
 								alt="CourtC"
 								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
 							/>
+							<p className="absolute top-[110px] left-[239px] [font-family:'Gabarito',Helvetica]">
+								Court C
+							</p>
+						</label>
+						<label className="court-radio">
+							<input
+								className="absolute w-[30px] h-[30px] top-[70px] left-[152px]"
+								type="radio"
+								name="court"
+								value="CourtB"
+								checked={selectedCourt === "CourtB"}
+								onChange={() => handleCourtChange("CourtB")}
+							/>
+							<img
+								className="absolute w-[48px] h-[48px] top-[10px] left-[143px]"
+								alt="CourtB"
+								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
+							/>
+							<p className="absolute top-[110px] left-[143px] [font-family:'Gabarito',Helvetica]">
+								Court B
+							</p>
 						</label>
 						{/* Repeat similar labels and inputs for CourtB and CourtC */}
 					</div>
@@ -136,18 +151,22 @@ let courtName = localStorage.getItem('courtName');
 						Preferred Skill Level For Teammate
 					</p>
 
-					<div
+					<button
 						className="absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) => handleSkillLevelChange(event, "Level1")}>
+						onClick={(event) =>
+							handleSkillLevelChange(event, "Level1")
+						}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[6px] left-[26px]"
 							alt="Level1"
 							src="https://c.animaapp.com/HQ5f18LY/img/frame-3.svg"
 						/>
-					</div>
+					</button>
 					<button
 						className="absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) => handleSkillLevelChange(event, "Level2")}>
+						onClick={(event) =>
+							handleSkillLevelChange(event, "Level2")
+						}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[3px] left-[24px]"
 							alt="Level2"
@@ -156,7 +175,9 @@ let courtName = localStorage.getItem('courtName');
 					</button>
 					<button
 						className="absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] visited:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) => handleSkillLevelChange(event, "Level3")}>
+						onClick={(event) =>
+							handleSkillLevelChange(event, "Level3")
+						}>
 						<img
 							className="absolute w-[40px] h-[40px] top-[3px] left-[27px]"
 							alt="Level3"
@@ -173,8 +194,7 @@ let courtName = localStorage.getItem('courtName');
 							<select
 								className="text-center absolute w-[337px] h-[49px] top-[523px] left-[29px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] [font-family:Gabarito]"
 								value={language} // Add this line
-        						onChange={handleLanguageChange}
-							>
+								onChange={handleLanguageChange}>
 								<option value="English">English</option>
 								<option value="Spanish">Spanish</option>
 								<option value="Mandarin">Mandarin</option>
@@ -183,10 +203,12 @@ let courtName = localStorage.getItem('courtName');
 					</div>
 
 					{/* Submit Button */}
-					<div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
+					<div className="absolute w-[295px] h-[39px] top-[602px] left-[52px] rounded-[20px]">
+						<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
+						<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
 						<button
 							type="submit"
-							className="absolute w-[269px] h-[49px] top-0 left-[13px] bg-[#f3fbef] rounded-[20px] border border-solid border-[#8db580] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
+							className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 							CREATE QUEUE
 						</button>
 					</div>
