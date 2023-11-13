@@ -2,7 +2,7 @@ import React from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
-export const Markwood = () => {
+const Samson = () => {
 	let navigate = useNavigate();
 	const navigateToCreateQueue = () => {
 		navigate("/create_queue"); // '/create_queue' is the path to your new screen
@@ -17,7 +17,7 @@ export const Markwood = () => {
 						Complex:
 					</div>
 					<div className="absolute w-[253px] h-[40px] top-[6px] left-[112px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
-						Markwood Playground
+						Samson Courts
 					</div>
 				</div>
 				<p className="top-[462px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
@@ -86,7 +86,7 @@ export const Markwood = () => {
 					</p>
 				</div>
 				<p className="top-[566px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-					1 Queue looking for a Player
+					# Queue looking for a Player
 				</p>
 				<div className="absolute w-[295px] h-[39px] top-[605px] left-[50px] rounded-[20px]">
 					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
@@ -99,3 +99,5 @@ export const Markwood = () => {
 		</div>
 	);
 };
+
+export default Samson;
