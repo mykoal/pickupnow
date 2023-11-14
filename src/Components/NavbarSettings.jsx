@@ -14,7 +14,7 @@ export const NavbarSettings = () => {
 	};
 
 	return (
-		<div class="Navbar">
+		<div className="Navbar">
 			<div className="logo-long-wrapper">
 				<img
 					className="logo-long"
