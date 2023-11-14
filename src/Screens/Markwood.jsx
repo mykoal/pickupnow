@@ -33,7 +33,7 @@ export const Markwood = () => {
 						Markwood Playground
 					</div>
 				</div>
-				<p className="top-[462px] absolute w-[311px] left-[20px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+				<p className="top-[471px] absolute w-[311px] left-[20px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Total of <u>5</u> Teams in Queue for <u>2</u>/3 Courts
 				</p>
 				<div className="absolute w-[354px] h-[190px] top-[248px] left-[21px]">
@@ -95,10 +95,10 @@ export const Markwood = () => {
 					<p
 						className="absolute w-[291px] top-[6px] left-[4px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
 						onClick={navigateToCreateQueue}>
-						JOIN END OF QUEUE
+						JOIN QUEUE
 					</p>
 				</div>
-				<p className="top-[566px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+				<p className="top-[575px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					<u>1</u> Team Looking for a Player
 				</p>
 				<div className="absolute w-[295px] h-[39px] top-[605px] left-[50px] rounded-[20px]">

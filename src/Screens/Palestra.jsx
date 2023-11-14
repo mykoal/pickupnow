@@ -16,7 +16,7 @@ const Palestra = () => {
 					<div className="w-[164px] top-[14px] left-0 whitespace-nowrap absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
 						Complex:
 					</div>
-					<div className="absolute w-[253px] h-[40px] top-[6px] left-[112px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
+					<div className="absolute w-[253px] h-[40px] top-[15px] left-[112px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
 						The Palestra
 					</div>
 				</div>

@@ -9,7 +9,7 @@ const PlayScreen = () => {
 		navigate("/markwood"); // '/markwood' is the path to your new screen
 	};
 	const navigateToPotruck = () => {
-		navigate("/potruck"); // '/potruck' is the path to your new screen
+		navigate("/pottruck"); // '/potruck' is the path to your new screen
 	};
 	const navigateToSamson = () => {
 		navigate("/samson"); // '/potruck' is the path to your new screen

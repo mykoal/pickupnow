@@ -77,6 +77,11 @@ const CreateQueueScreen = () => {
 	const navigateToQueueTest = () => {
 		navigate("/x"); // '/create_queue' is the path to your new screen
 	};
+
+	const navigateToQueueScreen = () => {
+		navigate("/queue"); // '/create_queue' is the path to your new screen
+	};
+
 	const handleCourtChange = (court) => {
 		setSelectedCourt(court);
 	};
@@ -134,11 +139,7 @@ const CreateQueueScreen = () => {
 								alt="CourtA"
 								isSelected={selectedCourt === "CourtA"}
 							/>
-							{/* <img
-								className="absolute w-[48px] h-[48px] top-[10px] left-[42px]"
-								alt="CourtA"
-								src="https://c.animaapp.com/HQ5f18LY/img/group-6@2x.png"
-							/> */}
+
 							<p className="absolute top-[110px] left-[40px] [font-family:'Gabarito',Helvetica]">
 								Court A
 							</p>
@@ -157,11 +158,6 @@ const CreateQueueScreen = () => {
 								alt="CourtC"
 								isSelected={selectedCourt === "CourtC"}
 							/>
-							{/* <img
-								className="absolute w-[48px] h-[48px] top-[10px] left-[231px]"
-								alt="CourtC"
-								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-							/> */}
 							<p className="absolute top-[110px] left-[229px] [font-family:'Gabarito',Helvetica]">
 								Court C
 							</p>
@@ -180,11 +176,6 @@ const CreateQueueScreen = () => {
 								alt="CourtB"
 								isSelected={selectedCourt === "CourtB"}
 							/>
-							{/* <img
-								className="absolute w-[48px] h-[48px] top-[10px] left-[143px]"
-								alt="CourtB"
-								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-							/> */}
 							<p className="absolute top-[110px] left-[133px] [font-family:'Gabarito',Helvetica]">
 								Court B
 							</p>
@@ -226,77 +217,6 @@ const CreateQueueScreen = () => {
 						</button>
 					</div>
 				</form>
-				{/* <div className="absolute w-[337px] h-[155px] top-[197px] left-[27px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#0f6e42]">
-						<img
-							className="absolute w-[48px] h-[48px] top-[39px] left-[143px]"
-							alt="CourtC"
-							src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-						/>
-						<img
-							className="absolute w-[48px] h-[48px] top-[39px] left-[231px]"
-							alt="CourtB"
-							src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-						/>
-						<div className="absolute w-[76px] h-[84px] top-[39px] left-[42px]">
-							<img
-								className="absolute w-[48px] h-[48px] top-0 left-[13px]"
-								alt="CourtA"
-								src="https://c.animaapp.com/HQ5f18LY/img/group-6@2x.png"
-							/>
-							<div className="top-[61px] left-0 text-[#0f6e42] absolute w-[74px] [font-family:'Gabarito',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-								Court A
-							</div>
-						</div>
-						<div className="top-[99px] left-[130px] text-[#d7e3d1] absolute w-[74px] [font-family:'Gabarito',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-							Court B
-						</div>
-						<div className="top-[99px] left-[218px] text-[#d7e3d1] absolute w-[74px] [font-family:'Gabarito',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-							Court C
-						</div>
-					</div>
-					<p className="absolute w-[319px] top-[381px] left-[30px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-						Preferred Skill Level For Teammate
-					</p>
-					<div className="absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580]">
-						<img
-							className="absolute w-[40px] h-[40px] top-[6px] left-[26px]"
-							alt="Level1"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-3.svg"
-						/>
-					</div>
-					<div className="absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580]">
-						<img
-							className="absolute w-[40px] h-[40px] top-[3px] left-[24px]"
-							alt="Level2"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-2.svg"
-						/>
-					</div>
-					<div className="absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580]">
-						<img
-							className="absolute w-[40px] h-[40px] top-[3px] left-[27px]"
-							alt="Level3"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-1.svg"
-						/>
-					</div>
-					<div className="absolute w-[334px] top-[491px] left-[29px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-						Preferred Languages For Teammate
-					</div>
-					<div className="absolute w-[337px] h-[49px] top-[523px] left-[29px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580]">
-						<img
-							className="absolute w-[43px] h-[43px] top-px left-0"
-							alt="Frame"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame.svg"
-						/>
-						<div className="absolute w-[281px] top-[10px] left-[43px] [font-family:'Gabarito',Helvetica] font-normal text-[#d7e3d1] text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-							Pick All That Apply
-						</div>
-					</div>
-					<div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
-						<div className="absolute w-[269px] h-[49px] top-0 left-[13px] bg-[#f3fbef] rounded-[20px] border border-solid border-[#8db580]" />
-						<div className="absolute w-[291px] top-[13px] left-0 [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-							CREATE QUEUE
-						</div>
-					</div> */}
 			</div>
 		</div>
 	);
