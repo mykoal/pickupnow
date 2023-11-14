@@ -12,28 +12,51 @@ import Samson from "./Screens/Samson";
 import Palestra from "./Screens/Palestra";
 import CreateQueueScreen from "./Screens/CreateQueueScreen";
 import QueueTest from "./Screens/QueueTest";
-import { addToQueue } from "./queueService";
 
-
+export function removeFromQueue(courtId, user) {
+	// Get the queue data from local storage
+	const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
+  
+	// Get the queue for the specified court
+	const courtQueue = queueData[courtId] || [];
+  
+	// Remove the user from the court's queue
+	const updatedCourtQueue = courtQueue.filter(queueUser => queueUser.name !== user.name);
+  
+	// Update the court's queue in the queue data
+	queueData[courtId] = updatedCourtQueue;
+  
+	// Save the updated queue data back to local storage
+	localStorage.setItem("courtQueue", JSON.stringify(queueData));
+  }
+export function addToQueue(courtId, user) {
+	// Get the queue data from local storage
+	const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
+  
+	// Get the queue for the specified court
+	const courtQueue = queueData[courtId] || [];
+  
+	// Add the user to the court's queue
+	courtQueue.push(user);
+  
+	// Update the court's queue in the queue data
+	queueData[courtId] = courtQueue;
+  
+	// Save the updated queue data back to local storage
+	localStorage.setItem("courtQueue", JSON.stringify(queueData));
+  }
+//user profile info default
+//user data is stored in localstorage.userData
+export const thisUser = {
+	name: "Michael Li",
+	age: 21,
+	language: "Eng",
+	sport: "Pickleball",
+	level: "Novice",
+	location: "University City",
+	distance: 1,
+  }
 function App() {
-	function addToQueue(courtId, user) {
-		// Get the queue data from local storage
-		const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
-	  
-		// Get the queue for the specified court
-		const courtQueue = queueData[courtId] || [];
-	  
-		// Add the user to the court's queue
-		courtQueue.push(user);
-	  
-		// Update the court's queue in the queue data
-		queueData[courtId] = courtQueue;
-	  
-		// Save the updated queue data back to local storage
-		localStorage.setItem("courtQueue", JSON.stringify(queueData));
-	  }
-	//user profile info default
-	//user data is stored in localstorage.userData
 	localStorage.clear();
 	const initUserData = [{
 		name: "Tom Smith",
@@ -61,15 +84,6 @@ function App() {
 		location: "University City",
 		distance: 1,
 	  }
-	,
-	{	name: "Michael Li",
-		age: 21,
-		language: "Eng",
-		sport: "Pickleball",
-		level: "Novice",
-		location: "University City",
-		distance: 1,
-	  }
 	];
 	  
 	  const initQueueData = {
@@ -80,25 +94,26 @@ function App() {
 	  
 	  
    
-	useEffect(() => {
+	  useEffect(() => {
 		// Check if user data is already in local storage
 		const storedUserData = localStorage.getItem("userData");
-
+	  
 		// If user data is not in local storage, set the initial data
 		if (!storedUserData) {
-			localStorage.setItem("userData", JSON.stringify(initUserData));
+		  localStorage.setItem("userData", JSON.stringify(initUserData));
 		}
-
+	  
 		const storedQueueData = localStorage.getItem("courtQueue");
-
+	  
 		if (!storedQueueData) {
-			localStorage.setItem("courtQueue", JSON.stringify({initQueueData}));
-		}
-		initUserData.forEach(element => {
+		  localStorage.setItem("courtQueue", JSON.stringify({initQueueData}));
+	  
+		  // Only add users to the queue if the queue data was not in local storage
+		  initUserData.forEach(element => {
 			addToQueue("Rockwood A", element);
-		});
-
-	}, []);
+		  });
+		}
+	  }, []); // Pass an empty array as the second argument to useEffect
 
 	return (
 		<Router>

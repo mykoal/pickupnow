@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { NavbarPlay } from "../Components/NavbarPlay";
-import { removeFromQueue } from '../queueService';
-
-
+import { thisUser } from '../App.js';
+import { addToQueue } from '../App.js';
+import { removeFromQueue } from '../App.js';
 const QueueScreen = () => {
 // Get the queue data from local storage
 const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
@@ -31,11 +31,14 @@ const toggleSlot = () => {
   if (isButtonClicked) {
     // If the button has been clicked, revert to the old state
     setSlot("Open Slot");
+    addToQueue("Rockwood A", thisUser);
     setIsButtonClicked(false);
+
   } else {
     // If the button hasn't been clicked, join the slot
     setSlot(fourthPerson);
     setIsButtonClicked(true);
+    removeFromQueue("Rockwood A", thisUser);
   }
 };
 
@@ -96,7 +99,6 @@ const toggleSlot = () => {
           </div>
           <div className="absolute w-[393px] h-[67px] top-[210px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
             {fifthPerson} & {sixthPerson}
-      
           </div>
         </div>
         <NavbarPlay></NavbarPlay>
