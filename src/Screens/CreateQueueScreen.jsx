@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { addToQueue, initializeQueue } from "../queueService";
-import { useParams } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const CreateQueueScreen = () => {
@@ -16,24 +15,7 @@ const CreateQueueScreen = () => {
 	const [skillLevels, setSkillLevels] = useState("");
 	const [language, setPreferredLanguage] = useState("");
 	let navigate = useNavigate();
-	const getQueueDataForCourt = (courtId) => {
-		// Get the queue data from local storage
-		const queueData = localStorage.getItem("courtQueue");
-
-		// Check if queueData is not null and is a valid JSON string
-		if (queueData && typeof queueData === "string") {
-			try {
-				const parsedQueueData = JSON.parse(queueData);
-				const courtQueueData =
-					JSON.parse(parsedQueueData[courtId]) || [];
-				return courtQueueData;
-			} catch (error) {
-				console.error("Error parsing queue data:", error);
-			}
-		}
-
-		return [];
-	};
+	
 	const navigateToQueueTest = () => {
 		navigate("/x"); // '/create_queue' is the path to your new screen
 	};
@@ -50,20 +32,14 @@ const CreateQueueScreen = () => {
 		const newLangauge = e.target.value;
 		setPreferredLanguage(newLangauge);
 	};
-	useEffect(() => {
-		initializeQueue();
-	}, []);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const playerDetails = JSON.parse(localStorage.getItem("userData"));
-		addToQueue(courtName, playerDetails);
 
 		console.log("Form submitted:", {
 			selectedCourt,
 			skillLevels,
 			language,
 			courtName,
-			queueData: getQueueDataForCourt(courtName),
 		});
 		navigateToQueueTest();
 		// For example, you can make an API call here or update state in a parent component.

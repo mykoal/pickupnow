@@ -5,8 +5,14 @@ import { useNavigate } from "react-router-dom";
 export const Markwood = () => {
 	let navigate = useNavigate();
 	const navigateToCreateQueue = () => {
-		navigate("/create_queue"); // '/create_queue' is the path to your new screen
+		console.log('Navigating to CreateQueueScreen with courtName:', 'Markwood Playground');
+		navigate("/create_queue", { state: { courtName: 'Markwood Playground' }}); // '/create_queue' is the path to your new screen
 	};
+	const navigateToQueueScreen= () => {
+		console.log('Navigating to QueueScreen with courtName:', 'Markwood Playground');
+		navigate("/queue", { state: { courtName: 'Markwood Playground' }}); // '/create_queue' is the path to your new screen
+	};
+
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
@@ -85,13 +91,14 @@ export const Markwood = () => {
 						CREATE QUEUE
 					</p>
 				</div>
-				<p className="top-[566px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+				<p className="top-[566px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" >
 					1 Queue looking for a Player
 				</p>
 				<div className="absolute w-[295px] h-[39px] top-[605px] left-[50px] rounded-[20px]">
 					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-					<div className="absolute w-[291px] top-[7px] left-[4px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+					<div className="absolute w-[291px] top-[7px] left-[4px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]" onClick={navigateToQueueScreen}>
 						JOIN EXISTING TEAM
+
 					</div>
 				</div>
 				<NavbarPlay></NavbarPlay>

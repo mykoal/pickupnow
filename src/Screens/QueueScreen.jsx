@@ -6,25 +6,43 @@ import { removeFromQueue } from '../queueService';
 
 
 const QueueScreen = () => {
-  let { selectedCourt } = useParams();
+// Get the queue data from local storage
+const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
+
+
+// Get the queue for "Rockwood A"
+const rockwoodAQueue = queueData["Rockwood A"] || [];
+
+
+// Get the first two people in the queue
+const firstPerson = rockwoodAQueue[0] ? rockwoodAQueue[0].name : "No one";
+const secondPerson = rockwoodAQueue[1] ? rockwoodAQueue[1].name : "No one";
+const thirdPerson = rockwoodAQueue[2] ? rockwoodAQueue[2].name : "No one";
+const fourthPerson = rockwoodAQueue[3] ? rockwoodAQueue[3].name : "Open Slot";
+const fifthPerson = rockwoodAQueue[4] ? rockwoodAQueue[4].name : "Open Slot";
+const sixthPerson = rockwoodAQueue[5] ? rockwoodAQueue[5].name : "Open Slot";
+
+// State variables for the slot and the button
+const [slot, setSlot] = useState("Open Slot");
+const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+// Function to join or leave the slot
+const toggleSlot = () => {
+  if (isButtonClicked) {
+    // If the button has been clicked, revert to the old state
+    setSlot("Open Slot");
+    setIsButtonClicked(false);
+  } else {
+    // If the button hasn't been clicked, join the slot
+    setSlot(fourthPerson);
+    setIsButtonClicked(true);
+  }
+};
+
   let navigate = useNavigate();
   const navigateToPlay = () => {
-    navigate('/play'); // the other button actions need to be added in (join a team, leave)
+    navigate('/play'); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
   };
-  const [queue, setQueue] = useState([]);
-
-    useEffect(() => {
-        const queueData = JSON.parse(localStorage.getItem('courtQueue')) || {};
-        if (queueData[selectedCourt]) {
-            setQueue(queueData[selectedCourt].items);
-        }
-    }, [selectedCourt]); // Assuming selectedCourt is available
-    const playerId = localStorage.getItem('userId'); // Get the player's ID from local storage
-    const leaveQueue = () => {
-        // Assuming you have the player's ID
-        removeFromQueue(selectedCourt, playerId);
-        // Update the queue state as needed
-    };
 
   // Function to calculate the position of the circle in the queue visualization
   const calculateCirclePosition = (totalPositions, yourPosition) => {
@@ -43,10 +61,10 @@ const QueueScreen = () => {
             You are currently 
           </p>
           <p className="absolute w-[332px] top-[40px] left-[10px] [font-family:'Gabarito',Helvetica] font-bold text-[black] text-[60px] text-center tracking-[0] leading-[normal]">
-            #5
+          {isButtonClicked ? "2nd" : "not"}
           </p>
           <p className="absolute w-[332px] bottom-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
-            In the court Queue 
+            in the court Queue 
           </p>
         </div>
         <div className="absolute w-[15px] h-[400px] top-[310px] left-[19px] bg-[#0f6e42] rounded-[5px]">
@@ -65,22 +83,20 @@ const QueueScreen = () => {
             Now Playing
           </div>
           <div className="absolute w-[393px] h-[67px] top-[25px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
-            Aria & Max 
+            {firstPerson} & {secondPerson}
           </div> 
           <div className="absolute w-[393px] h-[67px] top-[85px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
             Up Next
           </div>
           <div className="absolute w-[393px] h-[67px] top-[110px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
-            Ricky and [Open Slot]
-            <button className="bg-[#0f6e42] text-[#f3fbef] text-[20px] rounded-[5px] px-[10px] py-[5px] ml-[10px]" onClick={navigateToPlay}>
-              Join
-            </button>
+            {thirdPerson} & {slot}
+            <button className="bg-[#0f6e42] text-[#f3fbef] text-[20px] rounded-[5px] px-[10px] py-[5px] ml-[10px]" onClick={toggleSlot}>
+             {isButtonClicked ? "Leave" : "Join"}
+             </button>
           </div>
           <div className="absolute w-[393px] h-[67px] top-[210px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
-            YOU & Xue
-            <button className="bg-[#0f6e42] text-[#f3fbef] text-[20px] rounded-[5px] px-[10px] py-[5px] ml-[10px]" onClick={leaveQueue}>
-              Leave Queue
-            </button>
+            {fifthPerson} & {sixthPerson}
+      
           </div>
         </div>
         <NavbarPlay></NavbarPlay>

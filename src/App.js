@@ -12,21 +12,74 @@ import Samson from "./Screens/Samson";
 import Palestra from "./Screens/Palestra";
 import CreateQueueScreen from "./Screens/CreateQueueScreen";
 import QueueTest from "./Screens/QueueTest";
+import { addToQueue } from "./queueService";
 
 
 function App() {
+	function addToQueue(courtId, user) {
+		// Get the queue data from local storage
+		const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
+	  
+		// Get the queue for the specified court
+		const courtQueue = queueData[courtId] || [];
+	  
+		// Add the user to the court's queue
+		courtQueue.push(user);
+	  
+		// Update the court's queue in the queue data
+		queueData[courtId] = courtQueue;
+	  
+		// Save the updated queue data back to local storage
+		localStorage.setItem("courtQueue", JSON.stringify(queueData));
+	  }
 	//user profile info default
 	//user data is stored in localstorage.userData
-	const initUserData = {
-		name: "Michael Li",
+	localStorage.clear();
+	const initUserData = [{
+		name: "Tom Smith",
 		age: 21,
 		language: "Eng",
-		sport: "Basketball",
+		sport: "Pickleball",
 		level: "Novice",
 		location: "University City",
 		distance: 1,
-	};
-
+	  }, {
+		name: "John Doe",
+		age: 25,
+		language: "Eng",
+		sport: "Pickleball",
+		level: "Novice",
+		location: "University City",
+		distance: 5,
+	  },
+	  {
+		name: "Joe Random",
+		age: 22,
+		language: "Eng",
+		sport: "Pickleball",
+		level: "Novice",
+		location: "University City",
+		distance: 1,
+	  }
+	,
+	{	name: "Michael Li",
+		age: 21,
+		language: "Eng",
+		sport: "Pickleball",
+		level: "Novice",
+		location: "University City",
+		distance: 1,
+	  }
+	];
+	  
+	  const initQueueData = {
+		"Rockwood A": [],
+		"Rockwood B": [],
+		"Rockwood C": [],
+	  };
+	  
+	  
+   
 	useEffect(() => {
 		// Check if user data is already in local storage
 		const storedUserData = localStorage.getItem("userData");
@@ -35,6 +88,16 @@ function App() {
 		if (!storedUserData) {
 			localStorage.setItem("userData", JSON.stringify(initUserData));
 		}
+
+		const storedQueueData = localStorage.getItem("courtQueue");
+
+		if (!storedQueueData) {
+			localStorage.setItem("courtQueue", JSON.stringify({initQueueData}));
+		}
+		initUserData.forEach(element => {
+			addToQueue("Rockwood A", element);
+		});
+
 	}, []);
 
 	return (
