@@ -18,36 +18,32 @@ const PlayScreen = () => {
 		navigate("/palestra"); // '/potruck' is the path to your new screen
 	};
 
-  return (
+	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[329px] h-[247px] top-[213px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
-					<div 
-						className="!absolute !left-[229px] !top-[193px]" 
-						onClick={navigateToMarkwood} 
-						title="Markwood Courts"
-					>
+					<div
+						className="!absolute !left-[229px] !top-[193px]"
+						onClick={navigateToMarkwood}
+						title="Markwood Courts">
 						<Pin />
 					</div>
-					<div 
-						className="!absolute !left-[301px] !top-[124px]" 
-						onClick={navigateToSamson} 
-						title="Samson Courts"
-					>
+					<div
+						className="!absolute !left-[301px] !top-[124px]"
+						onClick={navigateToSamson}
+						title="Samson Courts">
 						<Pin />
 					</div>
-					<div 
-						className="!absolute !left-[153px] !top-[124px]" 
+					<div
+						className="!absolute !left-[153px] !top-[124px]"
 						onClick={navigateToPalestra}
-						title="The Palestra"
-					>
+						title="The Palestra">
 						<Pin />
 					</div>
-					<div 
-						className="!absolute !left-[23px] !top-[64px]" 
-						onClick={navigateToPotruck} 
-						title="Potruck Gymnasium"
-					>
+					<div
+						className="!absolute !left-[23px] !top-[64px]"
+						onClick={navigateToPotruck}
+						title="Potruck Gymnasium">
 						<Pin />
 					</div>
 				</div>
@@ -75,7 +71,7 @@ const PlayScreen = () => {
 				</div>
 				<NavbarPlay></NavbarPlay>
 				<div className="absolute w-[311px] top-[486px] left-[35px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-					Saved Courts:
+					Saved Complexes:
 				</div>
 				<img
 					className="top-[539px] absolute w-[20px] h-[20px] left-[332px] object-cover"
@@ -87,12 +83,14 @@ const PlayScreen = () => {
 					alt="Stuff"
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
-				<p className="absolute w-[253px] h-[40px] top-[536px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-          		onClick={navigateToMarkwood}>
+				<p
+					className="absolute w-[253px] h-[40px] top-[536px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+					onClick={navigateToMarkwood}>
 					Markwood Playground
 				</p>
-				<p className="absolute w-[253px] h-[40px] top-[585px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-				onClick={navigateToPotruck}>
+				<p
+					className="absolute w-[253px] h-[40px] top-[585px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+					onClick={navigateToPotruck}>
 					Potruck Gymnasium
 				</p>
 				<img

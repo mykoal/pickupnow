@@ -14,7 +14,7 @@ export const NavbarPlay = () => {
 	};
 
 	return (
-		<div class="Navbar">
+		<div className="Navbar">
 			<div className="absolute w-[393px] h-[67px] top-0 left-0 bg-[#f3fbef]">
 				<img
 					className="absolute w-[171px] h-[38px] top-[14px] left-[13px] object-cover"

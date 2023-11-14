@@ -4,6 +4,64 @@ import { addToQueue, initializeQueue } from "../queueService";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const CreateQueueScreen = () => {
+	const SkillButtons = () => (
+		<div>
+			<button
+				className={`${
+					skillLevels === "Level1"
+						? "absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+						: "absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+				}`}
+				onClick={(event) => handleSkillLevelChange(event, "Level1")}>
+				<img
+					className="absolute w-[40px] h-[40px] top-[6px] left-[26px]"
+					alt="Level1"
+					src="https://c.animaapp.com/HQ5f18LY/img/frame-3.svg"
+				/>
+			</button>
+			<button
+				className={`${
+					skillLevels === "Level2"
+						? "absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+						: "absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+				}`}
+				onClick={(event) => handleSkillLevelChange(event, "Level2")}>
+				<img
+					className="absolute w-[40px] h-[40px] top-[3px] left-[24px]"
+					alt="Level2"
+					src="https://c.animaapp.com/HQ5f18LY/img/frame-2.svg"
+				/>
+			</button>
+			<button
+				className={`${
+					skillLevels === "Level3"
+						? "absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+						: "absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] active:bg-[#aad396] focus:bg-[#aad396]"
+				}`}
+				onClick={(event) => handleSkillLevelChange(event, "Level3")}>
+				<img
+					className="absolute w-[40px] h-[40px] top-[3px] left-[27px]"
+					alt="Level3"
+					src="https://c.animaapp.com/HQ5f18LY/img/frame-1.svg"
+				/>
+			</button>
+		</div>
+	);
+
+	const CourtIcon = ({ className, alt, isSelected }) => (
+		<div>
+			<img
+				className={className}
+				alt={alt}
+				src={`${
+					isSelected
+						? "https://c.animaapp.com/HQ5f18LY/img/group-6@2x.png"
+						: "https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
+				}`}
+			/>
+		</div>
+	);
+
 	let location = useLocation();
 	// When you first get the court name
 	localStorage.setItem("courtName", location.state);
@@ -15,7 +73,7 @@ const CreateQueueScreen = () => {
 	const [skillLevels, setSkillLevels] = useState("");
 	const [language, setPreferredLanguage] = useState("");
 	let navigate = useNavigate();
-	
+
 	const navigateToQueueTest = () => {
 		navigate("/x"); // '/create_queue' is the path to your new screen
 	};
@@ -48,21 +106,17 @@ const CreateQueueScreen = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				{/* <div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
-						<button
-							type="submit"
-							className="absolute w-[269px] h-[49px] top-0 left-[13px] bg-[#f3fbef] rounded-[20px] border border-solid border-[#8db580] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-							CREATE QUEUE
-						</button>
-					</div> */}
 				<div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
 					<div className="absolute w-[269px] h-[49px] top-0 left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						Creating Your Queue:
+						Join A Queue:
 					</div>
 				</div>
 				<NavbarPlay></NavbarPlay>
 
-				<form className="relative" onSubmit={handleSubmit}>
+				<form
+					id="createQueue"
+					className="relative"
+					onSubmit={handleSubmit}>
 					{/* Court Selection - Radio Buttons */}
 					<div className="absolute w-[337px] h-[155px] top-[197px] left-[27px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#0f6e42]">
 						<label className="court-radio">
@@ -73,13 +127,19 @@ const CreateQueueScreen = () => {
 								value="CourtA"
 								checked={selectedCourt === "CourtA"}
 								onChange={() => handleCourtChange("CourtA")}
+								required
 							/>
-							<img
+							<CourtIcon
+								className="absolute w-[48px] h-[48px] top-[10px] left-[42px]"
+								alt="CourtA"
+								isSelected={selectedCourt === "CourtA"}
+							/>
+							{/* <img
 								className="absolute w-[48px] h-[48px] top-[10px] left-[42px]"
 								alt="CourtA"
 								src="https://c.animaapp.com/HQ5f18LY/img/group-6@2x.png"
-							/>
-							<p className="absolute top-[110px] left-[50px] [font-family:'Gabarito',Helvetica]">
+							/> */}
+							<p className="absolute top-[110px] left-[40px] [font-family:'Gabarito',Helvetica]">
 								Court A
 							</p>
 						</label>
@@ -92,12 +152,17 @@ const CreateQueueScreen = () => {
 								checked={selectedCourt === "CourtC"}
 								onChange={() => handleCourtChange("CourtC")}
 							/>
-							<img
+							<CourtIcon
+								className="absolute w-[48px] h-[48px] top-[10px] left-[231px]"
+								alt="CourtC"
+								isSelected={selectedCourt === "CourtC"}
+							/>
+							{/* <img
 								className="absolute w-[48px] h-[48px] top-[10px] left-[231px]"
 								alt="CourtC"
 								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-							/>
-							<p className="absolute top-[110px] left-[239px] [font-family:'Gabarito',Helvetica]">
+							/> */}
+							<p className="absolute top-[110px] left-[229px] [font-family:'Gabarito',Helvetica]">
 								Court C
 							</p>
 						</label>
@@ -110,12 +175,17 @@ const CreateQueueScreen = () => {
 								checked={selectedCourt === "CourtB"}
 								onChange={() => handleCourtChange("CourtB")}
 							/>
-							<img
+							<CourtIcon
+								className="absolute w-[48px] h-[48px] top-[10px] left-[143px]"
+								alt="CourtB"
+								isSelected={selectedCourt === "CourtB"}
+							/>
+							{/* <img
 								className="absolute w-[48px] h-[48px] top-[10px] left-[143px]"
 								alt="CourtB"
 								src="https://c.animaapp.com/HQ5f18LY/img/group-7@2x.png"
-							/>
-							<p className="absolute top-[110px] left-[143px] [font-family:'Gabarito',Helvetica]">
+							/> */}
+							<p className="absolute top-[110px] left-[133px] [font-family:'Gabarito',Helvetica]">
 								Court B
 							</p>
 						</label>
@@ -126,40 +196,7 @@ const CreateQueueScreen = () => {
 					<p className="absolute w-[319px] top-[381px] left-[30px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 						Preferred Skill Level For Teammate
 					</p>
-
-					<button
-						className="absolute w-[97px] h-[49px] top-[413px] left-[30px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) =>
-							handleSkillLevelChange(event, "Level1")
-						}>
-						<img
-							className="absolute w-[40px] h-[40px] top-[6px] left-[26px]"
-							alt="Level1"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-3.svg"
-						/>
-					</button>
-					<button
-						className="absolute w-[97px] h-[49px] top-[413px] left-[150px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396]  active:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) =>
-							handleSkillLevelChange(event, "Level2")
-						}>
-						<img
-							className="absolute w-[40px] h-[40px] top-[3px] left-[24px]"
-							alt="Level2"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-2.svg"
-						/>
-					</button>
-					<button
-						className="absolute w-[97px] h-[49px] top-[413px] left-[270px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580] hover:bg-[#aad396] visited:bg-[#aad396] focus:bg-[#aad396]"
-						onClick={(event) =>
-							handleSkillLevelChange(event, "Level3")
-						}>
-						<img
-							className="absolute w-[40px] h-[40px] top-[3px] left-[27px]"
-							alt="Level3"
-							src="https://c.animaapp.com/HQ5f18LY/img/frame-1.svg"
-						/>
-					</button>
+					<SkillButtons></SkillButtons>
 
 					{/* Language Selection - Dropdown */}
 					<div>
@@ -185,7 +222,7 @@ const CreateQueueScreen = () => {
 						<button
 							type="submit"
 							className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
-							CREATE QUEUE
+							JOIN QUEUE
 						</button>
 					</div>
 				</form>
