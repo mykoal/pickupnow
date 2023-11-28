@@ -26,8 +26,7 @@ export const MainScreen = () => {
 					<div
 						className="absolute w-[209px] h-[39px] top-[49px] left-[73px] rounded-[5px]"
 						onClick={navigateToPlay}>
-						<div className="absolute w-[209px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[5px]" />
-						<div className="absolute w-[206px] h-[30px] top-[8px] left-[2px] [font-family:Gabarito] font-bold text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+						<div className="absolute pt-[8px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[40px] top-0 left-[2px] [font-family:Gabarito] font-bold text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 							Find A Court
 						</div>
 					</div>
