@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Markwood = () => {
 	let navigate = useNavigate();
+
 	const navigateToCreateQueue = () => {
 		console.log(
 			"Navigating to CreateQueueScreen with courtName:",
@@ -20,23 +21,26 @@ export const Markwood = () => {
 		);
 		navigate("/queue", { state: { courtName: "Markwood Playground" } }); // '/create_queue' is the path to your new screen
 	};
+	const navigateToPlay = () => {
+		navigate("/play"); // '/potruck' is the path to your new screen
+	};
+	const navigateToJoinQueue = () => {
+		navigate("/join_queue"); // '/potruck' is the path to your new screen
+	};
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white w-[394px] h-[852px] relative">
-				<div className="absolute w-[365px] h-[55px] top-[129px] left-[23px]">
-					<div className="absolute w-[254px] h-[55px] top-0 left-[94px] bg-[#f3fbef] rounded-[20px] border-2 border-solid border-[#8db580]" />
-					<div className="w-[164px] top-[14px] left-0 whitespace-nowrap absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
-						Complex:
-					</div>
-					<div className="absolute w-[253px] h-[40px] top-[15px] left-[112px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
-						Markwood Playground
-					</div>
+				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
+					Markwood
 				</div>
-				<p className="top-[471px] absolute w-[311px] left-[20px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-					Total of <u>5</u> Teams in Queue for <u>2</u>/3 Courts
+				<div
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					onClick={navigateToPlay}></div>
+				<p className="top-[420px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+					Active Queues for <u>2</u>/3 Courts
 				</p>
-				<div className="absolute w-[354px] h-[190px] top-[248px] left-[21px]">
+				<div className="absolute w-[354px] h-[190px] top-[180px] left-[21px]">
 					<div className="top-0 rounded-[5px_5px_0px_0px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#8db580]" />
 					<div className="absolute w-[332px] h-[40px] top-[12px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Night Lighting:
@@ -86,27 +90,22 @@ export const Markwood = () => {
 						4.5
 					</div>
 				</div>
-				<div className="w-[332px] top-[205px] left-[33px] text-center absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
+				<div className="w-[332px] top-[150px] left-[33px] text-center absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
 					Complex Conditions
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[502px] left-[48px] rounded-[20px]">
-					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
+				<div className="absolute w-[295px] h-[39px] top-[460px] left-[48px] rounded-[20px] hover:bg-[#06492a]">
 					<p
-						className="absolute w-[291px] top-[6px] left-[4px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
+						className="absolute w-[295px] h-[39px] pt-[7px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a]"
 						onClick={navigateToCreateQueue}>
-						JOIN QUEUE
+						CREATE QUEUE
 					</p>
 				</div>
-				<p className="top-[575px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-					<u>1</u> Team Looking for a Player
-				</p>
-				<div className="absolute w-[295px] h-[39px] top-[605px] left-[50px] rounded-[20px]">
-					<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
+
+				<div className="absolute w-[295px] h-[39px] top-[520px] left-[50px] rounded-[20px]">
 					<div
-						className="absolute w-[291px] top-[7px] left-[4px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
-						onClick={navigateToQueueScreen}>
-						JOIN EXISTING TEAM
+						className="absolute w-[295px] h-[39px] pt-[7px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a]"
+						onClick={navigateToJoinQueue}>
+						JOIN QUEUE
 					</div>
 				</div>
 				<NavbarPlay></NavbarPlay>

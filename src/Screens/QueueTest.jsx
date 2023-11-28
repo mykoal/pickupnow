@@ -78,7 +78,6 @@
 // };
 
 // export default QueueTest;
-// ^^ commented out old code for this file
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -132,6 +131,9 @@ const QueueTest = () => {
 	const navigateToPlay = () => {
 		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
+	const navigateToHome = () => {
+		navigate("/"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
+	};
 
 	// Function to calculate the position of the circle in the queue visualization
 	const calculateCirclePosition = (totalPositions, yourPosition) => {
@@ -142,53 +144,114 @@ const QueueTest = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<div className="absolute w-[164px] top-[100px] left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-[27px] text-[black] tracking-[0] leading-[normal] whitespace-nowrap">
-					Current Queues
+				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
+					Current Queue
 				</div>
-				<div className="absolute w-[354px] h-[160px] top-[135px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
-					<p className="absolute w-[332px] top-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
-						You are currently
+				<div
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					onClick={navigateToHome}></div>
+				<div className="absolute w-[211px] top-[394px] left-[29px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+					Complex — Court #
+				</div>
+				<div className="absolute w-[293px] h-[206px] top-[168px] left-[50px]">
+					<div className="absolute w-[293px] h-[198px] top-[8px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
+					<div className="absolute w-[109px] top-0 left-[92px] [font-family:'Gabarito-Bold',Helvetica] font-bold text-black text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+						#
+					</div>
+					<div className="absolute w-[203px] top-[137px] left-[45px] [font-family:'Gabarito-Bold',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
+						Position in Queue
+					</div>
+					<p className="absolute w-[203px] top-[167px] left-[45px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]">
+						Estimated Wait Time: (#*30) Minutes
 					</p>
-					<p className="absolute w-[332px] top-[40px] left-[10px] [font-family:'Gabarito',Helvetica] font-bold text-[black] text-[60px] text-center tracking-[0] leading-[normal]">
-						{isButtonClicked ? "not" : "2nd"}
+				</div>
+				<div className="w-[26px] h-[241px] top-[456px] left-[29px] bg-[#8db580] border-2 border-solid border-[#0f6e42] absolute rounded-[20px]" />
+				<div className="w-[339px] h-[2px] top-[436px] left-[27px] bg-[#0f6e42] absolute rounded-[20px]" />
+				<div className="absolute w-[306px] h-[30px] top-[560px] left-[72px]">
+					<div className="absolute w-[174px] top-0 left-[119px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-[#0f6e42] text-[20px] text-right tracking-[0] leading-[normal]">
+						&lt;-- Your Position
+					</div>
+					<p className="absolute w-[306px] top-px left-0 [font-family:'Gabarito-Regular',Helvetica] font-normal text-transparent text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+						<span className="text-[#0f6e42]">YOU</span>
+						<span className="text-black"> &amp; User4</span>
 					</p>
-					<p className="absolute w-[332px] bottom-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
-						in the court Queue
-					</p>
 				</div>
-				<div className="absolute w-[15px] h-[400px] top-[310px] left-[19px] bg-[#0f6e42] rounded-[5px]">
-					{/* SVG for the adjusted queue visualization */}
-					<svg height="400" width="15">
-						<circle
-							cx="7.5"
-							cy={calculateCirclePosition(10, 5)} // Replace 10 with the total number of positions in the queue and 5 with current positon of player
-							r="8"
-							fill="#f3fbef"
-						/>
-					</svg>
+				<div className="absolute w-[132px] top-[461px] left-[72px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+					User1 &amp; User2
 				</div>
-				<div className="absolute w-[320px] h-[400px] top-[310px] left-[50px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
-					<div className="absolute w-[393px] h-[67px] top-[0px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
-						Now Playing
-					</div>
-					<div className="absolute w-[393px] h-[67px] top-[25px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
-						{firstPerson} & {secondPerson}
-					</div>
-					<div className="absolute w-[393px] h-[67px] top-[85px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
-						Up Next
-					</div>
-					<div className="absolute w-[393px] h-[67px] top-[110px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
-						<b>{slot} & [Open Spot]</b>
-						<button
-							className="bg-[#0f6e42] text-[#f3fbef] text-[20px] rounded-[5px] px-[10px] py-[5px] ml-[10px]"
-							onClick={toggleSlot}>
-							{isButtonClicked ? "Join" : "Leave"}
-						</button>
-					</div>
+				<div className="absolute w-[132px] top-[511px] left-[72px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+					User3
 				</div>
+				<div className="absolute w-[179px] top-[611px] left-[72px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+					Theoretical 4th spot
+				</div>
+				<p className="absolute w-[285px] top-[661px] left-[72px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+					Theoretical 5th spot (max 5)
+				</p>
 				<NavbarPlay></NavbarPlay>
+
+				<div className="absolute w-[157px] top-[461px] left-[209px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-[#0f6e42] text-[20px] text-right tracking-[0] leading-[normal]">
+					&lt;-- Now Playing
+				</div>
+
+				<div className="absolute w-[81px] h-[30px] top-[392px] left-[284px] rounded-[20px]">
+					<div
+						className="absolute py-[4px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[76px] top-[2px] left-[2px] [font-family:'Gabarito-Regular',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+						onClick={navigateToHome}>
+						Leave
+					</div>
+				</div>
 			</div>
 		</div>
+		// <div className="bg-white flex flex-row justify-center w-full">
+		// 	<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
+		// 		<div className="absolute w-[164px] top-[100px] left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-[27px] text-[black] tracking-[0] leading-[normal] whitespace-nowrap">
+		// 			Current Queues
+		// 		</div>
+		// 		<div className="absolute w-[354px] h-[160px] top-[135px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
+		// 			<p className="absolute w-[332px] top-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
+		// 				You are currently
+		// 			</p>
+		// 			<p className="absolute w-[332px] top-[40px] left-[10px] [font-family:'Gabarito',Helvetica] font-bold text-[black] text-[60px] text-center tracking-[0] leading-[normal]">
+		// 				{isButtonClicked ? "not" : "2nd"}
+		// 			</p>
+		// 			<p className="absolute w-[332px] bottom-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
+		// 				in the court Queue
+		// 			</p>
+		// 		</div>
+		// 		<div className="absolute w-[15px] h-[400px] top-[310px] left-[19px] bg-[#0f6e42] rounded-[5px]">
+		// 			{/* SVG for the adjusted queue visualization */}
+		// 			<svg height="400" width="15">
+		// 				<circle
+		// 					cx="7.5"
+		// 					cy={calculateCirclePosition(10, 5)} // Replace 10 with the total number of positions in the queue and 5 with current positon of player
+		// 					r="8"
+		// 					fill="#f3fbef"
+		// 				/>
+		// 			</svg>
+		// 		</div>
+		// 		<div className="absolute w-[320px] h-[400px] top-[310px] left-[50px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
+		// 			<div className="absolute w-[393px] h-[67px] top-[0px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
+		// 				Now Playing
+		// 			</div>
+		// 			<div className="absolute w-[393px] h-[67px] top-[25px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
+		// 				{firstPerson} & {secondPerson}
+		// 			</div>
+		// 			<div className="absolute w-[393px] h-[67px] top-[85px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
+		// 				Up Next
+		// 			</div>
+		// 			<div className="absolute w-[393px] h-[67px] top-[110px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
+		// 				<b>{slot} & [Open Spot]</b>
+		// 				<button
+		// 					className="bg-[#0f6e42] text-[#f3fbef] text-[20px] rounded-[5px] px-[10px] py-[5px] ml-[10px]"
+		// 					onClick={toggleSlot}>
+		// 					{isButtonClicked ? "Join" : "Leave"}
+		// 				</button>
+		// 			</div>
+		// 		</div>
+		// 		<NavbarPlay></NavbarPlay>
+		// 	</div>
+		// </div>
 	);
 };
 

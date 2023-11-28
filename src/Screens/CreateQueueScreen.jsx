@@ -82,6 +82,10 @@ const CreateQueueScreen = () => {
 		navigate("/queue"); // '/create_queue' is the path to your new screen
 	};
 
+	const navigateToMarkwood = () => {
+		navigate("/markwood"); // '/markwood' is the path to your new screen
+	};
+
 	const handleCourtChange = (court) => {
 		setSelectedCourt(court);
 	};
@@ -111,11 +115,12 @@ const CreateQueueScreen = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<div className="absolute w-[291px] h-[49px] top-[114px] left-[53px]">
-					<div className="absolute w-[269px] h-[49px] top-0 left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						Join A Queue:
-					</div>
+				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
+					Create Queue
 				</div>
+				<div
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					onClick={navigateToMarkwood}></div>
 				<NavbarPlay></NavbarPlay>
 
 				<form
@@ -208,12 +213,10 @@ const CreateQueueScreen = () => {
 
 					{/* Submit Button */}
 					<div className="absolute w-[295px] h-[39px] top-[602px] left-[52px] rounded-[20px]">
-						<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
-						<div className="absolute w-[295px] h-[39px] top-0 left-0 bg-[#0f6e42] rounded-[20px]" />
 						<button
 							type="submit"
-							className="absolute w-[291px] top-[6px] left-[4px] [font-family:'Gabarito',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
-							JOIN QUEUE
+							className="absolute py-[8px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[291px] top-[6px] left-[4px] [font-family:'Gabarito',Helvetica] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+							CREATE QUEUE
 						</button>
 					</div>
 				</form>

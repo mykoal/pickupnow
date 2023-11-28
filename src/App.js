@@ -12,6 +12,8 @@ import Samson from "./Screens/Samson";
 import Palestra from "./Screens/Palestra";
 import CreateQueueScreen from "./Screens/CreateQueueScreen";
 import QueueTest from "./Screens/QueueTest";
+import JoinQueueScreen from "./Screens/JoinQueueScreen";
+import QueueTwo from "./Screens/QueueTwo";
 
 export function removeFromQueue(courtId, user) {
 	// Get the queue data from local storage
@@ -133,6 +135,9 @@ function App() {
 				<Route path="/palestra" element={<Palestra />} />
 				<Route path="/create_queue" element={<CreateQueueScreen />} />
 				<Route path="/x" element={<QueueTest />} />
+				<Route path="/xx" element={<QueueTwo />} />
+				<Route path="/join_queue" element={<JoinQueueScreen />} />
+
 				{/* Add more routes as needed */}
 			</Routes>
 		</Router>
