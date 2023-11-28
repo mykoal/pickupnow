@@ -108,7 +108,7 @@ const SettingsScreen = () => {
           />
           <div className="smartphone-signal" />
           <p className="novice">
-            <span className="text-wrapper">{userData.skillLevel}</span>
+            <span className="text-wrapper">{userData.level}</span>
           </p>
         </div>
         <div className="group-wrapper">
