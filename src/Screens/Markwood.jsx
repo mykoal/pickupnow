@@ -24,8 +24,11 @@ export const Markwood = () => {
 	const navigateToPlay = () => {
 		navigate("/play"); // '/potruck' is the path to your new screen
 	};
-	const navigateToJoinQueue = () => {
-		navigate("/join_queue"); // '/potruck' is the path to your new screen
+	const navigateToCourtA = () => {
+		navigate("/markwood_A"); // '/potruck' is the path to your new screen
+	};
+	const navigateToCourtB = () => {
+		navigate("/markwood_B"); // '/potruck' is the path to your new screen
 	};
 
 	return (
@@ -37,9 +40,9 @@ export const Markwood = () => {
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
 					onClick={navigateToPlay}></div>
-				<p className="top-[420px] absolute w-[311px] left-[40px] [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-					Active Queues for <u>2</u>/3 Courts
-				</p>
+				<div className="w-[332px] top-[150px] left-[33px] text-center absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
+					Complex Conditions
+				</div>
 				<div className="absolute w-[354px] h-[190px] top-[180px] left-[21px]">
 					<div className="top-0 rounded-[5px_5px_0px_0px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#8db580]" />
 					<div className="absolute w-[332px] h-[40px] top-[12px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
@@ -90,22 +93,22 @@ export const Markwood = () => {
 						4.5
 					</div>
 				</div>
-				<div className="w-[332px] top-[150px] left-[33px] text-center absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
-					Complex Conditions
-				</div>
-				<div className="absolute w-[295px] h-[39px] top-[460px] left-[48px] rounded-[20px] hover:bg-[#06492a]">
-					<p
-						className="absolute w-[295px] h-[39px] pt-[7px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a]"
-						onClick={navigateToCreateQueue}>
-						CREATE QUEUE
-					</p>
-				</div>
 
-				<div className="absolute w-[295px] h-[39px] top-[520px] left-[50px] rounded-[20px]">
+				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+					Select a Court
+				</div>
+				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
 					<div
-						className="absolute w-[295px] h-[39px] pt-[7px] [font-family:Gabarito] font-normal font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a]"
-						onClick={navigateToJoinQueue}>
-						JOIN QUEUE
+						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+						onClick={navigateToCourtA}>
+						Court A
+					</div>
+				</div>
+				<div className="absolute w-[295px] h-[39px] top-[500px] left-[49px] rounded-[20px]">
+					<div
+						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+						onClick={navigateToCourtB}>
+						Court B
 					</div>
 				</div>
 				<NavbarPlay></NavbarPlay>

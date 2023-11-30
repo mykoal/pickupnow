@@ -7,13 +7,13 @@ import PlayScreen from "./Screens/PlayScreen";
 import QueueScreen from "./Screens/QueueScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
 import { Markwood } from "./Screens/Markwood";
-import Potruck from "./Screens/Potruck";
+import Pottruck from "./Screens/Pottruck";
 import Samson from "./Screens/Samson";
 import Palestra from "./Screens/Palestra";
-import CreateQueueScreen from "./Screens/CreateQueueScreen";
-import QueueTest from "./Screens/QueueTest";
 import JoinQueueScreen from "./Screens/JoinQueueScreen";
-import QueueTwo from "./Screens/QueueTwo";
+import CourtAQueue from "./Screens/CourtAQueue";
+import CourtBQueue from "./Screens/CourtBQueue";
+import PottruckQueue from "./Screens/PottruckQueue";
 
 export function removeFromQueue(courtId, user) {
 	// Get the queue data from local storage
@@ -130,41 +130,18 @@ function App() {
 				<Route path="/queue" element={<QueueScreen />} />
 				<Route path="/settings" element={<SettingsScreen />} />
 				<Route path="/markwood" element={<Markwood />} />
-				<Route path="/pottruck" element={<Potruck />} />
+				<Route path="/pottruck" element={<Pottruck />} />
 				<Route path="/samson" element={<Samson />} />
 				<Route path="/palestra" element={<Palestra />} />
-				<Route path="/create_queue" element={<CreateQueueScreen />} />
-				<Route path="/x" element={<QueueTest />} />
-				<Route path="/xx" element={<QueueTwo />} />
+				<Route path="/markwood_A" element={<CourtAQueue />} />
+				<Route path="/markwood_B" element={<CourtBQueue />} />
 				<Route path="/join_queue" element={<JoinQueueScreen />} />
+				<Route path="/pottruck_queue" element={<PottruckQueue />} />
 
 				{/* Add more routes as needed */}
 			</Routes>
 		</Router>
 	);
-
-	// State for the counter
-	// const [count, setCount] = useState(0);
-
-	// return (
-	//   <div className="App">
-	//     <header className="App-header">
-	//       <img src={logo} className="App-logo" alt="logo" />
-	//       <p>
-	//         Edit <code>src/App.js</code> and save to reload.
-	//       </p>
-	//       {/* Interactive button */}
-	//       <p>You clicked {count} times</p>
-	//       <button onClick={() => setCount(count + 1)}>
-	//         Click me
-	//       </button>
-	//       {/* Link to React documentation */}
-	//       <p>
-	//         ^ I was tinkering and made this button to familiarize myself -Michael
-	//       </p>
-	//     </header>
-	//   </div>
-	// );
 }
 
 export default App;
