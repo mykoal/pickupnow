@@ -20,24 +20,25 @@ const SettingsScreen = () => {
   // };
 	// Function to handle the button click
 	const handleButtonClick = () => {
+    localStorage.clear();
 		// Update the local storage value
-		localStorage.setItem(
-			"userData",
-			JSON.stringify({
-				name: "Michael Li",
-				age: 23,
-				language: "Eng",
-				sport: "Basketball",
-				level: "Novice",
-				location: "University City",
-				distance: 1,
-			})
-		);
+		// localStorage.setItem(
+		// 	"userData",
+		// 	JSON.stringify({
+		// 		name: "Michael Li",
+		// 		age: 23,
+		// 		language: "Eng",
+		// 		sport: "Basketball",
+		// 		level: "Novice",
+		// 		location: "University City",
+		// 		distance: 1,
+		// 	})
+		// );
 
 		// You can add additional logic if needed
 
 		// For example, you might want to display a notification that the data has been updated
-		alert("User data updated!");
+		alert("Local storage cleared");
 	};
 
   return (

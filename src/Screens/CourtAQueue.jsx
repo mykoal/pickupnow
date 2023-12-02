@@ -9,9 +9,11 @@ import { NavbarPlay } from "../Components/NavbarPlay.jsx";
 const CourtAQueue = () => {
 	//-------------------------UPDATED------------------------------
 	//--------------------------------------------------------------
-	const currentQueue = JSON.parse(localStorage.getItem("markwoodA"))
+	let currentQueue = JSON.parse(localStorage.getItem("markwoodA"))
 
+	let currentPos = localStorage.getItem('currentPos') //true if you are in a queue
 
+	const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 	//--------------------------------------------------------------
 	//--------------------------------------------------------------
 
@@ -51,16 +53,25 @@ const CourtAQueue = () => {
 	const [isButtonClicked, setIsButtonClicked] = useState(false);
 
 	// Function to join or leave the slot
-	const toggleSlot = () => {
-		if (isButtonClicked) {
-			// If the button has been clicked, revert to the old state
-			setSlot("Michael Li");
+	const group2_button = () => {
+		if (!isButtonClicked) {
+			// If the button has been clicked, add currentUser to group2, set currentPos to 2
+			let temp = currentQueue.group2
+			temp.push(currentUser)
+			currentQueue.group2 = temp
+			localStorage.setItem('markwoodA',JSON.stringify(currentQueue))
+			currentPos = 2
+			localStorage.setItem('currentPos', currentPos)
 			//addToQueue("Rockwood A", thisUser);
-			setIsButtonClicked(false);
-		} else {
-			// If the button hasn't been clicked, join the slot
-			setSlot("[Open Slot]");
 			setIsButtonClicked(true);
+		} else {
+			let temp = currentQueue.group2
+			temp.pop()
+			currentQueue.group2 = temp
+			localStorage.setItem('markwoodA',JSON.stringify(currentQueue))
+			currentPos = -1
+			localStorage.setItem('currentPos', currentPos)
+			setIsButtonClicked(false);
 			//removeFromQueue("Rockwood A", thisUser);
 		}
 	};
@@ -91,6 +102,13 @@ const CourtAQueue = () => {
 				<div className="absolute w-[255px] top-[383px] left-[29px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Markwood — Court A
 				</div>
+				{currentPos != -1 &&
+      		<div className="absolute w-[81px] h-[30px] top-[383px] left-[285px] rounded-[20px]">
+						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group2_button}>
+							{isButtonClicked ? "Leave" : "Join"}
+						</button>
+					</div>
+        }
 
 				{/* code that would show once joined a queue */}
 				{/* <div className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#0f6e42] hover:bg-[#06492a] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
@@ -168,6 +186,34 @@ const CourtAQueue = () => {
 				<div className="w-[132px] top-[500px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 2
 				</div>
+
+				{currentPos == -1 && currentQueue.group2.length < 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[496px] left-[284px] rounded-[20px]">
+						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group2_button}>
+						{isButtonClicked ? "Leave" : "Join"} 
+						</button>
+					</div>
+        }
+				{currentPos == 2 &&
+      		<div className="absolute w-[81px] h-[30px] top-[496px] left-[284px] rounded-[20px]">
+					<svg
+						className="absolute w-[65px] h-[50px] top-[-11px] left-[-92px]"
+						width="65"
+						height="50"
+						viewBox="0 0 65 50"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M27.0834 14.7087V23.042L51.2417 23.042L51.3229 27.2295L27.0834 27.2295V35.542L13.5417 25.1253L27.0834 14.7087Z"
+							fill="#0F6E42"
+						/>
+					</svg>
+					<div className="absolute w-[124px] top-[0px] left-[-42px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-right tracking-[0] leading-[normal]">
+						Your Position
+					</div>
+				</div>
+        }
+
 				<div className="w-[137px] top-[550px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 3
 				</div>
@@ -177,11 +223,23 @@ const CourtAQueue = () => {
 				<div className="w-[137px] top-[650px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 5
 				</div>
-				<div className="absolute w-[81px] h-[30px] top-[496px] left-[284px] rounded-[20px]">
+				
+				{/* {currentPos ==-1 && currentQueue.group2.length < 10 &&
+          <button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={toggleSlot}>
+             {isButtonClicked ? "Leave" : "Join"} {isButtonClicked && localStorage.setItem("currentPos",1)}
+          </button>
+        } */}
+				
+
+				
+				
+
+				{/* <div className="absolute w-[81px] h-[30px] top-[496px] left-[284px] rounded-[20px]">
 					<div className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						Join
 					</div>
-				</div>
+				</div> */}
+				
 				<div className="absolute w-[81px] h-[30px] top-[548px] left-[284px] rounded-[20px]">
 					<div className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						Join
