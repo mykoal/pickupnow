@@ -19,7 +19,6 @@ const CourtAQueue = () => {
 
 	//TODO
 
-	// implement full button if queues are full
 	// implement join end of queue if option is available
 	// implement joining first group if all queues are empty
 
@@ -80,6 +79,27 @@ const CourtAQueue = () => {
 			let temp = currentQueue.group3
 			temp.pop()
 			currentQueue.group3 = temp
+			localStorage.setItem('markwoodA',JSON.stringify(currentQueue))
+			currentPos = -1
+			localStorage.setItem('currentPos', currentPos)
+			setIsButtonClicked(false);
+		}
+	};
+
+	const group4_button = () => {
+		if (!isButtonClicked) {
+			// If the button has been clicked, add currentUser to group2, set currentPos to 2
+			let temp = currentQueue.group4
+			temp.push(currentUser)
+			currentQueue.group4 = temp
+			localStorage.setItem('markwoodA',JSON.stringify(currentQueue))
+			currentPos = 4
+			localStorage.setItem('currentPos', currentPos)
+			setIsButtonClicked(true);
+		} else {
+			let temp = currentQueue.group4
+			temp.pop()
+			currentQueue.group4 = temp
 			localStorage.setItem('markwoodA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
@@ -151,7 +171,13 @@ const CourtAQueue = () => {
 						</button>
 					</div>
         }
-				{/* implement for group4 */}
+				{currentPos ==4 &&
+      		<div className="absolute w-[81px] h-[30px] top-[383px] left-[285px] rounded-[20px]">
+						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group4_button}>
+							{isButtonClicked ? "Leave" : "Join"}
+						</button>
+					</div>
+        }
 				{currentPos ==5 &&
       		<div className="absolute w-[81px] h-[30px] top-[383px] left-[285px] rounded-[20px]">
 						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group5_button}>
@@ -200,6 +226,7 @@ const CourtAQueue = () => {
 					</div>
 				</div>
 
+
 				<div className="w-[132px] top-[500px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 2
 				</div>
@@ -228,6 +255,14 @@ const CourtAQueue = () => {
 					</svg>
 					<div className="absolute w-[124px] top-[0px] left-[-42px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-right tracking-[0] leading-[normal]">
 						Your Position
+					</div>
+				</div>
+        }
+				{/* if group 2 full */}
+				{currentPos == -1 && currentQueue.group2.length == 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[496px] left-[283px] rounded-[20px]">
+					<div className="absolute w-[81px] bg-[#a6a6a6] h-[30px] rounded-[20px] pt-[2px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+						FULL
 					</div>
 				</div>
         }
@@ -263,16 +298,56 @@ const CourtAQueue = () => {
 					</div>
 				</div>
         }
+				{/* if group 3 full */}
+				{currentPos == -1 && currentQueue.group3.length == 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[548px] left-[283px] rounded-[20px]">
+					<div className="absolute w-[81px] bg-[#a6a6a6] h-[30px] rounded-[20px] pt-[2px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+						FULL
+					</div>
+				</div>
+        }
 
 
 				<div className="w-[137px] top-[600px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 4
 				</div>
-				<div className="absolute w-[81px] h-[30px] top-[598px] left-[283px] rounded-[20px]">
+				{/* if user is not in queue and the queue is not full group 4 button */}
+				{currentPos == -1 && currentQueue.group4.length < 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[598px] left-[284px] rounded-[20px]">
+						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group4_button}>
+						{isButtonClicked ? "Leave" : "Join"} 
+						</button>
+					</div>
+        }
+				{/* if user is in group 5 */}
+				{currentPos == 4 &&
+      		<div className="absolute w-[81px] h-[30px] top-[598px] left-[284px] rounded-[20px]">
+					<svg
+						className="absolute w-[65px] h-[50px] top-[-11px] left-[-92px]"
+						width="65"
+						height="50"
+						viewBox="0 0 65 50"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M27.0834 14.7087V23.042L51.2417 23.042L51.3229 27.2295L27.0834 27.2295V35.542L13.5417 25.1253L27.0834 14.7087Z"
+							fill="#0F6E42"
+						/>
+					</svg>
+					<div className="absolute w-[124px] top-[0px] left-[-42px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-right tracking-[0] leading-[normal]">
+						Your Position
+					</div>
+				</div>
+				}
+				{/* if group 4 full */}
+				{currentPos == -1 && currentQueue.group4.length == 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[598px] left-[283px] rounded-[20px]">
 					<div className="absolute w-[81px] bg-[#a6a6a6] h-[30px] rounded-[20px] pt-[2px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						FULL
 					</div>
 				</div>
+        }
+				
 
 				<div className="w-[137px] top-[650px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 5
@@ -305,6 +380,14 @@ const CourtAQueue = () => {
 					</div>
 				</div>
 				}
+				{/* if group 5 full */}
+				{currentPos == -1 && currentQueue.group5.length == 10 &&
+          <div className="absolute w-[81px] h-[30px] top-[646px] left-[283px] rounded-[20px]">
+					<div className="absolute w-[81px] bg-[#a6a6a6] h-[30px] rounded-[20px] pt-[2px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+						FULL
+					</div>
+				</div>
+        }
 				
 				{/* {currentPos ==-1 && currentQueue.group2.length < 10 &&
           <button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={toggleSlot}>

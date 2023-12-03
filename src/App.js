@@ -652,7 +652,7 @@ function App() {
 	const markwoodA = { //3 join groups, 1 full group, 1 group playing now 
 		group1: [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10],
 		group2: [user11, user12, user13, user14, user15, user16, user17],
-		group3: [user21, user22, user23, user24, user25, user26, user27],
+		group3: [user21, user22, user23, user24, user25, user26, user27, user28, user29, user30],
 		group4: [user31, user32, user33, user34],
 		group5: [openSpot],
 	}
