@@ -22,7 +22,7 @@ export const MainScreen = () => {
 				<div className="absolute w-[164px] top-[160px] left-[13px] [font-family:Gabarito] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Current Queues
 				</div>
-				<div className="absolute w-[354px] h-[98px] top-[192px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
+				<div className="absolute w-[354px] h-[98px] top-[192px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#0F6E42]">
 					<div
 						className="absolute w-[209px] h-[39px] top-[49px] left-[73px] rounded-[5px]"
 						onClick={navigateToPlay}>

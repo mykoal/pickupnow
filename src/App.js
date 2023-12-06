@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MainScreen } from "./Screens/MainScreen";
@@ -14,6 +13,7 @@ import JoinQueueScreen from "./Screens/JoinQueueScreen";
 import CourtAQueue from "./Screens/CourtAQueue";
 import CourtBQueue from "./Screens/CourtBQueue";
 import PottruckQueue from "./Screens/PottruckQueue";
+import FinishScreen from "./Screens/FinishScreen";
 
 export function removeFromQueue(courtId, user) {
 	// Get the queue data from local storage
@@ -137,6 +137,7 @@ function App() {
 				<Route path="/markwood_B" element={<CourtBQueue />} />
 				<Route path="/join_queue" element={<JoinQueueScreen />} />
 				<Route path="/pottruck_queue" element={<PottruckQueue />} />
+				<Route path="/finish" element={<FinishScreen />} />
 
 				{/* Add more routes as needed */}
 			</Routes>

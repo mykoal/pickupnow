@@ -7,11 +7,20 @@ import { addToQueue } from "../App.js";
 import { removeFromQueue } from "../App.js";
 
 const PottruckQueue = () => {
+	const [started, setStarted] = useState(false);
+
+	function toggleStart() {
+		setStarted((started) => !started);
+	}
+
 	let navigate = useNavigate();
 	const navigateToPlay = () => {
 		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
 	const navigateToHome = () => {
+		navigate("/"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
+	};
+	const navigateToFinish = () => {
 		navigate("/"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
 
@@ -35,11 +44,20 @@ const PottruckQueue = () => {
 				</div>
 
 				{/* code that will show when join end of queue is clicked */}
-				{/* <div
-					className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#0f6e42] hover:bg-[#06492a] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
-					onClick={navigateToHome}>
-					Finish
-				</div>
+				{/* {!started && (
+					<div
+						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#0f6e42] hover:bg-[#06492a] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+						onClick={toggleStart}>
+						Start
+					</div>
+				)}
+				{started && (
+					<div
+						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#ED7C7C] hover:bg-[#C84F4F] rounded-[20px] border-2 border-solid border-[#541010] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+						onClick={navigateToFinish}>
+						Finish
+					</div>
+				)}
 				<div className="w-[26px] h-[238px] top-[445px] left-[29px] bg-[#8db580] border-2 border-solid border-[#0f6e42] absolute rounded-[20px]" />
 				<div className="absolute w-[294px] h-[50px] top-[439px] left-[72px]">
 					<div className="w-[132px] top-[11px] left-0 [font-family:Gabarito] font-bold absolute text-[#0f6e42] text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">

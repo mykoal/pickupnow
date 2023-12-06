@@ -24,19 +24,19 @@ export const NavbarSettings = () => {
 			</div>
 			<div className="overlap-6">
 				<img
-					className="frame-7"
+					className="frame-7 hover:brightness-75"
 					alt="Play-Icon"
 					src="https://cdn.animaapp.com/projects/654bcd0c2b1a72c65fa055c0/releases/654bcddb5cad2d22b9e00caf/img/frame-1@2x.png"
 					onClick={navigateToPlay}
 				/>
 				<img
-					className="frame-8"
+					className="frame-8 hover:brightness-75"
 					alt="Settings-Icon"
 					src="https://cdn.animaapp.com/projects/654bcd0c2b1a72c65fa055c0/releases/654bcddb5cad2d22b9e00caf/img/frame-50@2x.png"
 					onClick={navigateToSettings}
 				/>
 				<img
-					className="frame-9"
+					className="frame-9 hover:brightness-75"
 					alt="Home-Icon"
 					src="https://cdn.animaapp.com/projects/654bcd0c2b1a72c65fa055c0/releases/654bcd39bb999b9d6dfbb389/img/frame-2@2x.png"
 					onClick={navigateToHome}
