@@ -1,4 +1,6 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
+
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
@@ -62,37 +64,62 @@ export const Markwood = () => {
 					<div className="top-[58px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Court Lines:
 					</div>
-					<img
-						className="top-[10px] absolute w-[131px] h-[23px] left-[195px]"
-						alt="Group"
-						src="https://cdn.animaapp.com/projects/6548013c7fdc3538947dcc9e/releases/654e98f02540041bb7fc102b/img/group-1@2x.png"
-					/>
-					<img
-						className="top-[56px] absolute w-[131px] h-[23px] left-[195px]"
-						alt="Group"
-						src="https://cdn.animaapp.com/projects/6548013c7fdc3538947dcc9e/releases/654e98f02540041bb7fc102b/img/group-2@2x.png"
-					/>
-					<img
-						className="top-[154px] absolute w-[131px] h-[23px] left-[195px]"
-						alt="Group"
-						src="https://cdn.animaapp.com/projects/6548013c7fdc3538947dcc9e/releases/654e98f02540041bb7fc102b/img/group-4@2x.png"
-					/>
-					<img
-						className="top-[104px] absolute w-[131px] h-[23px] left-[195px]"
-						alt="Group"
-						src="https://cdn.animaapp.com/projects/6548013c7fdc3538947dcc9e/releases/654e98f02540041bb7fc102b/img/group-3@2x.png"
-					/>
+					<div className="top-[5px] absolute w-[140px] h-[23px] left-[195px]">
+						<ReactStars
+							count={5}
+							size={26}
+							isHalf={true}
+							color="#D6E3D0"
+							activeColor="#FEC700"
+							edit={false}
+							value={courtRatings.night_lighting}
+						/>
+					</div>
+					<div className="top-[51px] absolute w-[140px] h-[23px] left-[195px]">
+						<ReactStars
+							count={5}
+							size={26}
+							isHalf={true}
+							color="#D6E3D0"
+							activeColor="#FEC700"
+							edit={false}
+							value={courtRatings.court_lines}
+						/>
+					</div>
+					<div className="top-[99px] absolute w-[140px] h-[23px] left-[195px]">
+						<ReactStars
+							count={5}
+							size={26}
+							isHalf={true}
+							color="#D6E3D0"
+							activeColor="#FEC700"
+							edit={false}
+							value={courtRatings.court_surface}
+						/>
+					</div>
+					<div className="top-[149px] absolute w-[140px] h-[23px] left-[195px]">
+						<ReactStars
+							count={5}
+							size={26}
+							isHalf={true}
+							color="#D6E3D0"
+							activeColor="#FEC700"
+							edit={false}
+							value={courtRatings.court_net}
+						/>
+					</div>
+
 					<div className="top-[12px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						4
+						{courtRatings["night_lighting"]}
 					</div>
 					<div className="top-[58px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						4.2
+						{courtRatings["court_lines"]}
 					</div>
 					<div className="top-[107px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						3.5
+						{courtRatings["court_surface"]}
 					</div>
 					<div className="top-[155px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						4.5
+						{courtRatings["court_net"]}
 					</div>
 					<p className="absolute w-[354px] h-[23px] top-[195px] left-0 [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
 						Based on your previous or other users' reviews. You can

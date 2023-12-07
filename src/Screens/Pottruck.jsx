@@ -1,6 +1,5 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
-
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
@@ -105,7 +104,7 @@ const Pottruck = () => {
 							color="#D6E3D0"
 							activeColor="#FEC700"
 							edit={false}
-							value={courtRatings.court_lines}
+							value={courtRatings.court_net}
 						/>
 					</div>
 
