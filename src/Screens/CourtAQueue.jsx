@@ -32,7 +32,7 @@ const CourtAQueue = () => {
 
 	// State variables for the slot and the button
 	const [slot, setSlot] = useState("Michael Li");
-	const [isButtonClicked, setIsButtonClicked] = useState(false);
+	const [isButtonClicked, setIsButtonClicked] = useState(currentPos != -1);
 
 	// Function to join or leave the slot
 	const group2_button = () => {
@@ -44,6 +44,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = 2;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "markwoodA");
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group2;
@@ -52,6 +53,8 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = -1;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "NONE");
+
 			setIsButtonClicked(false);
 		}
 	};
@@ -65,6 +68,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = 3;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "markwoodA");
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group3;
@@ -73,6 +77,8 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = -1;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "NONE");
+
 			setIsButtonClicked(false);
 		}
 	};
@@ -86,6 +92,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = 4;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "markwoodA");
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group4;
@@ -94,6 +101,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = -1;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "NONE");
 			setIsButtonClicked(false);
 		}
 	};
@@ -107,6 +115,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = 5;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "markwoodA");
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group5;
@@ -115,6 +124,7 @@ const CourtAQueue = () => {
 			localStorage.setItem("markwoodA", JSON.stringify(currentQueue));
 			currentPos = -1;
 			localStorage.setItem("currentPos", currentPos);
+			localStorage.setItem("currentQueue", "NONE");
 			setIsButtonClicked(false);
 		}
 	};

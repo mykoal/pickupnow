@@ -55,13 +55,13 @@ const PlayScreen = () => {
 				</div>
 				<div className="absolute w-[360px] h-[60px] top-[154px] left-[17px]">
 					<div className="absolute w-[220px] h-[55px] top-[5px] left-3 bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580]" />
-					<div className="absolute w-[332px] top-[19px] left-[24px] [font-family:'Gabarito',Helvetica] font-normal text-slate-300	 text-[20px] tracking-[0] leading-[normal]">
+					<div className="absolute w-[332px] top-[19px] left-[24px] [font-family:Gabarito] font-normal text-slate-300	 text-[20px] tracking-[0] leading-[normal]">
 						Search
 					</div>
-					<div className="absolute w-[55px] top-0 left-[240px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+					<div className="absolute w-[55px] top-0 left-[240px] [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						Sport
 					</div>
-					<div className="absolute w-[55px] top-0 left-[305px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+					<div className="absolute w-[55px] top-0 left-[305px] [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						Filter
 					</div>
 					<img
@@ -76,24 +76,24 @@ const PlayScreen = () => {
 					/>
 				</div>
 				<NavbarPlay></NavbarPlay>
-				<div className="absolute w-[311px] top-[506px] left-[35px] [font-family:'Gabarito',Helvetica] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+				<div className="absolute w-[311px] top-[506px] left-[35px] [font-family:Gabarito] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Saved Complexes:
 				</div>
 				<img
-					className="top-[559px] absolute w-[20px] h-[20px] left-[332px] object-cover"
+					className="top-[559px] absolute w-[20px] h-[20px] left-[332px] object-cover z-[999]"
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
 				<img
-					className="top-[608px] absolute w-[20px] h-[20px] left-[332px] object-cover"
+					className="top-[608px] absolute w-[20px] h-[20px] left-[332px] object-cover z-[999]"
 					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
 				/>
 				<p
-					className="absolute w-[253px] h-[40px] top-[556px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+					className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[549px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
 					onClick={navigateToMarkwood}>
 					Markwood Playground
 				</p>
 				<p
-					className="absolute w-[253px] h-[40px] top-[605px] left-[35px] [font-family:'Gabarito',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+					className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[598px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
 					onClick={navigateToPotruck}>
 					Potruck Gymnasium
 				</p>

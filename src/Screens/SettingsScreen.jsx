@@ -12,7 +12,7 @@ const SettingsScreen = () => {
 	// const [sport, setSport] = useState(storedUserData.sports || "");
 	// const [skillLevel, setSkillLevel] = useState(storedUserData.level || "");
 
-	const userData = JSON.parse(localStorage.getItem("userData"));
+	const userData = JSON.parse(localStorage.getItem("currentUser"));
 	// const handleDistanceChange = (e) => {
 	//   const newDistance = e.target.value;
 	//   setDistance(newDistance);
