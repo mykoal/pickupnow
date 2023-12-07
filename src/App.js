@@ -766,11 +766,12 @@ function App() {
 		group4: [openSpot],
 		group5: [openSpot],
 	};
+
 	const markwood_Condition = {
-		night_lighting: 4,
-		court_lines: 4.2,
-		court_surface: 3.5,
-		court_net: 4.5,
+		night_lighting: 1,
+		court_lines: 2,
+		court_surface: 3,
+		court_net: 4,
 	};
 
 	//pottrcuk has 1 court
@@ -784,9 +785,9 @@ function App() {
 	};
 	const pottruck_Condition = {
 		night_lighting: 4,
-		court_lines: 4.2,
-		court_surface: 3.5,
-		court_net: 4.5,
+		court_lines: 3,
+		court_surface: 4,
+		court_net: 3.5,
 	};
 
 	//samson court: 1
@@ -854,10 +855,10 @@ function App() {
 		],
 	};
 	const samson_Condition = {
-		night_lighting: 4,
-		court_lines: 4.2,
-		court_surface: 3.5,
-		court_net: 4.5,
+		night_lighting: 0,
+		court_lines: 0,
+		court_surface: 0,
+		court_net: 0,
 	};
 
 	//Palestra court: 1
@@ -925,10 +926,10 @@ function App() {
 		],
 	};
 	const palestra_Condition = {
-		night_lighting: 4,
-		court_lines: 4.2,
-		court_surface: 3.5,
-		court_net: 4.5,
+		night_lighting: 5,
+		court_lines: 5,
+		court_surface: 5,
+		court_net: 5,
 	};
 
 	useEffect(() => {

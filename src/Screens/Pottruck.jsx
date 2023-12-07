@@ -3,6 +3,8 @@ import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
 const Pottruck = () => {
+	const courtRatings = JSON.parse(localStorage.getItem("pottruck_Condition"));
+
 	let navigate = useNavigate();
 	const navigateToCreateQueue = () => {
 		console.log(
@@ -22,6 +24,7 @@ const Pottruck = () => {
 	};
 
 	const navigateToPlay = () => {
+		console.log(courtRatings["court_net"]);
 		navigate("/play");
 	};
 
@@ -42,12 +45,12 @@ const Pottruck = () => {
 					Complex Conditions
 				</div>
 				<div className="absolute w-[354px] h-[190px] top-[180px] left-[21px]">
-					<div className="top-0 rounded-[5px_5px_0px_0px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
+					<div className="top-0 rounded-[15px_15px_0px_0px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
 					<div className="absolute w-[332px] h-[40px] top-[12px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Night Lighting:
 					</div>
 
-					<div className="top-[141px] rounded-[0px_0px_5px_5px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
+					<div className="top-[141px] rounded-[0px_0px_15px_15px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
 					<div className="top-[155px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Court Net:
 					</div>
@@ -86,17 +89,21 @@ const Pottruck = () => {
 					/>
 
 					<div className="top-[12px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						4.0
+						{courtRatings["night_lighting"]}
 					</div>
 					<div className="top-[58px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						3.0
+						{courtRatings["court_lines"]}
 					</div>
 					<div className="top-[107px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						4.0
+						{courtRatings["court_surface"]}
 					</div>
 					<div className="top-[155px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-						3.5
+						{courtRatings["court_net"]}
 					</div>
+					<p className="absolute w-[354px] h-[23px] top-[195px] left-0 [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
+						Based on user reviews. You will be able to review this
+						complex after you have finished a game here.
+					</p>
 				</div>
 
 				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">

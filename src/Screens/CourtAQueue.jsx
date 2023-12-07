@@ -32,7 +32,9 @@ const CourtAQueue = () => {
 
 	// State variables for the slot and the button
 	const [slot, setSlot] = useState("Michael Li");
-	const [isButtonClicked, setIsButtonClicked] = useState(currentPos != -1);
+	const [isButtonClicked, setIsButtonClicked] = useState(
+		localStorage.getItem("currentQueue") == "markwoodA"
+	);
 
 	// Function to join or leave the slot
 	const group2_button = () => {
@@ -202,11 +204,14 @@ const CourtAQueue = () => {
 					</div>
 					<div className="absolute w-[203px] top-[137px] left-[45px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
 						{currentPos != -1
-							? (currentPos - 1) * 30 + " Min Wait"
+							? (currentPos - 1) * 30 + " Mins Wait"
 							: "Not in Queue"}
 					</div>
+
 					<p className="absolute w-[203px] top-[167px] left-[45px] [font-family:Gabarito] font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]">
-						Click “Join” or “Join End of Queue”
+						{isButtonClicked
+							? "Click “Leave” to leave queue"
+							: "Click “Join” or “Join End of Queue”"}
 					</p>
 				</div>
 				<div className="w-[26px] h-[238px] top-[445px] left-[29px] bg-[#8db580] border-2 border-solid border-[#0f6e42] absolute rounded-[20px]" />

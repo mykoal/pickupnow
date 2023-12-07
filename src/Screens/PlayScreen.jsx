@@ -8,7 +8,7 @@ const PlayScreen = () => {
 	const navigateToMarkwood = () => {
 		navigate("/markwood"); // '/markwood' is the path to your new screen
 	};
-	const navigateToPotruck = () => {
+	const navigateToPottruck = () => {
 		navigate("/pottruck"); // '/potruck' is the path to your new screen
 	};
 	const navigateToSamson = () => {
@@ -45,7 +45,7 @@ const PlayScreen = () => {
 					</div>
 					<div
 						className="!absolute !left-[23px] !top-[64px]"
-						onClick={navigateToPotruck}
+						onClick={navigateToPottruck}
 						title="Potruck Gymnasium">
 						<Pin />
 					</div>
@@ -94,8 +94,8 @@ const PlayScreen = () => {
 				</p>
 				<p
 					className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[598px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-					onClick={navigateToPotruck}>
-					Potruck Gymnasium
+					onClick={navigateToPottruck}>
+					Pottruck Gymnasium
 				</p>
 				<img
 					className="top-[545px] absolute w-[329px] h-px left-[32px] object-cover"
