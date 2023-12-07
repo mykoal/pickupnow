@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export const MainScreen = () => {
 	let currentPos = localStorage.getItem("currentPos"); //true if you are in a queue
+	let currentQueue = localStorage.getItem("currentQueue");
+
 	const [currentQueueName, setCurrentQueueName] = useState("NONE");
 
 	let navigate = useNavigate();
@@ -32,8 +34,7 @@ export const MainScreen = () => {
 				<div className="absolute w-[183px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 					Hi Michael!
 				</div>
-
-				{currentPos != -1 && (
+				{currentPos > 1 && (
 					<div className="absolute w-[293px] h-[206px] top-[300px] left-[50px]">
 						<div className="absolute w-[293px] top-0 left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 							Current Queues
@@ -60,6 +61,32 @@ export const MainScreen = () => {
 						</div>
 					</div>
 				)}
+				{currentPos == 1 && (
+					<div className="absolute w-[293px] h-[206px] top-[300px] left-[50px]">
+						<div className="absolute w-[293px] top-0 left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+							Current Queues
+						</div>
+						<div className="absolute w-[293px] h-[235px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
+						<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+							1
+						</div>
+						<div className="absolute w-[203px] top-[157px] left-[45px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-center tracking-[0] leading-[normal]">
+							Time to Play
+							{localStorage.getItem("currentQueue") ==
+								"markwoodA" && " at Markwood Court A"}
+							{localStorage.getItem("currentQueue") ==
+								"markwoodB" && " at Markwood Court B"}
+							{localStorage.getItem("currentQueue") ==
+								"pottruckA" && " at Pottruck Court A!"}
+						</div>
+						<div
+							className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-[215px] left-[45px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
+							onClick={navigateToQueue}>
+							Go To Queue
+						</div>
+					</div>
+				)}
+
 				{currentPos == -1 && (
 					<div className="absolute w-[353px] h-[98px] top-[400px] left-[19px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
 						<div className="absolute w-[353px] top-[-30px] left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">

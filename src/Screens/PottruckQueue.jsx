@@ -53,12 +53,10 @@ const PottruckQueue = () => {
 	}
 
 	let navigate = useNavigate();
-	const navigateToPlay = () => {
-		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
+	const navigateToPottruck = () => {
+		navigate("/Pottruck"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
-	const navigateToHome = () => {
-		navigate("/"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
-	};
+
 	const navigateToFinish = () => {
 		currentPos = -1;
 		localStorage.setItem("currentPos", currentPos);
@@ -80,7 +78,7 @@ const PottruckQueue = () => {
 				</div>
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
-					onClick={navigateToPlay}></div>
+					onClick={navigateToPottruck}></div>
 				<div className="absolute w-[255px] top-[383px] left-[29px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Pottruck — Court A
 				</div>
@@ -142,7 +140,7 @@ const PottruckQueue = () => {
 								1
 							</div>
 							<div className="absolute w-[203px] top-[137px] left-[45px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-center tracking-[0] leading-[normal]">
-								Time To Play!
+								Time to Play!
 							</div>
 						</div>
 					)}

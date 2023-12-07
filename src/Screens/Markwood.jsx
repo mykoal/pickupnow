@@ -56,11 +56,11 @@ export const Markwood = () => {
 					</div>
 					<div className="top-[94px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
 					<div className="top-[107px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
-						Court surface:
+						Court Surface:
 					</div>
 					<div className="top-[47px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
 					<div className="top-[58px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
-						Court lines:
+						Court Lines:
 					</div>
 					<img
 						className="top-[10px] absolute w-[131px] h-[23px] left-[195px]"
@@ -95,22 +95,22 @@ export const Markwood = () => {
 						4.5
 					</div>
 					<p className="absolute w-[354px] h-[23px] top-[195px] left-0 [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
-						Based on user reviews. You will be able to review this
-						complex after you have finished a game here.
+						Based on your previous or other users' reviews. You can
+						this complex everytime you finish a game here.
 					</p>
 				</div>
 
-				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+				<div className="absolute w-[311px] top-[435px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Select a Court
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
+				<div className="absolute w-[295px] h-[39px] top-[449px] left-[48px] rounded-[20px]">
 					<div
 						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
 						onClick={navigateToCourtA}>
 						Court A
 					</div>
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[500px] left-[49px] rounded-[20px]">
+				<div className="absolute w-[295px] h-[39px] top-[510px] left-[49px] rounded-[20px]">
 					<div
 						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
 						onClick={navigateToCourtB}>

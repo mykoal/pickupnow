@@ -13,22 +13,38 @@ const FinishScreen = () => {
 		JSON.parse(localStorage.getItem("pottruck_Condition")) || {};
 
 	const handleLightRating = (newRating) => {
-		courtRatings["night_lighting"] = newRating;
+		courtRatings.night_lighting = newRating;
+		localStorage.setItem(
+			"pottruck_Condition",
+			JSON.stringify(courtRatings)
+		);
 		setRatingLight(newRating);
 	};
 
 	const handleLinesRating = (newRating) => {
-		courtRatings["court_lines"] = newRating;
+		courtRatings.court_lines = newRating;
+		localStorage.setItem(
+			"pottruck_Condition",
+			JSON.stringify(courtRatings)
+		);
 		setRatingLines(newRating);
 	};
 
 	const handleSurfaceRating = (newRating) => {
-		courtRatings["court_surface"] = newRating;
+		courtRatings.court_surface = newRating;
+		localStorage.setItem(
+			"pottruck_Condition",
+			JSON.stringify(courtRatings)
+		);
 		setRatingSurface(newRating);
 	};
 
 	const handleNetRating = (newRating) => {
-		courtRatings["court_net"] = newRating;
+		courtRatings.court_net = newRating;
+		localStorage.setItem(
+			"pottruck_Condition",
+			JSON.stringify(courtRatings)
+		);
 		setRatingNet(newRating);
 	};
 
@@ -80,7 +96,7 @@ const FinishScreen = () => {
 					Pottruck Gymnasium
 				</div>
 
-				<p className="absolute w-[354px] h-[23px] top-[547px] left-[20px] [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
+				<p className="absolute w-[354px] h-[23px] top-[530px] left-[20px] [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
 					Your Reviews Help Create a More Informed Experience for
 					Everyone!
 				</p>

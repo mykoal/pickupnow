@@ -47,11 +47,8 @@ const CourtBQueue = () => {
 	};
 
 	let navigate = useNavigate();
-	const navigateToPlay = () => {
-		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
-	};
-	const navigateToHome = () => {
-		navigate("/"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
+	const navigateToMarkwood = () => {
+		navigate("/markwood"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
 
 	// Function to calculate the position of the circle in the queue visualization
@@ -68,7 +65,7 @@ const CourtBQueue = () => {
 				</div>
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
-					onClick={navigateToPlay}></div>
+					onClick={navigateToMarkwood}></div>
 				<div className="absolute w-[255px] top-[383px] left-[29px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Markwood — Court B
 				</div>
