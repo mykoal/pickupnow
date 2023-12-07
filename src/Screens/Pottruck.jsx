@@ -123,7 +123,7 @@ const Pottruck = () => {
 					</div>
 					<p className="absolute w-[354px] h-[23px] top-[195px] left-0 [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
 						Based on your previous or other users' reviews. You can
-						this complex everytime you finish a game here.
+						review this complex every time you finish a game here.
 					</p>
 				</div>
 
