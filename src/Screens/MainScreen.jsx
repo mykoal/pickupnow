@@ -23,8 +23,12 @@ export const MainScreen = () => {
 			navigate("/markwood_A");
 		} else if (localStorage.getItem("currentQueue") == "markwoodB") {
 			navigate("/markwood_B");
-		} else {
+		} else if (localStorage.getItem("currentQueue") == "pottruckA") {
 			navigate("/pottruck_queue");
+		} else if (localStorage.getItem("currentQueue") == "samsonA") {
+			navigate("/samson");
+		} else {
+			navigate("/palestra");
 		}
 	};
 
@@ -35,54 +39,80 @@ export const MainScreen = () => {
 					Hi Michael!
 				</div>
 				{currentPos > 1 && (
-					<div className="absolute w-[293px] h-[206px] top-[300px] left-[50px]">
-						<div className="absolute w-[293px] top-0 left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-							Current Queues
+					<div>
+						<div className="absolute w-[293px] h-[98px] top-[200px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
+							<div className="absolute w-[293px] top-[-30px] left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+								Current Queues
+							</div>
+							<div
+								className="absolute w-[209px] h-[39px] top-[45px] left-[45px] rounded-[5px]"
+								onClick={navigateToQueue}>
+								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+									Go to Queue
+								</div>
+							</div>
+							<p className="absolute w-[293px] top-[13px] left-0 [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal]">
+								You are currently in Queue.
+							</p>
 						</div>
-						<div className="absolute w-[293px] h-[235px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
-						<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-black text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-							{currentPos != -1 ? currentPos : "?"}
-						</div>
-						<div className="absolute w-[203px] top-[157px] left-[45px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
-							{currentPos != -1
-								? (currentPos - 1) * 30 + " Mins Wait"
-								: "Not in Queue"}
-							{localStorage.getItem("currentQueue") ==
-								"markwoodA" && " at Markwood Court A"}
-							{localStorage.getItem("currentQueue") ==
-								"markwoodB" && " at Markwood Court B"}
-							{localStorage.getItem("currentQueue") ==
-								"pottruckA" && " at Pottruck Court A"}
-						</div>
-						<div
-							className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-[215px] left-[45px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
-							onClick={navigateToQueue}>
-							Go To Queue
+						<div className="absolute w-[293px] h-[200px] top-[300px] left-[50px]">
+							<div className="absolute w-[293px] h-[200px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
+							<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-black text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+								{currentPos != -1 ? currentPos : "?"}
+							</div>
+							<div className="absolute w-[203px] top-[157px] left-[45px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
+								{currentPos != -1
+									? (currentPos - 1) * 30 + " Mins Wait"
+									: "Not in Queue"}
+								{localStorage.getItem("currentQueue") ==
+									"markwoodA" && " at Markwood Court A"}
+								{localStorage.getItem("currentQueue") ==
+									"markwoodB" && " at Markwood Court B"}
+								{localStorage.getItem("currentQueue") ==
+									"pottruckA" && " at Pottruck Court A"}
+								{localStorage.getItem("currentQueue") ==
+									"samsonA" && " at Samson Court A"}
+								{localStorage.getItem("currentQueue") ==
+									"palestraA" && " at Palestra Court A"}
+							</div>
 						</div>
 					</div>
 				)}
 				{currentPos == 1 && (
-					<div className="absolute w-[293px] h-[206px] top-[300px] left-[50px]">
-						<div className="absolute w-[293px] top-0 left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-							Current Queues
+					<div>
+						<div className="absolute w-[293px] h-[98px] top-[200px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
+							<div className="absolute w-[293px] top-[-30px] left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+								Current Queues
+							</div>
+							<div
+								className="absolute w-[209px] h-[39px] top-[45px] left-[45px] rounded-[5px]"
+								onClick={navigateToQueue}>
+								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+									Go to Queue
+								</div>
+							</div>
+							<p className="absolute w-[293px] top-[13px] left-0 [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal]">
+								You are currently in Queue.
+							</p>
 						</div>
-						<div className="absolute w-[293px] h-[235px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
-						<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-							1
-						</div>
-						<div className="absolute w-[203px] top-[157px] left-[45px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-center tracking-[0] leading-[normal]">
-							Time to Play
-							{localStorage.getItem("currentQueue") ==
-								"markwoodA" && " at Markwood Court A"}
-							{localStorage.getItem("currentQueue") ==
-								"markwoodB" && " at Markwood Court B"}
-							{localStorage.getItem("currentQueue") ==
-								"pottruckA" && " at Pottruck Court A!"}
-						</div>
-						<div
-							className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-[215px] left-[45px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
-							onClick={navigateToQueue}>
-							Go To Queue
+						<div className="absolute w-[293px] h-[200px] top-[300px] left-[50px]">
+							<div className="absolute w-[293px] h-[200px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
+							<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+								1
+							</div>
+							<div className="absolute w-[203px] top-[157px] left-[45px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[20px] text-center tracking-[0] leading-[normal]">
+								Time to Play
+								{localStorage.getItem("currentQueue") ==
+									"markwoodA" && " at Markwood Court A!"}
+								{localStorage.getItem("currentQueue") ==
+									"markwoodB" && " at Markwood Court B!"}
+								{localStorage.getItem("currentQueue") ==
+									"pottruckA" && " at Pottruck Court A!"}
+								{localStorage.getItem("currentQueue") ==
+									"samsonA" && " at Samson Court A!"}
+								{localStorage.getItem("currentQueue") ==
+									"palestraA" && " at Palestra Court A!"}
+							</div>
 						</div>
 					</div>
 				)}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 
 import { NavbarPlay } from "../Components/NavbarPlay";
@@ -6,7 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 export const Markwood = () => {
 	const courtRatings = JSON.parse(localStorage.getItem("markwood_Condition"));
+	const savedCourts = JSON.parse(localStorage.getItem("saved_Courts"));
 
+	const [saved, setSaved] = useState(savedCourts.markwood);
+
+	const save_button = () => {
+		if (!saved) {
+			savedCourts.markwood = true;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+			setSaved(true);
+		} else {
+			savedCourts.markwood = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+			setSaved(false);
+		}
+		window.location.reload(false);
+	};
 	let navigate = useNavigate();
 
 	const navigateToCreateQueue = () => {
@@ -41,6 +56,23 @@ export const Markwood = () => {
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 					Markwood
 				</div>
+				{!saved && (
+					<img
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[190px]"
+						alt="Bookmark empty"
+						onClick={save_button}
+						src="https://c.animaapp.com/cpXmVuHv/img/bookmark-empty@2x.png"
+					/>
+				)}
+
+				{saved && (
+					<img
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[190px]"
+						alt="Bookmark filled"
+						onClick={save_button}
+						src="https://c.animaapp.com/cpXmVuHv/img/vector.svg"
+					/>
+				)}
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
 					onClick={navigateToPlay}></div>
@@ -121,7 +153,7 @@ export const Markwood = () => {
 					<div className="top-[155px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
 						{courtRatings["court_net"]}
 					</div>
-					<p className="absolute w-[354px] h-[23px] top-[195px] left-0 [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
+					<p className="absolute w-[370px] h-[23px] top-[195px] left-[-5px] [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
 						Based on your previous or other users' reviews. You can
 						review this complex every time you finish a game here.
 					</p>

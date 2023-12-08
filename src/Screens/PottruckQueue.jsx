@@ -157,9 +157,15 @@ const PottruckQueue = () => {
 					)}
 
 					<p className="absolute w-[203px] top-[167px] left-[45px] [font-family:Gabarito] font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]">
-						{isJoinButtonClicked
-							? "Once you have enough players in your team. Click “Start” to start playing."
-							: "Click “Join” or “Join End of Queue”"}
+						{startedGame
+							? "Click “Finish” to finish your game"
+							: ""}
+						{isJoinButtonClicked && !startedGame
+							? "Once you have enough players in your team, click “Start” to start playing."
+							: ""}
+						{!isJoinButtonClicked
+							? "Click “Join” or “Join End of Queue”"
+							: ""}
 					</p>
 				</div>
 				<div className="w-[339px] h-[2px] top-[425px] left-[27px] bg-[#0f6e42] absolute rounded-[20px]" />

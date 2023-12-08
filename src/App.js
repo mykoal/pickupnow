@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MainScreen } from "./Screens/MainScreen";
@@ -768,8 +768,8 @@ function App() {
 	};
 
 	const markwood_Condition = {
-		night_lighting: 1,
-		court_lines: 2,
+		night_lighting: 5,
+		court_lines: 4.5,
 		court_surface: 3,
 		court_net: 4,
 	};
@@ -932,6 +932,15 @@ function App() {
 		court_net: 5,
 	};
 
+	const saved_Courts = {
+		markwood: true,
+		pottruck: true,
+		samson: false,
+		palestra: false,
+	};
+
+	const numSaved = 2;
+
 	useEffect(() => {
 		// If user data is not in local storage, set the initial data
 
@@ -1014,6 +1023,11 @@ function App() {
 				"palestra_Condition",
 				JSON.stringify(palestra_Condition)
 			);
+		}
+
+		const stored_saved_Courts = localStorage.getItem("saved_Courts");
+		if (!stored_saved_Courts) {
+			localStorage.setItem("saved_Courts", JSON.stringify(saved_Courts));
 		}
 	});
 

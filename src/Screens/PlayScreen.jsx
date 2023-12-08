@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pin } from "../Components/Pin";
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
 const PlayScreen = () => {
+	const savedCourts = JSON.parse(localStorage.getItem("saved_Courts"));
+
 	let navigate = useNavigate();
 	const navigateToMarkwood = () => {
 		navigate("/markwood"); // '/markwood' is the path to your new screen
@@ -19,6 +21,35 @@ const PlayScreen = () => {
 	};
 	const navigateToHome = () => {
 		navigate("/"); // '/potruck' is the path to your new screen
+	};
+
+	const navigateToCourt = (court) => {
+		if (court == "markwood") {
+			navigate("/markwood");
+		} else if (court == "pottruck") {
+			navigate("/pottruck");
+		} else if (court == "samson") {
+			navigate("/samson");
+		} else {
+			navigate("/palestra");
+		}
+	};
+
+	const handleUnsave = (court) => {
+		if (court == "markwood") {
+			savedCourts.markwood = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+		} else if (court == "pottruck") {
+			savedCourts.pottruck = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+		} else if (court == "samson") {
+			savedCourts.samson = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+		} else {
+			savedCourts.palestra = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+		}
+		window.location.reload(false);
 	};
 
 	return (
@@ -79,34 +110,138 @@ const PlayScreen = () => {
 				<div className="absolute w-[311px] top-[506px] left-[35px] [font-family:Gabarito] font-bold text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Saved Complexes:
 				</div>
+
 				<img
-					className="top-[559px] absolute w-[20px] h-[20px] left-[332px] object-cover z-[999]"
-					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+					className="top-[545px] absolute w-[329px] left-[32px] object-cover"
+					alt="Line"
+					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
 				/>
-				<img
-					className="top-[608px] absolute w-[20px] h-[20px] left-[332px] object-cover z-[999]"
-					src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
-				/>
-				<p
-					className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[549px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-					onClick={navigateToMarkwood}>
-					Markwood Playground
-				</p>
-				<p
-					className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[598px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
-					onClick={navigateToPottruck}>
-					Pottruck Gymnasium
-				</p>
-				<img
-					className="top-[545px] absolute w-[329px] h-px left-[32px] object-cover"
+				{/* <img
+					className="top-[593px] absolute w-[329px] left-[32px] object-cover"
 					alt="Line"
 					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
 				/>
 				<img
-					className="top-[593px] absolute w-[329px] h-px left-[32px] object-cover"
+					className="top-[641px] absolute w-[329px] h-px left-[32px] object-cover"
 					alt="Line"
 					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
 				/>
+				<img
+					className="top-[689px] absolute w-[329px] h-px left-[32px] object-cover"
+					alt="Line"
+					src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
+				/> */}
+
+				<ul className="absolute w-[329px] top-[549px] left-[32px]">
+					{Object.keys(savedCourts).map((court) => {
+						if (savedCourts[court]) {
+							let courtName = "";
+							switch (court) {
+								case "markwood":
+									courtName = "Markwood Playground";
+									break;
+								case "pottruck":
+									courtName = "Pottruck Gymnasium";
+									break;
+								case "samson":
+									courtName = "Samson Courts";
+									break;
+								case "palestra":
+									courtName = "The Palestra";
+									break;
+								default:
+									courtName = court;
+							}
+							return (
+								<li key={court}>
+									<div className="flex">
+										<p
+											className="w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] left-[32px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px]"
+											onClick={() =>
+												navigateToCourt(court)
+											}>
+											{courtName}
+										</p>
+										<img
+											className="hover:w-[23px] hover:h-[23px] w-[20px] h-[20px] left-[200px] mt-[8px] object-cover z-[999]"
+											alt="save"
+											onClick={() => handleUnsave(court)}
+											src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+										/>
+									</div>
+									<img
+										className="w-[329px] left-[32px] my-[5px] object-cover"
+										alt="Line"
+										src="https://c.animaapp.com/q1G78Bfk/img/line-1.svg"
+									/>
+								</li>
+							);
+						}
+					})}
+				</ul>
+				{/*
+				{savedCourts.markwood && (
+					<div>
+						<img
+							className="top-[559px] absolute hover:w-[23px] hover:h-[23px] w-[20px] h-[20px] left-[332px] object-cover z-[999]"
+							alt="save"
+							onClick={() => handleUnsave("markwood")}
+							src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+						/>
+						<p
+							className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[549px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+							onClick={navigateToMarkwood}>
+							Markwood Playground
+						</p>
+					</div>
+				)}
+				{savedCourts.pottruck && (
+					<div>
+						<img
+							className="top-[608px] hover:w-[23px] hover:h-[23px] absolute w-[20px] h-[20px] left-[332px] object-cover z-[999]"
+							alt="save"
+							onClick={() => handleUnsave("pottruck")}
+							src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+						/>
+						<p
+							className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] top-[598px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+							onClick={navigateToPottruck}>
+							Pottruck Gymnasium
+						</p>
+					</div>
+				)}
+				{savedCourts.samson && (
+					<div>
+						<img
+							className="top-[657px] absolute hover:w-[23px] hover:h-[23px] w-[20px] h-[20px] left-[332px] object-cover z-[999]"
+							alt="save"
+							onClick={() => handleUnsave("samson")}
+							src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+						/>
+						<p
+							className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4]  top-[647px] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+							onClick={navigateToSamson}>
+							Samson Courts
+						</p>
+					</div>
+				)}
+
+				{savedCourts.palestra && (
+					<div>
+						<img
+							className="top-[706px] absolute hover:w-[23px] hover:h-[23px] w-[20px] h-[20px] top-[696px] left-[332px] object-cover z-[999]"
+							alt="save"
+							onClick={() => handleUnsave("palestra")}
+							src="https://c.animaapp.com/q1G78Bfk/img/image-19@2x.png"
+						/>
+						<p
+							className="absolute w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] left-[28px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]"
+							onClick={navigateToPalestra}>
+							The Palestra
+						</p>
+					</div>
+				)} */}
+
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
 					onClick={navigateToHome}></div>
