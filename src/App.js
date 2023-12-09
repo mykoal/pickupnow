@@ -9,11 +9,21 @@ import SettingsScreen from "./Screens/SettingsScreen";
 import { Markwood } from "./Screens/Markwood";
 import Pottruck from "./Screens/Pottruck";
 import Samson from "./Screens/Samson";
-import Palestra from "./Screens/Palestra";
+import { Palestra } from "./Screens/Palestra";
 import JoinQueueScreen from "./Screens/JoinQueueScreen";
-import CourtAQueue from "./Screens/CourtAQueue";
-import CourtBQueue from "./Screens/CourtBQueue";
+import MarkwoodAScreen from "./Screens/MarkwoodAScreen";
+import MarkwoodBScreen from "./Screens/MarkwoodBScreen";
+import PalestraAScreen from "./Screens/PalestraAScreen";
 import PottruckQueue from "./Screens/PottruckQueue";
+
+//Finished screens
+//MarkwoodA
+//Palestra
+//Markwood
+//MarkwoodB
+
+
+
 
 // export function removeFromQueue(courtId, user) {
 // 	// Get the queue data from local storage
@@ -797,8 +807,9 @@ function App() {
 				<Route path="/pottruck" element={<Pottruck />} />
 				<Route path="/samson" element={<Samson />} />
 				<Route path="/palestra" element={<Palestra />} />
-				<Route path="/markwood_A" element={<CourtAQueue />} />
-				<Route path="/markwood_B" element={<CourtBQueue />} />
+				<Route path="/palestra_A" element={<PalestraAScreen />} />
+				<Route path="/markwood_A" element={<MarkwoodAScreen />} />
+				<Route path="/markwood_B" element={<MarkwoodBScreen />} />
 				<Route path="/join_queue" element={<JoinQueueScreen />} />
 				<Route path="/pottruck_queue" element={<PottruckQueue />} />
 
