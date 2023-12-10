@@ -25,6 +25,8 @@ import FinishScreen from "./Screens/FinishScreen";
 //PalestraAScreen
 //Samson
 //SamsonAScreen
+//Pottruck
+//PuttruckAScreen
 
 
 
