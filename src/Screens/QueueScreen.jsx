@@ -6,6 +6,9 @@ import { NavbarPlay } from "../Components/NavbarPlay";
 //import { addToQueue } from "../App.js";
 //import { removeFromQueue } from "../App.js";
 const QueueScreen = () => {
+	
+
+
 	// Get the queue data from local storage
 	const queueData = JSON.parse(localStorage.getItem("courtQueue")) || {};
 

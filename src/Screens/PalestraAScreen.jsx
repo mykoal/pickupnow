@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { NavbarPlay } from "../Components/NavbarPlay.jsx";
-//import { thisUser } from "../App.js";
-// import { addToQueue } from "../App.js";
-// import { removeFromQueue } from "../App.js";
 
-const MarkwoodBScreen = () => {
+const PalestraAScreen = () => {
 	//-------------------------UPDATED------------------------------
 	//--------------------------------------------------------------
-	let currentQueue = JSON.parse(localStorage.getItem("markwoodB"))
+	let currentQueue = JSON.parse(localStorage.getItem("palestraA"))
 
 	let currentPos = localStorage.getItem('currentPos') //true if you are in a queue
 
@@ -21,24 +18,11 @@ const MarkwoodBScreen = () => {
 
 	// implement join end of queue if option is available
 	// implement joining first group if all queues are empty
-	// when joining a queue position, update CurrentQueue to be 'markwoodB'
+
 	//----
 
 
-
-
-
-
-
-
-
-
 	const [isButtonClicked, setIsButtonClicked] = useState(false);
-
-	useEffect(() => {
-    setIsButtonClicked(currentPos != -1);
-  }, []);
-
 
 	// Function to join or leave the slot
 	const group2_button = () => {
@@ -47,19 +31,17 @@ const MarkwoodBScreen = () => {
 			let temp = currentQueue.group2
 			temp.push(currentUser)
 			currentQueue.group2 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 2
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'markwoodB')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group2
 			temp.pop()
 			currentQueue.group2 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'NONE')
 			setIsButtonClicked(false);
 		}
 	};
@@ -70,19 +52,17 @@ const MarkwoodBScreen = () => {
 			let temp = currentQueue.group3
 			temp.push(currentUser)
 			currentQueue.group3 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 3
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'markwoodB')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group3
 			temp.pop()
 			currentQueue.group3 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'NONE')
 			setIsButtonClicked(false);
 		}
 	};
@@ -93,19 +73,17 @@ const MarkwoodBScreen = () => {
 			let temp = currentQueue.group4
 			temp.push(currentUser)
 			currentQueue.group4 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 4
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'markwoodB')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group4
 			temp.pop()
 			currentQueue.group4 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'NONE')
 			setIsButtonClicked(false);
 		}
 	};
@@ -116,19 +94,17 @@ const MarkwoodBScreen = () => {
 			let temp = currentQueue.group5
 			temp.push(currentUser)
 			currentQueue.group5 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 5
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'markwoodB')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group5
 			temp.pop()
 			currentQueue.group5 = temp
-			localStorage.setItem('markwoodB',JSON.stringify(currentQueue))
+			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
-			localStorage.setItem('currentQueue', 'NONE')
 			setIsButtonClicked(false);
 		}
 	};
@@ -137,9 +113,10 @@ const MarkwoodBScreen = () => {
 	let navigate = useNavigate();
 	const navigateToPlay = () => {
 		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
-	};	
+	};
+
 	return (
-			<div className="bg-white flex flex-row justify-center w-full">
+		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 					Join Queue
@@ -148,7 +125,7 @@ const MarkwoodBScreen = () => {
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
 					onClick={navigateToPlay}></div>
 				<div className="absolute w-[255px] top-[383px] left-[29px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-					Markwood — Court B
+					Palestra — Court A
 				</div>
 				
 				{/* Leave button */}
@@ -302,12 +279,12 @@ const MarkwoodBScreen = () => {
 				</div>
         }
 
-				{(currentQueue.group4[0].name != 'OPEN' || currentQueue.group4.length != 1) &&
+
 				<div className="w-[137px] top-[600px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 4
-				</div>}
+				</div>
 				{/* if user is not in queue and the queue is not full group 4 button */}
-				{currentPos == -1 && currentQueue.group4.length < 10 && (currentQueue.group4[0].name != 'OPEN' || currentQueue.group4.length != 1) &&
+				{currentPos == -1 && currentQueue.group4.length < 10 &&
           <div className="absolute w-[81px] h-[30px] top-[598px] left-[284px] rounded-[20px]">
 						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group4_button}>
 						{isButtonClicked ? "Leave" : "Join"} 
@@ -335,7 +312,7 @@ const MarkwoodBScreen = () => {
 				</div>
 				}
 				{/* if group 4 full */}
-				{currentPos == -1 && currentQueue.group4.length == 10 && 
+				{currentPos == -1 && currentQueue.group4.length == 10 &&
           <div className="absolute w-[81px] h-[30px] top-[598px] left-[283px] rounded-[20px]">
 					<div className="absolute w-[81px] bg-[#a6a6a6] h-[30px] rounded-[20px] pt-[2px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						FULL
@@ -343,12 +320,12 @@ const MarkwoodBScreen = () => {
 				</div>
         }
 				
-				{currentQueue.group4[0].name != 'OPEN' &&
+
 				<div className="w-[137px] top-[650px] left-[72px] [font-family:Gabarito] font-normal absolute text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Group 5
-				</div>}
+				</div>
 				{/* if user is not in queue and the queue is not full group 5 button */}
-				{currentPos == -1 && currentQueue.group5.length < 10 && currentQueue.group5[0].name != 'OPEN' &&
+				{currentPos == -1 && currentQueue.group5.length < 10 &&
           <div className="absolute w-[81px] h-[30px] top-[646px] left-[284px] rounded-[20px]">
 						<button className="absolute w-[81px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group5_button}>
 						{isButtonClicked ? "Leave" : "Join"} 
@@ -384,19 +361,12 @@ const MarkwoodBScreen = () => {
 				</div>
         }
 				
-				{currentPos == -1 && currentQueue.group4.length < 10 && currentQueue.group4[0].name == 'OPEN' &&
-          <div className="absolute w-[210px] h-[30px] top-[707px] left-[92px] rounded-[20px]">
-						<button className="absolute w-[210px] h-[30px] bg-[#0f6e42] border-2 border-solid border-[#053f24] hover:bg-[#06492a] h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap" onClick={group4_button}>
-						{!isButtonClicked ? "Join End of Queue" : "Leave"} 
-						</button>
-					</div>
-        }
-				{/* <div className="absolute w-[210px] h-[30px] top-[707px] left-[92px] rounded-[20px]">
+				<div className="absolute w-[210px] h-[30px] top-[707px] left-[92px] rounded-[20px]">
 					<div className="w-[210px] bg-[#a6a6a6] absolute h-[30px] top-0 left-0 rounded-[20px]" />
 					<div className="absolute w-[197px] top-[2px] left-[5px] [font-family:Gabarito] font-normal text-white text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 						Join End of Queue
 					</div>
-				</div> */}
+				</div>
 				<p className="absolute w-[194px] h-[23px] top-[683px] left-[100px] [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
 					Max of 5 Teams In Queue
 				</p>
@@ -406,4 +376,4 @@ const MarkwoodBScreen = () => {
 	);
 };
 
-export default MarkwoodBScreen;
+export default PalestraAScreen;

@@ -24,22 +24,6 @@ export const Markwood = () => {
 	};
 	let navigate = useNavigate();
 
-	const navigateToCreateQueue = () => {
-		console.log(
-			"Navigating to CreateQueueScreen with courtName:",
-			"Markwood Playground"
-		);
-		navigate("/create_queue", {
-			state: { courtName: "Markwood Playground" },
-		}); // '/create_queue' is the path to your new screen
-	};
-	const navigateToQueueScreen = () => {
-		console.log(
-			"Navigating to QueueScreen with courtName:",
-			"Markwood Playground"
-		);
-		navigate("/queue", { state: { courtName: "Markwood Playground" } }); // '/create_queue' is the path to your new screen
-	};
 	const navigateToPlay = () => {
 		navigate("/play"); // '/potruck' is the path to your new screen
 	};
@@ -49,6 +33,9 @@ export const Markwood = () => {
 	const navigateToCourtB = () => {
 		navigate("/markwood_B"); // '/potruck' is the path to your new screen
 	};
+
+	const currentQueue = localStorage.getItem('currentQueue')
+
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
@@ -162,19 +149,33 @@ export const Markwood = () => {
 				<div className="absolute w-[311px] top-[435px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Select a Court
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[449px] left-[48px] rounded-[20px]">
-					<div
-						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
-						onClick={navigateToCourtA}>
-						Court A
+
+				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
+					{(currentQueue != 'NONE' && currentQueue != 'markwoodA') ? 
+						<div
+						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
+						Leave Current Queue to View
+					</div>: 
+						<div
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+							onClick={navigateToCourtA}>
+							Court A
 					</div>
+					}
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[510px] left-[49px] rounded-[20px]">
-					<div
-						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
-						onClick={navigateToCourtB}>
-						Court B
-					</div>
+
+				<div className="absolute w-[295px] h-[39px] top-[500px] left-[49px] rounded-[20px]">
+					{(currentQueue != 'NONE' && currentQueue != 'markwoodB') ? 
+							<div
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
+							Leave Current Queue to View
+						</div>: 
+							<div
+								className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+								onClick={navigateToCourtB}>
+								Court B
+						</div>
+						}
 				</div>
 				<NavbarPlay></NavbarPlay>
 			</div>

@@ -20,7 +20,7 @@ const SettingsScreen = () => {
 	// };
 	// Function to handle the button click
 	const handleButtonClick = () => {
-		localStorage.clear();
+    localStorage.clear();
 		// Update the local storage value
 		// localStorage.setItem(
 		// 	"userData",
