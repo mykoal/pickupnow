@@ -64,11 +64,6 @@ const PottruckQueue = () => {
 		navigate("/finish"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
 
-	// Function to calculate the position of the circle in the queue visualization
-	const calculateCirclePosition = (totalPositions, yourPosition) => {
-		const percentage = (yourPosition / totalPositions) * 100;
-		return percentage + "%";
-	};
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">

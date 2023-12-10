@@ -14,14 +14,18 @@ import JoinQueueScreen from "./Screens/JoinQueueScreen";
 import MarkwoodAScreen from "./Screens/MarkwoodAScreen";
 import MarkwoodBScreen from "./Screens/MarkwoodBScreen";
 import PalestraAScreen from "./Screens/PalestraAScreen";
-import PottruckQueue from "./Screens/PottruckQueue";
+import PottruckAScreen from "./Screens/PottruckAScreen";
 import FinishScreen from "./Screens/FinishScreen";
 
 //Finished screens
-//MarkwoodA
+//MarkwoodAScreen
 //Palestra
 //Markwood
-//MarkwoodB
+//MarkwoodBScreen
+//PalestraAScreen
+//Samson
+//SamsonAScreen
+
 
 
 
@@ -742,10 +746,11 @@ function App() {
 				<Route path="/samson" element={<Samson />} />
 				<Route path="/palestra" element={<Palestra />} />
 				<Route path="/palestra_A" element={<PalestraAScreen />} />
+				<Route path="/samson_A" element={<PalestraAScreen />} />
 				<Route path="/markwood_A" element={<MarkwoodAScreen />} />
 				<Route path="/markwood_B" element={<MarkwoodBScreen />} />
 				<Route path="/join_queue" element={<JoinQueueScreen />} />
-				<Route path="/pottruck_queue" element={<PottruckQueue />} />
+				<Route path="/pottruck_queue" element={<PottruckAScreen />} />
 				<Route path="/finish" element={<FinishScreen />} />
 
 				{/* Add more routes as needed */}

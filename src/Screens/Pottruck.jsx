@@ -9,6 +9,8 @@ const Pottruck = () => {
 
 	const [saved, setSaved] = useState(savedCourts.pottruck);
 
+	const currentQueue = localStorage.getItem('currentQueue')
+
 	const save_button = () => {
 		if (!saved) {
 			savedCourts.pottruck = true;
@@ -23,29 +25,14 @@ const Pottruck = () => {
 	};
 
 	let navigate = useNavigate();
-	const navigateToCreateQueue = () => {
-		console.log(
-			"Navigating to CreateQueueScreen with courtName:",
-			"Markwood Playground"
-		);
-		navigate("/create_queue", {
-			state: { courtName: "Pottruck Gymaniusm" },
-		}); // '/create_queue' is the path to your new screen
-	};
-	const navigateToQueueScreen = () => {
-		console.log(
-			"Navigating to QueueScreen with courtName:",
-			"Pottruck Gymaniusm"
-		);
-		navigate("/queue", { state: { courtName: "Markwood Playground" } }); // '/create_queue' is the path to your new screen
-	};
+
 
 	const navigateToPlay = () => {
 		console.log(courtRatings["court_net"]);
 		navigate("/play");
 	};
 
-	const navigateToPottruckQueue = () => {
+	const navigateToCourtA = () => {
 		navigate("/pottruck_queue");
 	};
 
@@ -163,12 +150,18 @@ const Pottruck = () => {
 				<div className="absolute w-[311px] top-[435px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Select a Court
 				</div>
-				<div className="absolute w-[295px] h-[39px] top-[449px] left-[48px] rounded-[20px]">
-					<div
-						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
-						onClick={navigateToPottruckQueue}>
-						Court A
+				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
+					{(currentQueue != 'NONE' && currentQueue != 'pottruckA') ? 
+						<div
+						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
+						Leave Current Queue to View
+					</div>: 
+						<div
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+							onClick={navigateToCourtA}>
+							Court A
 					</div>
+					}
 				</div>
 
 				<NavbarPlay></NavbarPlay>
