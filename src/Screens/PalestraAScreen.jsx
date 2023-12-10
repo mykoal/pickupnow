@@ -24,6 +24,10 @@ const PalestraAScreen = () => {
 
 	const [isButtonClicked, setIsButtonClicked] = useState(false);
 
+	useEffect(() => {
+    setIsButtonClicked(currentPos != -1);
+  }, []);
+
 	// Function to join or leave the slot
 	const group2_button = () => {
 		if (!isButtonClicked) {
@@ -34,6 +38,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 2
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group2
@@ -42,6 +47,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(false);
 		}
 	};
@@ -55,6 +61,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 3
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group3
@@ -63,6 +70,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(false);
 		}
 	};
@@ -76,6 +84,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 4
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group4
@@ -84,6 +93,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(false);
 		}
 	};
@@ -97,6 +107,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = 5
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(true);
 		} else {
 			let temp = currentQueue.group5
@@ -105,6 +116,7 @@ const PalestraAScreen = () => {
 			localStorage.setItem('palestraA',JSON.stringify(currentQueue))
 			currentPos = -1
 			localStorage.setItem('currentPos', currentPos)
+			localStorage.setItem('currentQueue', 'palestraA')
 			setIsButtonClicked(false);
 		}
 	};

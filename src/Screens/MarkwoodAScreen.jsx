@@ -137,7 +137,7 @@ const MarkwoodAScreen = () => {
 	const navigateToPlay = () => {
 		navigate("/play"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};	
-	return (
+	return ( 
 			<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
