@@ -62,17 +62,17 @@ const QueueScreen = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<div className="absolute w-[164px] top-[100px] left-[13px] [font-family:'Gabarito',Helvetica] font-bold text-[27px] text-[black] tracking-[0] leading-[normal] whitespace-nowrap">
+				<div className="absolute w-[164px] top-[100px] left-[13px] [font-family:Gabarito] font-bold text-[27px] text-[black] tracking-[0] leading-[normal] whitespace-nowrap">
 					Current Queues
 				</div>
 				<div className="absolute w-[354px] h-[160px] top-[135px] left-[19px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
-					<p className="absolute w-[332px] top-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
+					<p className="absolute w-[332px] top-[10px] left-[10px] [font-family:Gabarito] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
 						You are currently
 					</p>
-					<p className="absolute w-[332px] top-[40px] left-[10px] [font-family:'Gabarito',Helvetica] font-bold text-[black] text-[60px] text-center tracking-[0] leading-[normal]">
+					<p className="absolute w-[332px] top-[40px] left-[10px] [font-family:Gabarito] font-bold text-[black] text-[60px] text-center tracking-[0] leading-[normal]">
 						{isButtonClicked ? "2nd" : "not"}
 					</p>
-					<p className="absolute w-[332px] bottom-[10px] left-[10px] [font-family:'Gabarito',Helvetica] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
+					<p className="absolute w-[332px] bottom-[10px] left-[10px] [font-family:Gabarito] font-normal text-[black] text-[15px] text-center tracking-[0] leading-[normal]">
 						in the court Queue
 					</p>
 				</div>
@@ -88,16 +88,16 @@ const QueueScreen = () => {
 					</svg>
 				</div>
 				<div className="absolute w-[320px] h-[400px] top-[310px] left-[50px] bg-[#f3fbef] rounded-[15px] border border-solid border-[#8db580]">
-					<div className="absolute w-[393px] h-[67px] top-[0px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
+					<div className="absolute w-[393px] h-[67px] top-[0px] left-[10px] text-[20px] text-[#0f6e42] [font-family:Gabarito] font-bold">
 						Now Playing
 					</div>
-					<div className="absolute w-[393px] h-[67px] top-[25px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
+					<div className="absolute w-[393px] h-[67px] top-[25px] left-[10px] text-[20px] text-[black] [font-family:Gabarito] font-normal">
 						{firstPerson} & {secondPerson}
 					</div>
-					<div className="absolute w-[393px] h-[67px] top-[85px] left-[10px] text-[20px] text-[#0f6e42] [font-family:'Gabarito',Helvetica] font-bold">
+					<div className="absolute w-[393px] h-[67px] top-[85px] left-[10px] text-[20px] text-[#0f6e42] [font-family:Gabarito] font-bold">
 						Up Next
 					</div>
-					<div className="absolute w-[393px] h-[67px] top-[110px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
+					<div className="absolute w-[393px] h-[67px] top-[110px] left-[10px] text-[20px] text-[black] [font-family:Gabarito] font-normal">
 						<b>
 							{thirdPerson} & {slot}
 						</b>
@@ -107,7 +107,7 @@ const QueueScreen = () => {
 							{isButtonClicked ? "Leave" : "Join"}
 						</button>
 					</div>
-					<div className="absolute w-[393px] h-[67px] top-[210px] left-[10px] text-[20px] text-[black] [font-family:'Gabarito',Helvetica] font-normal">
+					<div className="absolute w-[393px] h-[67px] top-[210px] left-[10px] text-[20px] text-[black] [font-family:Gabarito] font-normal">
 						{fifthPerson} & {sixthPerson}
 					</div>
 				</div>
