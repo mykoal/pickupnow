@@ -1,38 +1,366 @@
-.App {
-  text-align: center;
+.index {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.index .div {
+	background-color: #ffffff;
+	border: 1px none;
+	height: 852px;
+	overflow: hidden;
+	position: relative;
+	width: 393px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.index .overlap {
+	background-color: #f3fbef;
+	border-radius: 5px 0px 0px 0px;
+	height: 49px;
+	left: 20px;
+	position: absolute;
+	top: 404px;
+	width: 177px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.index .element {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 93px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 22px;
 }
 
-.App-link {
-  color: #61dafb;
+.index .text-wrapper {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.index .frame {
+	height: 25px;
+	left: 60px;
+	position: absolute;
+	top: 10px;
+	width: 25px;
+}
+
+.index .overlap-group {
+	background-color: #f3fbef;
+	border-radius: 0px 5px 0px 0px;
+	height: 49px;
+	left: 197px;
+	position: absolute;
+	top: 404px;
+	width: 177px;
+}
+
+.index .img {
+	height: 25px;
+	left: 41px;
+	position: absolute;
+	top: 12px;
+	width: 25px;
+}
+
+.index .english {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 72px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 65px;
+}
+
+.index .frame-wrapper {
+	background-color: #0f6e42;
+	border-radius: 30px;
+	height: 197px;
+	left: 89px;
+	position: absolute;
+	top: 129px;
+	width: 216px;
+}
+
+.index .frame-2 {
+	height: 160px;
+	left: 28px;
+	position: absolute;
+	top: 18px;
+	width: 160px;
+}
+
+.index .overlap-2 {
+	background-color: #f3fbef;
+	height: 49px;
+	left: 20px;
+	position: absolute;
+	top: 551px;
+	width: 354px;
+}
+
+.index .university-city {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 126px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 129px;
+}
+
+.index .frame-3 {
+	height: 25px;
+	left: 98px;
+	position: absolute;
+	top: 10px;
+	width: 25px;
+}
+
+.index .overlap-3 {
+	background-color: #f3fbef;
+	border-radius: 0px 0px 5px 5px;
+	height: 49px;
+	left: 20px;
+	position: absolute;
+	top: 600px;
+	width: 354px;
+}
+
+.index .frame-4 {
+	height: 25px;
+	left: 74px;
+	position: absolute;
+	top: 13px;
+	width: 25px;
+}
+
+.index .prefers-within {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 103px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 177px;
+}
+
+.index .overlap-4 {
+	background-color: #f3fbef;
+	height: 49px;
+	left: 20px;
+	position: absolute;
+	top: 502px;
+	width: 354px;
+}
+
+.index .frame-5 {
+	height: 25px;
+	left: 129px;
+	position: absolute;
+	top: 12px;
+	width: 25px;
+}
+
+.index .smartphone-signal {
+	height: 25px;
+	left: 14px;
+	position: absolute;
+	top: 9px;
+	width: 25px;
+}
+
+.index .novice {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 158px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 66px;
+}
+
+.search-result {
+	font-family: "Gabarito", Helvetica;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f3fbef;
+    border-radius: 5px;
+    border: 1px solid #8db580;
+	color: #000100; /* Change this to the color you want */
+
+}
+
+.search-result:hover {
+    background-color: #4e514e;
+}
+
+.index .group-wrapper {
+	background-color: #f3fbef;
+	height: 49px;
+	left: 20px;
+	position: absolute;
+	top: 453px;
+	width: 354px;
+}
+
+.index .group {
+	height: 40px;
+	left: 11px;
+	position: relative;
+	top: 5px;
+	width: 334px;
+}
+
+.index .overlap-group-2 {
+	height: 40px;
+	position: relative;
+	top: -1px;
+	width: 332px;
+}
+
+.index .vector {
+	height: 25px;
+	left: 6px;
+	position: absolute;
+	top: 8px;
+	width: 25px;
+}
+
+.index .basketball-tennis {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 40px;
+	left: 0;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 332px;
+}
+
+.index .overlap-5 {
+	height: 48px;
+	left: 31px;
+	position: absolute;
+	top: 347px;
+	width: 343px;
+}
+
+.index .michael-li {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 700;
+	left: 0;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 7px;
+	width: 332px;
+}
+
+.index .span {
+	color: #000000;
+	font-family: "Gabarito", Helvetica;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: normal;
+}
+
+.index .frame-6 {
+	height: 48px;
+	left: 295px;
+	position: absolute;
+	top: 0;
+	width: 48px;
+}
+
+.index .logo-long-wrapper {
+	background-color: #f3fbef;
+	height: 67px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 393px;
+}
+
+.index .logo-long {
+	height: 38px;
+	left: 13px;
+	object-fit: cover;
+	position: absolute;
+	top: 14px;
+	width: 171px;
+}
+
+.index .overlap-6 {
+	background-color: #0f6e42;
+	height: 98px;
+	left: 1px;
+	position: absolute;
+	top: 754px;
+	width: 393px;
+}
+
+.index .frame-7 {
+	height: 58px;
+	left: 166px;
+	position: absolute;
+	top: 20px;
+	width: 58px;
+}
+
+.index .frame-8 {
+	height: 67px;
+	left: 300px;
+	position: absolute;
+	top: 15px;
+	width: 67px;
+}
+
+.index .frame-9 {
+	height: 67px;
+	left: 23px;
+	position: absolute;
+	top: 15px;
+	width: 67px;
 }
