@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const MainScreen = () => {
 	let currentPos = localStorage.getItem("currentPos"); //true if you are in a queue
-	let currentQueue = localStorage.getItem("currentQueue");
 
-	const [currentQueueName, setCurrentQueueName] = useState("NONE");
 	const user = JSON.parse(localStorage.getItem("currentUser"));
 
 	let navigate = useNavigate();
@@ -31,12 +29,19 @@ export const MainScreen = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<div className="absolute w-[183px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
-					Hi {user.name}!
-				</div>
+				{currentPos != -1 && (
+					<div className="absolute w-[183px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
+						Hi {user.name}!
+					</div>
+				)}
+				{currentPos == -1 && (
+					<div className="absolute w-[393px] top-[300px] left-0 [font-family:Gabarito] font-bold text-black text-[35px] text-center tracking-[0] leading-[normal]">
+						Hi {user.name}!
+					</div>
+				)}
 				{currentPos > 1 && (
 					<div>
-						<div className="absolute w-[293px] h-[98px] top-[200px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
+						<div className="absolute w-[293px] h-[98px] top-[250px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
 							<div className="absolute w-[293px] top-[-30px] left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 								Current Queues
 							</div>
@@ -51,7 +56,7 @@ export const MainScreen = () => {
 								You are currently in Queue.
 							</p>
 						</div>
-						<div className="absolute w-[293px] h-[200px] top-[300px] left-[50px]">
+						<div className="absolute w-[293px] h-[200px] top-[350px] left-[50px]">
 							<div className="absolute w-[293px] h-[200px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
 							<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-black text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 								{currentPos != -1 ? currentPos : "?"}
@@ -76,7 +81,7 @@ export const MainScreen = () => {
 				)}
 				{currentPos == 1 && (
 					<div>
-						<div className="absolute w-[293px] h-[98px] top-[200px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
+						<div className="absolute w-[293px] h-[98px] top-[250px] left-[50px] bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]">
 							<div className="absolute w-[293px] top-[-30px] left-0 [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 								Current Queues
 							</div>
@@ -91,7 +96,7 @@ export const MainScreen = () => {
 								You are currently in Queue.
 							</p>
 						</div>
-						<div className="absolute w-[293px] h-[200px] top-[300px] left-[50px]">
+						<div className="absolute w-[293px] h-[200px] top-[350px] left-[50px]">
 							<div className="absolute w-[293px] h-[200px] top-[28px] left-0 bg-[#f3fbef] rounded-[14px] border-2 border-solid border-[#0f6e42]" />
 							<div className="absolute w-[109px] top-[20px] left-[92px] [font-family:Gabarito] font-bold text-[#0f6e42] text-[128px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 								1

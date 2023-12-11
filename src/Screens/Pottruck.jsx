@@ -146,7 +146,7 @@ const Pottruck = () => {
 					</p>
 				</div>
 
-				<div className="absolute w-[311px] top-[435px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
+				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Select a Court
 				</div>
 				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">

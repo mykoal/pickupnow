@@ -18,7 +18,9 @@ const PlayScreen = () => {
 	const [isFocused, setIsFocused] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedSport, setSelectedSport] = useState("");
-	const [sortedCourts, setSortedCourts] = useState(courts);
+	const [sortedCourts, setSortedCourts] = useState(
+		courts.sort((a, b) => a.distance - b.distance)
+	);
 
 	const Court = ({ name, sport, distance }) => (
 		<div
