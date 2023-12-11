@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
 export const Palestra = () => {
+	const savedCourts = JSON.parse(localStorage.getItem("saved_Courts"));
+
+	const [saved, setSaved] = useState(savedCourts.palestra);
+
+	const save_button = () => {
+		if (!saved) {
+			savedCourts.palestra = true;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+			setSaved(true);
+		} else {
+			savedCourts.palestra = false;
+			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
+			setSaved(false);
+		}
+		window.location.reload(false);
+	};
+
 	let navigate = useNavigate();
 
 	const navigateToPlay = () => {
@@ -11,11 +28,10 @@ export const Palestra = () => {
 	const navigateToCourtA = () => {
 		navigate("/palestra_A"); // '/potruck' is the path to your new screen
 	};
-	const currentQueue = localStorage.getItem('currentQueue')
+	const currentQueue = localStorage.getItem("currentQueue");
 
 	//FUTURE WORK
 	//make the leave current queue to view a button that updates position to be -1, removes person from their respective current queue and lets a person click the button again to view this queue
-
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
@@ -23,6 +39,23 @@ export const Palestra = () => {
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 					Palestra
 				</div>
+				{!saved && (
+					<img
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[150px]"
+						alt="Bookmark empty"
+						onClick={save_button}
+						src="https://c.animaapp.com/cpXmVuHv/img/bookmark-empty@2x.png"
+					/>
+				)}
+
+				{saved && (
+					<img
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[150px]"
+						alt="Bookmark filled"
+						onClick={save_button}
+						src="https://c.animaapp.com/cpXmVuHv/img/vector.svg"
+					/>
+				)}
 				<div
 					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
 					onClick={navigateToPlay}></div>
@@ -78,6 +111,10 @@ export const Palestra = () => {
 					<div className="top-[155px] absolute w-[32px] h-[40px] left-[152px] [font-family:Gabarito] font-bold font-bold text-black text-[20px] text-center tracking-[0] leading-[normal]">
 						4.5
 					</div>
+					<p className="absolute w-[370px] h-[23px] top-[195px] left-[-5px] [font-family:Gabarito] font-normal text-[#0000004a] text-[15px] text-center tracking-[0] leading-[normal]">
+						Based on your previous or other users' reviews. You can
+						review this complex every time you finish a game here.
+					</p>
 				</div>
 
 				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
@@ -85,20 +122,19 @@ export const Palestra = () => {
 				</div>
 				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
 					{/* if in another queue, cant view other queue */}
-					{(currentQueue != 'NONE' && currentQueue != 'palestraA') ? 
+					{currentQueue != "NONE" && currentQueue != "palestraA" ? (
+						<div className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
+							Leave Current Queue to View
+						</div>
+					) : (
 						<div
-						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
-						Leave Current Queue to View
-					</div>: 
-					<div
-					className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
-					onClick={navigateToCourtA}>
-					Court B
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+							onClick={navigateToCourtA}>
+							Court B
+						</div>
+					)}
 				</div>
-					}
-					
-				</div>
-							<NavbarPlay></NavbarPlay>
+				<NavbarPlay></NavbarPlay>
 			</div>
 		</div>
 	);
