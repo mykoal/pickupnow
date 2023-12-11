@@ -67,7 +67,7 @@ const FinishScreen = () => {
 	};
 
 	const navigateToHome = () => {
-		navigate("/");
+		navigate("/home");
 	};
 
 	return (

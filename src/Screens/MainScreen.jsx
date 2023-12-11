@@ -7,17 +7,13 @@ export const MainScreen = () => {
 	let currentQueue = localStorage.getItem("currentQueue");
 
 	const [currentQueueName, setCurrentQueueName] = useState("NONE");
+	const user = JSON.parse(localStorage.getItem("currentUser"));
 
 	let navigate = useNavigate();
 	const navigateToPlay = () => {
 		navigate("/play"); // '/play' is the path to your new screen
 	};
-	const navigateToHome = () => {
-		navigate("/"); // '/' is the path to home
-	};
-	const navigateToSettings = () => {
-		navigate("/settings"); // '/settings' is the path to your settings screen
-	};
+
 	const navigateToQueue = () => {
 		if (localStorage.getItem("currentQueue") == "markwoodA") {
 			navigate("/markwood_A");
@@ -36,7 +32,7 @@ export const MainScreen = () => {
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				<div className="absolute w-[183px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
-					Hi Michael!
+					Hi {user.name}!
 				</div>
 				{currentPos > 1 && (
 					<div>

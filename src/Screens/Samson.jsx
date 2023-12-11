@@ -30,16 +30,14 @@ export const Samson = () => {
 	const navigateToCourtA = () => {
 		navigate("/samson_A"); // '/potruck' is the path to your new screen
 	};
-	
 
-	const currentQueue = localStorage.getItem('currentQueue')
-
+	const currentQueue = localStorage.getItem("currentQueue");
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white w-[394px] h-[852px] relative">
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
-				Samson Court
+					Samson Court
 				</div>
 				{!saved && (
 					<img
@@ -149,20 +147,19 @@ export const Samson = () => {
 				</div>
 
 				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
-					{(currentQueue != 'NONE' && currentQueue != 'samsonA') ? 
+					{currentQueue != "NONE" && currentQueue != "samsonA" ? (
+						<div className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
+							Leave Current Queue to View
+						</div>
+					) : (
 						<div
-						className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
-						Leave Current Queue to View
-					</div>: 
-						<div
-							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:'Gabarito-Regular',Helvetica] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
 							onClick={navigateToCourtA}>
 							Court A
-					</div>
-					}
+						</div>
+					)}
 				</div>
 
-				
 				<NavbarPlay></NavbarPlay>
 			</div>
 		</div>

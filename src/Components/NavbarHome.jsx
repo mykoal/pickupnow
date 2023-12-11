@@ -7,7 +7,7 @@ export const NavbarHome = () => {
 		navigate("/play"); // '/play' is the path to your new screen
 	};
 	const navigateToHome = () => {
-		navigate("/"); // '/' is the path to home
+		navigate("/home"); // '/' is the path to home
 	};
 	const navigateToSettings = () => {
 		navigate("/settings"); // '/' is the path to home
