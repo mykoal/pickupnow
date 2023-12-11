@@ -116,7 +116,7 @@ const PlayScreen = () => {
 						onBlur={() => {
 							setTimeout(() => setIsFocused(false), 200);
 						}}
-						className="w-[200px] h-[55px] ml-[15px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
+						className="placeholder:text-[#0000004a] [font-family:Gabarito] hover:bg-[#cfe5c7] w-[200px] h-[55px] ml-[15px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
 					/>
 
 					{isFocused && searchQuery && (

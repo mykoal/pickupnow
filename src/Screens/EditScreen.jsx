@@ -3,6 +3,8 @@ import { NavbarSettings } from "../Components/NavbarSettings";
 import { useNavigate } from "react-router-dom";
 
 const EditScreen = () => {
+	const [name, setName] = useState("");
+
 	const [age, setAge] = useState("");
 	const [languages, setLanguages] = useState([]);
 	const [location, setLocation] = useState("");
@@ -12,7 +14,7 @@ const EditScreen = () => {
 	const user = JSON.parse(localStorage.getItem("currentUser"));
 
 	const SkillButtons = () => (
-		<div className="flex flex row">
+		<div className="flex flex-row mb-[14px]">
 			<button
 				className={`${
 					skillLevel === "Level1"
@@ -54,6 +56,9 @@ const EditScreen = () => {
 			</button>
 		</div>
 	);
+	const handleNameChange = (event) => {
+		setName(event.target.value);
+	};
 
 	const handleAgeChange = (event) => {
 		setAge(event.target.value);
@@ -92,11 +97,24 @@ const EditScreen = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		user.age = age;
-		user.language = JSON.stringify(languages);
-		user.sport = JSON.stringify(sports);
-		user.level = skillLevel;
-		user.location = location;
+		if (name != "") {
+			user.name = name;
+		}
+		if (age != "") {
+			user.age = age;
+		}
+		if (languages.length > 0) {
+			user.language = JSON.stringify(languages);
+		}
+		if (sports.length > 0) {
+			user.sport = JSON.stringify(sports);
+		}
+		if (skillLevel != "") {
+			user.level = skillLevel;
+		}
+		if (location != "") {
+			user.location = location;
+		}
 		localStorage.setItem("currentUser", JSON.stringify(user));
 		navigate("/settings");
 	};
@@ -109,7 +127,13 @@ const EditScreen = () => {
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
-				<NavbarSettings></NavbarSettings>
+				<div className="absolute w-[393px] h-[67px] top-0 left-0 bg-[#f3fbef]">
+					<img
+						className="absolute w-[171px] h-[38px] top-[14px] left-[13px] object-cover"
+						alt="Logo long"
+						src="https://c.animaapp.com/Yiudwmn6/img/logo-long-1@2x.png"
+					/>
+				</div>
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 					Update Profile
 				</div>
@@ -118,19 +142,33 @@ const EditScreen = () => {
 					onClick={navigateToSettings}></div>
 				<form
 					onSubmit={handleSubmit}
-					className="absolute top-[168px] left-[28px] font-[Gabarito] text-[20px]">
+					className="absolute top-[150px] left-[28px] font-[Gabarito] text-[20px]">
+					<label htmlFor="name">
+						<b>Name:</b>
+					</label>
+					<br />
+					<input
+						placeholder="Input your name!"
+						type="text"
+						id="name"
+						name="name"
+						value={name}
+						onChange={handleNameChange}
+						maxLength="25"
+						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+					/>
+					<br />
 					<label htmlFor="age">
 						<b>Age:</b>
 					</label>
 					<br />
 					<select
-						required
 						selected
 						id="age"
 						name="age"
 						value={age}
 						onChange={handleAgeChange}
-						className="w-[354px] h-[50px] px-[8px] bg-[#F2FBEF] rounded-[15px] invalid:text-[#0000004a] text-[#0f6e42] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] ">
+						className="w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px] invalid:text-[#0000004a] text-[#0f6e42] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] ">
 						<option value="">Please choose an age range</option>
 						<option value="18+">18+</option>
 						<option value="25+">25+</option>
@@ -139,13 +177,12 @@ const EditScreen = () => {
 						<option value="55+">55+</option>
 					</select>
 					<br />
-					<br />
 					<label htmlFor="languages">
 						<b>Preferred Languages:</b>
 					</label>
 					<br />
 
-					<div className="flex flex-row w-[360px]">
+					<div className="flex flex-row w-[340px] mb-[14px]">
 						<div
 							className={`${
 								languages.includes("English")
@@ -163,7 +200,7 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="English"
-								className="pl-[25px] pr-[15px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								English
 							</label>
 						</div>
@@ -185,7 +222,7 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="Spanish"
-								className="pl-[25px] pr-[15px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								Spanish
 							</label>
 						</div>
@@ -207,13 +244,11 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="Mandarin"
-								className="pl-[25px] pr-[15px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								Mandarin
 							</label>
 						</div>
 					</div>
-
-					<br />
 
 					<label htmlFor="location">
 						<b>Location:</b>
@@ -226,15 +261,15 @@ const EditScreen = () => {
 						name="location"
 						value={location}
 						onChange={handleLocationChange}
-						className="placeholder:text-[#0000004a] w-[354px] h-[50px] px-[8px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+						maxLength="30"
+						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
 					/>
-					<br />
 					<br />
 
 					<label htmlFor="sports">
 						<b>Sports:</b>
 					</label>
-					<div className="flex flex-row w-[360px]">
+					<div className="flex flex-row w-[340px] mb-[14px]">
 						<div
 							className={`${
 								sports.includes("Basketball")
@@ -252,7 +287,7 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="Basketball"
-								className="pl-[25px] pr-[10px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								Basketball
 							</label>
 						</div>
@@ -274,7 +309,7 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="Tennis"
-								className="pl-[25px] pr-[15px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								Tennis
 							</label>
 						</div>
@@ -296,12 +331,11 @@ const EditScreen = () => {
 							/>
 							<label
 								htmlFor="Pickleball"
-								className="pl-[25px] pr-[10px] py-[15px] text-center ">
+								className="pl-[25px] pr-[5px] py-[15px] text-center ">
 								Pickleball
 							</label>
 						</div>
 					</div>
-					<br />
 
 					<label htmlFor="skillLevel">
 						<b>Skill Level:</b>

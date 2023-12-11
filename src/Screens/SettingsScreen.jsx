@@ -16,6 +16,10 @@ const SettingsScreen = () => {
 	// const [skillLevel, setSkillLevel] = useState(storedUserData.level || "");
 
 	const userData = JSON.parse(localStorage.getItem("currentUser"));
+	var sportsParsed = userData.sport.replace(/[^\w\s\'\, ]/g, "");
+	var sports = sportsParsed.replace(/[, ]/g, ", ");
+	var langParsed = userData.language.replace(/[^\w\s\'\, ]/g, "");
+	var languages = langParsed.replace(/[, ]/g, ", ");
 
 	// const handleDistanceChange = (e) => {
 	// 	const newDistance = e.target.value;
@@ -53,13 +57,13 @@ const SettingsScreen = () => {
 					</div>
 					{/* <div className="absolute w-[38px] h-[38px] top-[2px] left-[262px] bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] hover:bg-[#2e9b68]" /> */}
 					<img
-						className="absolute p-[6px] w-[45px] h-[45px] top-0 left-[265px]  bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] hover:bg-[#0f6e42]"
+						className="absolute w-[38px] h-[38px] top-0 left-[265px]  bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] hover:brightness-75"
 						alt="Edit"
 						src="https://c.animaapp.com/VbJ8MAbM/img/frame-2.svg"
 						onClick={navigateToEdit}
 					/>
 				</div>
-				<div className="absolute w-[90px] h-[70px] top-[473px] left-[20px] bg-[#f3fbef] rounded-[15px_0px_0px_0px] border-2 border-solid border-[#0f6e42]">
+				<div className="absolute w-[90px] h-[50px] top-[473px] left-[23px] bg-[#f3fbef] rounded-[15px_0px_0px_0px] border-2 border-solid border-[#0f6e42]">
 					<div className="absolute w-[37px] h-[40px] top-[10px] left-[41px] [font-family:Gabarito] font-normal text-black text-[20px] text-center tracking-[0] leading-[normal]">
 						{userData.age}
 					</div>
@@ -69,17 +73,19 @@ const SettingsScreen = () => {
 						src="https://c.animaapp.com/VbJ8MAbM/img/vector-3.svg"
 					/>
 				</div>
-				<div className="absolute w-[264px] h-[70px] top-[473px] left-[110px] bg-[#f3fbef] rounded-[0px_15px_0px_0px] border-t-2 [border-top-style:solid] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-[#0f6e42]">
+				<div className="absolute w-[255px] h-[50px] top-[473px] left-[113px] bg-[#f3fbef] rounded-[0px_15px_0px_0px] border-t-2 [border-top-style:solid] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-[#0f6e42]">
 					<img
 						className="absolute w-[26px] h-[25px] top-[11px] left-[12px]"
-						alt="Language"
-						src="https://c.animaapp.com/VbJ8MAbM/img/frame-1.svg"
+						alt="Skill"
+						src="https://c.animaapp.com/HQ5f18LY/img/frame-1.svg"
 					/>
 					<div className="absolute w-[210px] h-[40px] top-[10px] left-[47px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
-						{userData.language.replace(/[^\w\s\'\, ]/g, " ")}
+						{userData.level == "Level1" && "Novice"}
+						{userData.level == "Level2" && "Intermediate"}
+						{userData.level == "Level3" && "Advance"}
 					</div>
 				</div>
-				<div className="absolute w-[354px] h-[50px] top-[543px] left-[20px] bg-[#f3fbef] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
+				<div className="absolute w-[345px] h-[50px] top-[523px] left-[23px] bg-[#f3fbef] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
 					<img
 						className="absolute w-[16px] h-[23px] top-[11px] left-[18px]"
 						alt="Location"
@@ -89,9 +95,9 @@ const SettingsScreen = () => {
 						{userData.location}
 					</div>
 				</div>
-				<div className="absolute w-[354px] h-[50px] top-[593px] left-[20px] bg-[#f3fbef] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
+				<div className="absolute w-[345px] h-[50px] top-[573px] left-[23px] bg-[#f3fbef] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
 					<div className="absolute w-[299px] h-[42px] top-[10px] left-[47px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
-						{userData.sport.replace(/[^\w\s\'\, ]/g, " ")}
+						{sports}
 					</div>
 					<img
 						className="absolute w-[23px] h-[23px] top-[11px] left-[15px]"
@@ -99,16 +105,14 @@ const SettingsScreen = () => {
 						src="https://c.animaapp.com/VbJ8MAbM/img/vector-1.svg"
 					/>
 				</div>
-				<div className="absolute w-[354px] h-[50px] top-[643px] left-[20px] bg-[#f3fbef] rounded-[0px_0px_15px_15px] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
+				<div className="absolute w-[345px] h-[50px] top-[623px] left-[23px] bg-[#f3fbef] rounded-[0px_0px_15px_15px] border-r-2 [border-right-style:solid] border-b-2 [border-bottom-style:solid] border-l-2 [border-left-style:solid] border-[#0f6e42]">
 					<div className="absolute w-[299px] h-[42px] top-[10px] left-[47px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal]">
-						{userData.level == "Level1" && "Novice"}
-						{userData.level == "Level2" && "Intermediate"}
-						{userData.level == "Level3" && "Advance"}
+						{languages}
 					</div>
 					<img
 						className="absolute w-[22px] h-[22px] top-[11px] left-[15px]"
-						alt="Skill"
-						src="https://c.animaapp.com/VbJ8MAbM/img/vector.svg"
+						alt="Language"
+						src="https://c.animaapp.com/VbJ8MAbM/img/frame-1.svg"
 					/>
 				</div>
 			</div>

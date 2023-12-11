@@ -136,7 +136,8 @@ const SigninScreen = () => {
 						name="name"
 						value={name}
 						onChange={handleNameChange}
-						className="placeholder:text-[#0000004a] w-[354px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+						maxLength="25"
+						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[354px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
 					/>
 					<br />
 
@@ -245,7 +246,8 @@ const SigninScreen = () => {
 						name="location"
 						value={location}
 						onChange={handleLocationChange}
-						className="placeholder:text-[#0000004a] w-[354px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+						maxLength="25"
+						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[354px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
 					/>
 					<br />
 
