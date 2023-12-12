@@ -40,25 +40,6 @@ function App() {
 		distance: 1,
 	};
 
-	//Markwood
-	const markwoodQueue = {
-		pos1: "[OPEN]",
-		pos2: "[OPEN]",
-		pos3: "[OPEN]",
-		pos4: "[OPEN]",
-		pos5: "[OPEN]",
-		
-	};
-	const markwoodCondition = {
-		night_lighting: 4,
-		court_lines: 4.2,
-		court_surface: 3.5,
-		court_net: 4.5,
-	};
-
-	useEffect(() => {
-		// Check if user data is already in local storage
-		const storedUserData = localStorage.getItem("userData");
 	const user1 = {
 		name: "Aria Eghbali",
 		age: 21,
