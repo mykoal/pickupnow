@@ -147,27 +147,31 @@ const PlayScreen = () => {
 				{!isFocused && (
 					<div className="absolute w-[329px] h-[247px] top-[233px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
 						<div
-							className="!absolute !left-[229px] !top-[193px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
+							className="!absolute !left-[229px] !top-[193px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
 							onClick={navigateToMarkwood}
 							title="Markwood Courts">
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">Markwood Courts</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[301px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
+							className="!absolute !left-[301px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
 							onClick={navigateToSamson}
 							title="Samson Courts">
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 -left-full">Samson Courts</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[153px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
+							className="!absolute !left-[153px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
 							onClick={navigateToPalestra}
 							title="The Palestra">
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">The Palestra</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[23px] !top-[64px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
+							className="!absolute !left-[23px] !top-[64px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
 							onClick={navigateToPottruck}
 							title="Potruck Gymnasium">
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center">Potruck Gymnasium</span>
 							<Pin />
 						</div>
 					</div>
