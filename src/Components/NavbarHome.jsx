@@ -7,14 +7,14 @@ export const NavbarHome = () => {
 		navigate("/play"); // '/play' is the path to your new screen
 	};
 	const navigateToHome = () => {
-		navigate("/"); // '/' is the path to home
+		navigate("/home"); // '/' is the path to home
 	};
 	const navigateToSettings = () => {
 		navigate("/settings"); // '/' is the path to home
 	};
 
 	return (
-		<div class="Navbar">
+		<div className="Navbar">
 			<div className="absolute w-[393px] h-[67px] top-0 left-0 bg-[#f3fbef]">
 				<img
 					className="absolute w-[171px] h-[38px] top-[14px] left-[13px] object-cover"
@@ -24,18 +24,18 @@ export const NavbarHome = () => {
 			</div>
 			<div className="absolute w-[393px] h-[98px] top-[754px] left-px bg-[#0f6e42]">
 				<img
-					className="absolute w-[58px] h-[58px] top-[20px] left-[166px]"
+					className="absolute w-[58px] h-[58px] top-[20px] left-[166px] hover:brightness-75"
 					alt="Play-Icon"
 					src="https://c.animaapp.com/Yiudwmn6/img/frame.svg"
 					onClick={navigateToPlay}
 				/>
 				<img
-					className="absolute w-[67px] h-[67px] top-[15px] left-[300px]"
+					className="absolute w-[67px] h-[67px] top-[15px] left-[300px] hover:brightness-75"
 					alt="Settings-Icon"
 					src="https://c.animaapp.com/Yiudwmn6/img/frame-4.svg"
 					onClick={navigateToSettings}
 				/>
-				<div className="absolute w-[67px] h-[67px] top-[15px] left-[23px] bg-[url(https://c.animaapp.com/Yiudwmn6/img/frame-3.svg)] bg-[100%_100%]">
+				<div className="absolute w-[67px] h-[67px] top-[15px] left-[23px] bg-[url(https://c.animaapp.com/Yiudwmn6/img/frame-3.svg)] bg-[100%_100%] hover:brightness-75">
 					<img
 						className="absolute w-[67px] h-[67px] top-0 left-0"
 						alt="Home-Icon-2"

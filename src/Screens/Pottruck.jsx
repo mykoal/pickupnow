@@ -1,50 +1,50 @@
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
-
 import { NavbarPlay } from "../Components/NavbarPlay";
 import { useNavigate } from "react-router-dom";
 
-export const Markwood = () => {
-	const courtRatings = JSON.parse(localStorage.getItem("markwood_Condition"));
+const Pottruck = () => {
+	const courtRatings = JSON.parse(localStorage.getItem("pottruck_Condition"));
 	const savedCourts = JSON.parse(localStorage.getItem("saved_Courts"));
 
-	const [saved, setSaved] = useState(savedCourts.markwood);
+	const [saved, setSaved] = useState(savedCourts.pottruck);
+
+	const currentQueue = localStorage.getItem("currentQueue");
 
 	const save_button = () => {
 		if (!saved) {
-			savedCourts.markwood = true;
+			savedCourts.pottruck = true;
 			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
 			setSaved(true);
 		} else {
-			savedCourts.markwood = false;
+			savedCourts.pottruck = false;
 			localStorage.setItem("saved_Courts", JSON.stringify(savedCourts));
 			setSaved(false);
 		}
 		window.location.reload(false);
 	};
+
 	let navigate = useNavigate();
 
 	const navigateToPlay = () => {
-		navigate("/play"); // '/potruck' is the path to your new screen
-	};
-	const navigateToCourtA = () => {
-		navigate("/markwood_A"); // '/potruck' is the path to your new screen
-	};
-	const navigateToCourtB = () => {
-		navigate("/markwood_B"); // '/potruck' is the path to your new screen
+		console.log(courtRatings["court_net"]);
+		navigate("/play");
 	};
 
-	const currentQueue = localStorage.getItem("currentQueue");
+	const navigateToCourtA = () => {
+		navigate("/pottruck_queue");
+	};
 
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white w-[394px] h-[852px] relative">
 				<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
-					Markwood
+					Pottruck
 				</div>
+
 				{!saved && (
 					<img
-						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[190px]"
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
 						alt="Bookmark empty"
 						onClick={save_button}
 						src="https://c.animaapp.com/cpXmVuHv/img/bookmark-empty@2x.png"
@@ -53,7 +53,7 @@ export const Markwood = () => {
 
 				{saved && (
 					<img
-						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[190px]"
+						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
 						alt="Bookmark filled"
 						onClick={save_button}
 						src="https://c.animaapp.com/cpXmVuHv/img/vector.svg"
@@ -70,6 +70,7 @@ export const Markwood = () => {
 					<div className="absolute w-[332px] h-[40px] top-[12px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Night Lighting:
 					</div>
+
 					<div className="top-[141px] rounded-[0px_0px_15px_15px] absolute w-[354px] h-[49px] left-0 bg-[#f3fbef] border-2 border-solid border-[#0F6E42]" />
 					<div className="top-[155px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Court Net:
@@ -82,7 +83,7 @@ export const Markwood = () => {
 					<div className="top-[58px] absolute w-[332px] h-[40px] left-[11px] [font-family:Gabarito] font-normal font-normal text-black text-[20px] tracking-[0] leading-[normal]">
 						Court Lines:
 					</div>
-					<div className="top-[5px] absolute w-[140px] h-[23px] left-[195px]">
+					<div className="w-[140px] h-[23px] top-[5px] absolute left-[195px]">
 						<ReactStars
 							count={5}
 							size={26}
@@ -93,7 +94,7 @@ export const Markwood = () => {
 							value={courtRatings.night_lighting}
 						/>
 					</div>
-					<div className="top-[51px] absolute w-[140px] h-[23px] left-[195px]">
+					<div className="w-[140px] h-[23px] top-[51px] absolute left-[195px]">
 						<ReactStars
 							count={5}
 							size={26}
@@ -104,7 +105,7 @@ export const Markwood = () => {
 							value={courtRatings.court_lines}
 						/>
 					</div>
-					<div className="top-[99px] absolute w-[140px] h-[23px] left-[195px]">
+					<div className="w-[140px] h-[23px] top-[99px] absolute left-[195px]">
 						<ReactStars
 							count={5}
 							size={26}
@@ -115,7 +116,7 @@ export const Markwood = () => {
 							value={courtRatings.court_surface}
 						/>
 					</div>
-					<div className="top-[149px] absolute w-[140px] h-[23px] left-[195px]">
+					<div className="w-[140px] h-[23px] top-[149px] absolute left-[195px]">
 						<ReactStars
 							count={5}
 							size={26}
@@ -148,9 +149,8 @@ export const Markwood = () => {
 				<div className="absolute w-[311px] top-[425px] left-[40px] [font-family:Gabarito] font-bold text-black text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
 					Select a Court
 				</div>
-
 				<div className="absolute w-[295px] h-[39px] top-[439px] left-[48px] rounded-[20px]">
-					{currentQueue != "NONE" && currentQueue != "markwoodA" ? (
+					{currentQueue != "NONE" && currentQueue != "pottruckA" ? (
 						<div className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
 							Leave Current Queue to View
 						</div>
@@ -163,21 +163,10 @@ export const Markwood = () => {
 					)}
 				</div>
 
-				<div className="absolute w-[295px] h-[39px] top-[500px] left-[49px] rounded-[20px]">
-					{currentQueue != "NONE" && currentQueue != "markwoodB" ? (
-						<div className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#a6a6a6] border-2 border-solid border-[#f3fbef] rounded-[20px] ">
-							Leave Current Queue to View
-						</div>
-					) : (
-						<div
-							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
-							onClick={navigateToCourtB}>
-							Court B
-						</div>
-					)}
-				</div>
 				<NavbarPlay></NavbarPlay>
 			</div>
 		</div>
 	);
 };
+
+export default Pottruck;
