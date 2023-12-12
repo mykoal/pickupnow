@@ -147,25 +147,25 @@ const PlayScreen = () => {
 				{!isFocused && (
 					<div className="absolute w-[329px] h-[247px] top-[233px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
 						<div
-							className="!absolute !left-[229px] !top-[193px]"
+							className="!absolute !left-[229px] !top-[193px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
 							onClick={navigateToMarkwood}
 							title="Markwood Courts">
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[301px] !top-[124px]"
+							className="!absolute !left-[301px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
 							onClick={navigateToSamson}
 							title="Samson Courts">
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[153px] !top-[124px]"
+							className="!absolute !left-[153px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
 							onClick={navigateToPalestra}
 							title="The Palestra">
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[23px] !top-[64px]"
+							className="!absolute !left-[23px] !top-[64px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300"
 							onClick={navigateToPottruck}
 							title="Potruck Gymnasium">
 							<Pin />
