@@ -30,7 +30,7 @@ export const MainScreen = () => {
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
 				{currentPos != -1 && (
-					<div className="absolute w-[183px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
+					<div className="absolute w-[300px] top-[94px] left-[13px] [font-family:Gabarito] font-bold text-black text-[35px] tracking-[0] leading-[normal]">
 						Hi {user.name}!
 					</div>
 				)}
