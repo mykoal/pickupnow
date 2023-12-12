@@ -18,8 +18,8 @@ const EditScreen = () => {
 			<button
 				className={`${
 					skillLevel === "Level1"
-						? "basis-1/3 h-[49px]  mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
-						: "basis-1/3 h-[49px] mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
+						? "basis-1/3 h-[49px]  mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
+						: "basis-1/3 h-[49px] mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
 				}`}
 				onClick={(event) => handleSkillLevelChange(event, "Level1")}>
 				<img
@@ -31,8 +31,8 @@ const EditScreen = () => {
 			<button
 				className={`${
 					skillLevel === "Level2"
-						? "basis-1/3 h-[49px]  mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
-						: "basis-1/3 h-[49px]  mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
+						? "basis-1/3 h-[49px]  mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
+						: "basis-1/3 h-[49px]  mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
 				}`}
 				onClick={(event) => handleSkillLevelChange(event, "Level2")}>
 				<img
@@ -44,8 +44,8 @@ const EditScreen = () => {
 			<button
 				className={`${
 					skillLevel === "Level3"
-						? "basis-1/3 h-[49px] mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
-						: "basis-1/3 h-[49px] mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
+						? "basis-1/3 h-[49px] mr-[5px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f] active:bg-[#78af5f] focus:bg-[#78af5f]"
+						: "basis-1/3 h-[49px] mr-[5px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7] active:bg-[#cfe5c7] focus:bg-[#cfe5c7]"
 				}`}
 				onClick={(event) => handleSkillLevelChange(event, "Level3")}>
 				<img
@@ -138,7 +138,7 @@ const EditScreen = () => {
 					Update Profile
 				</div>
 				<div
-					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] transition-all duration-300 hover:brightness-75"
 					onClick={navigateToSettings}></div>
 				<form
 					onSubmit={handleSubmit}
@@ -155,7 +155,7 @@ const EditScreen = () => {
 						value={name}
 						onChange={handleNameChange}
 						maxLength="25"
-						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+						className="placeholder:text-[#0000004a] transition-all duration-300 hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
 					/>
 					<br />
 					<label htmlFor="age">
@@ -168,7 +168,7 @@ const EditScreen = () => {
 						name="age"
 						value={age}
 						onChange={handleAgeChange}
-						className="w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px] invalid:text-[#0000004a] text-[#0f6e42] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7] ">
+						className="w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px] invalid:text-[#0000004a] text-[#0f6e42] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7] ">
 						<option value="">Please choose an age range</option>
 						<option value="18+">18+</option>
 						<option value="25+">25+</option>
@@ -186,8 +186,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								languages.includes("English")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -208,8 +208,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								languages.includes("Spanish")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -230,8 +230,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								languages.includes("Mandarin")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -262,7 +262,7 @@ const EditScreen = () => {
 						value={location}
 						onChange={handleLocationChange}
 						maxLength="30"
-						className="placeholder:text-[#0000004a] hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
+						className="placeholder:text-[#0000004a] transition-all duration-300 hover:bg-[#cfe5c7] w-[340px] h-[50px] px-[8px] mb-[14px] bg-[#F2FBEF] rounded-[15px]  text-[#0f6e42] border-2 border-solid border-[#0f6e42] "
 					/>
 					<br />
 
@@ -273,8 +273,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								sports.includes("Basketball")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -295,8 +295,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								sports.includes("Tennis")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -317,8 +317,8 @@ const EditScreen = () => {
 						<div
 							className={`${
 								sports.includes("Pickleball")
-									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#78af5f]"
-									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] hover:bg-[#cfe5c7]"
+									? "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#aad396] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#78af5f]"
+									: "basis-1/3 mr-[5px] pt-[5px] h-[50px] bg-[#F2FBEF] rounded-[20px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#cfe5c7]"
 							}`}>
 							<input
 								type="checkbox"
@@ -344,7 +344,7 @@ const EditScreen = () => {
 
 					<button
 						type="submit"
-						className="w-[280px] h-[39px] mt-[20px] ml-[30px] text-white text-center [font-Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]">
+						className="w-[280px] h-[39px] mt-[20px] ml-[30px] text-white text-center [font-Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] transition-all duration-300 hover:bg-[#06492a]">
 						Submit
 					</button>
 				</form>

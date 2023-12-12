@@ -24,19 +24,19 @@ export const NavbarSettings = () => {
 			</div>
 			<div className="absolute w-[393px] h-[98px] top-[754px] left-px bg-[#0f6e42]">
 				<img
-					className="absolute w-[67px] h-[67px] top-[15px] left-[300px] hover:brightness-75"
+					className="absolute w-[67px] h-[67px] top-[15px] left-[300px] transition-all duration-300 hover:brightness-75"
 					alt="Settings-Icon"
 					src="https://c.animaapp.com/VbJ8MAbM/img/frame-5.svg"
 					onClick={navigateToSettings}
 				/>
 				<img
-					className="absolute w-[58px] h-[58px] top-[20px] left-[166px] hover:brightness-75"
+					className="absolute w-[58px] h-[58px] top-[20px] left-[166px] transition-all duration-300 hover:brightness-75"
 					alt="Frame"
 					src="https://c.animaapp.com/VbJ8MAbM/img/frame.svg"
 					onClick={navigateToPlay}
 				/>
 				<img
-					className="absolute w-[67px] h-[67px] top-[15px] left-[23px] hover:brightness-75"
+					className="absolute w-[67px] h-[67px] top-[15px] left-[23px] transition-all duration-300 hover:brightness-75"
 					alt="Home-Icon"
 					src="https://c.animaapp.com/q1G78Bfk/img/frame-2.svg"
 					onClick={navigateToHome}

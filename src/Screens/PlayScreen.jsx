@@ -24,7 +24,7 @@ const PlayScreen = () => {
 
 	const Court = ({ name, sport, distance }) => (
 		<div
-			className="hover:bg-[#cfe5c7] w-[200px] h-[55px] ml-[5px] mt-[5px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
+			className="transition-all duration-300 hover:bg-[#cfe5c7] w-[200px] h-[55px] ml-[5px] mt-[5px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
 			onClick={(e) => {
 				navigateToHandler(e, name);
 			}}>
@@ -147,31 +147,39 @@ const PlayScreen = () => {
 				{!isFocused && (
 					<div className="absolute w-[329px] h-[247px] top-[233px] left-[32px] bg-[url(./map.png)] bg-cover bg-[50%_50%]">
 						<div
-							className="!absolute !left-[229px] !top-[193px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
+							className="!absolute !left-[229px] !top-[193px] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
 							onClick={navigateToMarkwood}
 							title="Markwood Courts">
-							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">Markwood Courts</span>
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">
+								Markwood Courts
+							</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[301px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
+							className="!absolute !left-[301px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
 							onClick={navigateToSamson}
 							title="Samson Courts">
-							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 -left-full">Samson Courts</span>
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 -left-full">
+								Samson Courts
+							</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[153px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
+							className="!absolute !left-[153px] !top-[124px] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
 							onClick={navigateToPalestra}
 							title="The Palestra">
-							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">The Palestra</span>
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center -translate-x-1/2 left-1/2">
+								The Palestra
+							</span>
 							<Pin />
 						</div>
 						<div
-							className="!absolute !left-[23px] !top-[64px] hover:scale-110 hover:-translate-y-1 transition-transform duration-300 group"
+							className="!absolute !left-[23px] !top-[64px] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
 							onClick={navigateToPottruck}
 							title="Potruck Gymnasium">
-							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center">Potruck Gymnasium</span>
+							<span className="hidden group-hover:block absolute -translate-y-10 text-xs bg-white px-2 py-1 rounded-md text-center">
+								Potruck Gymnasium
+							</span>
 							<Pin />
 						</div>
 					</div>
@@ -189,7 +197,7 @@ const PlayScreen = () => {
 						onBlur={() => {
 							setTimeout(() => setIsFocused(false), 200);
 						}}
-						className="placeholder:text-[#0000004a] [font-family:Gabarito] hover:bg-[#cfe5c7] w-[200px] h-[55px] ml-[15px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
+						className="placeholder:text-[#0000004a] transition-all duration-300 hover:bg-[#cfe5c7] [font-family:Gabarito] w-[200px] h-[55px] ml-[15px] bg-[#f3fbef] rounded-[15px] border-2 border-solid border-[#8db580] p-2"
 					/>
 
 					{isFocused && searchQuery && (
@@ -212,7 +220,7 @@ const PlayScreen = () => {
 					<div className="[font-family:Gabarito] font-regular text-black text-[15px] tracking-[0] leading-[normal] whitespace-nowrap">
 						<button
 							onClick={toggleModal}
-							className="absolute top-0 left-[230px] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[10px] hover:bg-[#06492a] text-white text-[18px] p-2 mt-[5px]">
+							className="absolute top-0 left-[230px] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[10px] transition-all duration-300 hover:bg-[#06492a] text-white text-[18px] p-2 mt-[5px]">
 							Sort & Filter
 						</button>
 						{isOpen && !isFocused && (
@@ -220,7 +228,7 @@ const PlayScreen = () => {
 								<select
 									value={selectedSport}
 									onChange={handleSportChange}
-									className="ml-[90px] mb-[7px]  mt-[2px] text-[15px]  text-center  bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[10px] hover:bg-[#06492a] text-white p-1">
+									className="ml-[90px] mb-[7px]  mt-[2px] text-[15px]  text-center  bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[10px] hover:bg-[#06492a] transition-all duration-300 text-white p-1">
 									<option value="">All Sports</option>
 									<option key="Basketball" value="Basketball">
 										Basketball
@@ -284,14 +292,14 @@ const PlayScreen = () => {
 									<li key={court}>
 										<div className="flex">
 											<p
-												className="w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] left-[32px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px]"
+												className="w-[329px] h-[40px] rounded-[15px] hover:bg-[#f4f4f4] transition-all duration-300 left-[32px] pt-[5px] pl-[7px] [font-family:Gabarito] font-normal text-black text-[20px]"
 												onClick={() =>
 													navigateToCourt(court)
 												}>
 												{courtName}
 											</p>
 											<img
-												className="hover:w-[23px] hover:h-[23px] w-[20px] h-[20px] left-[200px] mt-[8px] object-cover z-[999]"
+												className="hover:w-[23px] hover:h-[23px] transition-all duration-300 w-[20px] h-[20px] left-[200px] mt-[8px] object-cover z-[999]"
 												alt="save"
 												onClick={() =>
 													handleUnsave(court)
@@ -311,7 +319,7 @@ const PlayScreen = () => {
 					</ul>
 				)}
 				<div
-					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75 transition-all duration-300"
 					onClick={navigateToHome}></div>
 			</div>
 		</div>

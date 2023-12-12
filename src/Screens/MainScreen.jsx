@@ -48,7 +48,7 @@ export const MainScreen = () => {
 							<div
 								className="absolute w-[209px] h-[39px] top-[45px] left-[45px] rounded-[5px]"
 								onClick={navigateToQueue}>
-								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] transition-all duration-300 hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 									Go to Queue
 								</div>
 							</div>
@@ -88,7 +88,7 @@ export const MainScreen = () => {
 							<div
 								className="absolute w-[209px] h-[39px] top-[45px] left-[45px] rounded-[5px]"
 								onClick={navigateToQueue}>
-								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+								<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] transition-all duration-300 hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 									Go to Queue
 								</div>
 							</div>
@@ -126,7 +126,7 @@ export const MainScreen = () => {
 						<div
 							className="absolute w-[209px] h-[39px] top-[49px] left-[73px] rounded-[5px]"
 							onClick={navigateToPlay}>
-							<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
+							<div className="absolute pt-[7px] bg-[#0f6e42] rounded-[20px] transition-all duration-300 hover:bg-[#06492a] w-[206px] h-[39px] top-0 left-[2px] [font-family:Gabarito] font-regular text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]">
 								Find A Court
 							</div>
 						</div>

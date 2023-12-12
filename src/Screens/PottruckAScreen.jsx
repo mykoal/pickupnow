@@ -64,7 +64,6 @@ const PottruckQueue = () => {
 		navigate("/finish"); // the other button actions need to be added in (join a team, leave)console.log(rockwoodAQueue);
 	};
 
-
 	return (
 		<div className="bg-white flex flex-row justify-center w-full">
 			<div className="bg-white overflow-hidden w-[393px] h-[852px] relative">
@@ -72,7 +71,7 @@ const PottruckQueue = () => {
 					Join Queue
 				</div>
 				<div
-					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] transition-all duration-300 hover:brightness-75"
 					onClick={navigateToPottruck}></div>
 				<div className="absolute w-[255px] top-[383px] left-[29px] [font-family:Gabarito] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
 					Pottruck — Court A
@@ -81,14 +80,14 @@ const PottruckQueue = () => {
 				{/* code that will show when join end of queue is clicked */}
 				{!startedGame && isJoinButtonClicked && (
 					<div
-						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#0f6e42] hover:bg-[#06492a] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#0f6e42] transition-all duration-300 hover:bg-[#06492a] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
 						onClick={toggleStart}>
 						Start
 					</div>
 				)}
 				{startedGame && (
 					<div
-						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#ED7C7C] hover:bg-[#C84F4F] rounded-[20px] border-2 border-solid border-[#541010] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+						className="absolute w-[85px] h-[34px] top-[380px] left-[280px] pt-[2px] bg-[#ED7C7C] transition-all duration-300 hover:bg-[#C84F4F] rounded-[20px] border-2 border-solid border-[#541010] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
 						onClick={navigateToFinish}>
 						Finish
 					</div>
@@ -174,7 +173,7 @@ const PottruckQueue = () => {
 						</p>
 						<div className="absolute w-[210px] h-[30px] top-[707px] left-[92px] rounded-[20px]">
 							<div
-								className="absolute w-[210px] bg-[#0f6e42] hover:bg-[#06492a] border-2 border-solid border-[#053f24] absolute h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-white text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+								className="absolute w-[210px] bg-[#0f6e42] transition-all duration-300 hover:bg-[#06492a] border-2 border-solid border-[#053f24] absolute h-[30px] rounded-[20px] top-0 left-0 [font-family:Gabarito] font-normal text-white text-[20px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
 								onClick={join_button}>
 								Join End of Queue
 							</div>

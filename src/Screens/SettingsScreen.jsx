@@ -43,7 +43,7 @@ const SettingsScreen = () => {
 					Your Profile
 				</div>
 				<div
-					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] transition-all duration-300 hover:brightness-75"
 					onClick={navigateToHome}></div>
 				<div className="absolute w-[216px] h-[197px] top-[209px] left-[89px] bg-[#0f6e42] rounded-[30px]">
 					<ProfileIcon
@@ -55,9 +55,9 @@ const SettingsScreen = () => {
 					<div className="absolute w-[263px] h-[40px] top-0 left-0 [font-family:Gabarito] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal]">
 						{userData.name}
 					</div>
-					{/* <div className="absolute w-[38px] h-[38px] top-[2px] left-[262px] bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] hover:bg-[#2e9b68]" /> */}
+					{/* <div className="absolute w-[38px] h-[38px] top-[2px] left-[262px] bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:bg-[#2e9b68]" /> */}
 					<img
-						className="absolute w-[38px] h-[38px] top-0 left-[265px]  bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] hover:brightness-75"
+						className="absolute w-[38px] h-[38px] top-0 left-[265px]  bg-[#f3fbef] rounded-[10px] border-2 border-solid border-[#0f6e42] transition-all duration-300 hover:brightness-75"
 						alt="Edit"
 						src="https://c.animaapp.com/VbJ8MAbM/img/frame-2.svg"
 						onClick={navigateToEdit}

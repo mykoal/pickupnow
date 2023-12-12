@@ -85,7 +85,7 @@ const FinishScreen = () => {
 
 				<div className="absolute w-[267px] h-[39px] top-[643px] left-[70px] rounded-[20px]">
 					<div
-						className="absolute w-[255px] h-[40px] top-0 left-0 bg-[#0f6e42] hover:bg-[#06492a] px-[8px] py-[5px] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
+						className="absolute w-[255px] h-[40px] top-0 left-0 bg-[#0f6e42] transition-all duration-300 hover:bg-[#06492a] px-[8px] py-[5px] rounded-[20px] border-2 border-solid border-[#053f24] [font-family:Gabarito] font-normal text-[#f3fbef] text-[20px] text-center tracking-[0] leading-[normal]"
 						onClick={navigateToHome}>
 						Return to Home Screen
 					</div>

@@ -44,7 +44,7 @@ const Pottruck = () => {
 
 				{!saved && (
 					<img
-						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
+						className="absolute transition-all duration-300 hover:w-[25px] transition-all duration-300 hover:h-[31px] transition-all duration-300 hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
 						alt="Bookmark empty"
 						onClick={save_button}
 						src="https://c.animaapp.com/cpXmVuHv/img/bookmark-empty@2x.png"
@@ -53,14 +53,14 @@ const Pottruck = () => {
 
 				{saved && (
 					<img
-						className="absolute hover:w-[25px] hover:h-[31px] hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
+						className="absolute transition-all duration-300 hover:w-[25px] transition-all duration-300 hover:h-[31px] transition-all duration-300 hover:top-[101px] w-[23px] h-[29px] top-[102px] left-[160px]"
 						alt="Bookmark filled"
 						onClick={save_button}
 						src="https://c.animaapp.com/cpXmVuHv/img/vector.svg"
 					/>
 				)}
 				<div
-					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] hover:brightness-75"
+					className="absolute w-[38px] h-[38px] top-[94px] left-[327px] bg-[url(./backarrow.svg)] transition-all duration-300 hover:brightness-75"
 					onClick={navigateToPlay}></div>
 				<div className="w-[332px] top-[150px] left-[33px] text-center absolute [font-family:Gabarito] font-bold font-bold text-black text-[20px] tracking-[0] leading-[normal]">
 					Complex Conditions
@@ -156,7 +156,7 @@ const Pottruck = () => {
 						</div>
 					) : (
 						<div
-							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] hover:bg-[#06492a]"
+							className="absolute w-[295px] h-[39px] top-[20px] pt-[5px] text-white text-center absolute [font-family:Gabarito] font-normal text-[20px] tracking-[0] leading-[normal] bg-[#0f6e42] border-2 border-solid border-[#053f24] rounded-[20px] transition-all duration-300 hover:bg-[#06492a]"
 							onClick={navigateToCourtA}>
 							Court A
 						</div>
